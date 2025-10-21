@@ -1,0 +1,93 @@
+.home-page {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.home-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+.hero-section {
+  margin-bottom: 2rem;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 5rem;
+  }
+}
+
+.hero-underline {
+  height: 4px;
+  background-color: #dc2626;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.content-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .content-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.text-content {
+  margin-bottom: 1.5rem;
+}
+
+.tagline {
+  font-size: 1.125rem;
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 1.125rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  background-color: black;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+}
+
+.cta-button:hover {
+  background-color: #1f2937;
+}
+
+.arrow {
+  font-size: 1.25rem;
+}
+
+.image-placeholder {
+  background-color: #d1d5db;
+  height: 16rem;
+  border-radius: 0.25rem;
+}
