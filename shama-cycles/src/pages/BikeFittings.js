@@ -1,12 +1,12 @@
 import React from 'react';
 
-const ContactUs = () => {
+const BikeFittings = () => {
   return (
     <div>
       <div className="home-container">
         <div className="hero-section">
           <h1 className="hero-title">
-            CONTACT US
+            BIKE FITTINGS
           </h1>
           <div className="hero-underline"></div>
         </div>
@@ -17,4 +17,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default BikeFittings;

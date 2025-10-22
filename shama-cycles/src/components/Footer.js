@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footer-content">
           <div className="footer-logo-section">
             <img 
-              src="https://via.placeholder.com/60x60/e5e5e5/666?text=SHAMA" 
+              src="shama_logo.png" 
               alt="Shama Cycles Logo" 
               className="footer-logo"
             />

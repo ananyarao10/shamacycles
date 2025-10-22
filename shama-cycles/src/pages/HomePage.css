@@ -1,16 +1,11 @@
-.home-page {
-  min-height: 100vh;
-  background-color: #f9fafb;
-}
-
 .home-container {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 3rem 1rem;
+  padding: 1rem 1rem;
 }
 
 .hero-section {
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .hero-title {
@@ -21,7 +16,7 @@
 
 @media (min-width: 768px) {
   .hero-title {
-    font-size: 5rem;
+    font-size: 7rem;
   }
 }
 
@@ -48,10 +43,6 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-}
-
-.text-content {
-  margin-bottom: 1.5rem;
 }
 
 .tagline {
@@ -88,6 +79,24 @@
 
 .image-placeholder {
   background-color: #d1d5db;
-  height: 16rem;
+  height: 10rem;
   border-radius: 0.25rem;
+}
+
+.left-image-placeholder {
+  background-color: #d1d5db;
+  height: 24rem;
+  border-radius: 0.25rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .image-placeholder {
+    height: 17rem;
+  }
 }
