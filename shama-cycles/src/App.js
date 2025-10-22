@@ -16,7 +16,7 @@ const App = () => {
   
   const renderPage = () => {
     switch(currentPage) {
-      case 'Home': return <HomePage />;
+      case 'Home': return <HomePage currentPage={currentPage} setCurrentPage={setCurrentPage}/>;
       case 'About': return <About />;
       case 'Bikes': return <Bikes />;
       case 'Bike Services': return <BikeServices />;

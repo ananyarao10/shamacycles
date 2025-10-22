@@ -1,7 +1,7 @@
 import React from 'react';
 import './HomePage.css';
 
-const HomePage = () => {
+const HomePage = ({ currentPage, setCurrentPage }) => {
   return (
     <div>
       <div className="home-container">
@@ -19,21 +19,23 @@ const HomePage = () => {
                 Making every new bike sale, upgrade and service specific for the customer and their needs.
               </p>
 
-              <button className="cta-button">
+              <button onClick={() => setCurrentPage("Bike Fittings")}
+                className={`cta-button nav-link ${currentPage === "Bike Fittings" ? 'active' : ''}`}>
                 <span className="arrow">→</span>
                 <span>schedule a bike fit</span>
               </button>
             </div>
 
-            <div className="left-image-placeholder"></div>
+            <img className="left-image-placeholder" src="shama_home_1.webp" alt=""></img>
+            {/* <div className="left-image-placeholder"></div> */}
           </div>
 
           <div className="right-column">
             <div className="photo-grid">
-              <div className="image-placeholder"></div>
-              <div className="image-placeholder"></div>
-              <div className="image-placeholder"></div>
-              <div className="image-placeholder"></div>
+              <img className="image-placeholder" src="shama_home_2.webp" alt=""></img>
+              <img className="image-placeholder" src="shama_home_3.webp" alt=""></img>
+              <img className="image-placeholder" src="shama_home_4.webp" alt=""></img>
+              <img className="image-placeholder" src="shama_home_5.webp" alt=""></img>
             </div>
           </div>
         </div>

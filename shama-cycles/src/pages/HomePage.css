@@ -38,8 +38,15 @@
   }
 }
 
-.left-column,
-.right-column {
+.left-column{
+  margin-left: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.right-column{
+  margin-right: 2rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -58,7 +65,7 @@
 .cta-button {
   background-color: black;
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.7rem 1.5rem;
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -66,7 +73,7 @@
   align-items: center;
   gap: 0.5rem;
   transition: background-color 0.2s;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .cta-button:hover {
@@ -80,12 +87,14 @@
 .image-placeholder {
   background-color: #d1d5db;
   height: 10rem;
+  width: 27rem;
   border-radius: 0.25rem;
 }
 
 .left-image-placeholder {
   background-color: #d1d5db;
-  height: 24rem;
+  height: 22.8rem;
+  width: 40rem;
   border-radius: 0.25rem;
 }
 
