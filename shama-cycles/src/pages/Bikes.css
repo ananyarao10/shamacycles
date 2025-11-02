@@ -1,0 +1,326 @@
+.bikes-content {
+  margin: 0 auto;
+  padding: 0px 24px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 1s ease-out;
+}
+
+.bikes-content.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Brands Section */
+.brands-section {
+  margin-bottom: 80px;
+}
+
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.brand-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.brand-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(220, 38, 38, 0.15);
+}
+
+.brand-logo-container {
+  width: 100%;
+  height: 120px;
+  background: #f9fafb;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.brand-logo {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  text-align: center;
+  margin: 0;
+}
+
+/* Builds Section */
+.builds-section {
+  margin-top: 80px;
+}
+
+.builds-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #111827;
+  margin: 0 0 48px 0;
+}
+
+.builds-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 32px;
+}
+
+.build-card {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.build-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.build-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.build-card:hover .build-image {
+  transform: scale(1.05);
+}
+
+.build-name-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  padding: 24px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.build-name {
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+/* Dialog */
+.dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 24px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.dialog-content {
+  background: white;
+  border-radius: 16px;
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: auto;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+  padding: 48px;
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dialog-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s;
+}
+
+.dialog-close:hover {
+  background: #f3f4f6;
+  transform: scale(1.1);
+}
+
+.dialog-body {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.dialog-brand-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 32px;
+  border-bottom: 2px solid #f3f4f6;
+}
+
+.dialog-logo-container {
+  width: 200px;
+  height: 200px;
+  background: #f9fafb;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.dialog-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.dialog-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #111827;
+  margin: 0;
+}
+
+.dialog-info {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.info-text {
+  font-size: 1.05rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.models-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.model-item {
+  font-size: 1rem;
+  color: #111827;
+  padding: 10px 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border-left: 3px solid #dc2626;
+}
+
+.brand-website-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background: #dc2626;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  transition: all 0.3s;
+  align-self: flex-start;
+}
+
+.brand-website-link:hover {
+  background: #b91c1c;
+  transform: translateX(4px);
+}
+
+@media (max-width: 1024px) {
+  .brands-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .brands-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .builds-title {
+    font-size: 2rem;
+  }
+
+  .builds-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dialog-content {
+    padding: 32px 24px;
+  }
+
+  .dialog-title {
+    font-size: 1.5rem;
+  }
+
+  .dialog-logo-container {
+    width: 150px;
+    height: 150px;
+  }
+}
