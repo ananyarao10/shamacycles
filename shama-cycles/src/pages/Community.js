@@ -1,19 +1,21 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 const Community = () => {
-  return (
-    <div>
-      <div className="home-container">
-        <div className="hero-section">
-          <h1 className="hero-title">
-            COMMUNITY
-          </h1>
-          <div className="hero-underline"></div>
-        </div>
+  const [isVisible, setIsVisible] = useState(false);
+      
+      useEffect(() => {
+        setIsVisible(true);
+      }, []);
+    
+      return (
+        <div className="about-page">
+          <div className={`hero-section ${isVisible ? 'fade-in' : ''}`}>
+            <h1 className="hero-title">COMMUNITY</h1>
+            <div className="hero-underline"></div>
+          </div>
 
         
       </div>
-    </div>
   );
 };
 

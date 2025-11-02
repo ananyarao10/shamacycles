@@ -4,8 +4,9 @@ import './Navigation.css';
 const Navigation = ({ currentPage, setCurrentPage }) => {
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
   
-  const navItems = ['Home', 'About', 'Bikes', 'Community', 'Our Race Team', 'Contact Us'];
-  const serviceItems = ['Bike Services', 'Bike Fittings'];
+  const navItems = ['About', 'Bikes', 'Gear'];
+  const serviceItems = ['Bike Fittings', 'Bike Services'];
+  const navItemsAfterServices = ['Our Race Team', 'Community', 'Contact Us'];
   
   const handleServiceClick = (service) => {
     setCurrentPage(service);
@@ -17,11 +18,13 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
       <div className="nav-container">
         <div className="nav-content">
           <div className="logo-container">
-            <img 
+            <a onClick={() => setCurrentPage('Home')}>
+              <img 
               src="shama_logo.png" 
               alt="Shama Cycles Logo" 
               className="logo"
             />
+            </a>
           </div>
           
           <div className="nav-links">
@@ -69,6 +72,16 @@ const Navigation = ({ currentPage, setCurrentPage }) => {
                 </div>
               )}
             </div>
+
+            {navItemsAfterServices.map((item) => (
+              <button
+                key={item}
+                onClick={() => setCurrentPage(item)}
+                className={`nav-link ${currentPage === item ? 'active' : ''}`}
+              >
+                {item}
+              </button>
+            ))}
           </div>
           
           <div className="mobile-menu">

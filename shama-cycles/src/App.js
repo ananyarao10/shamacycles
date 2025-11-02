@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import About from './pages/About';
 import Bikes from './pages/Bikes';
+import Gear from './pages/Gear';
 import BikeServices from './pages/BikeServices';
 import BikeFittings from './pages/BikeFittings';
 import Community from './pages/Community';
@@ -19,6 +20,7 @@ const App = () => {
       case 'Home': return <HomePage currentPage={currentPage} setCurrentPage={setCurrentPage}/>;
       case 'About': return <About />;
       case 'Bikes': return <Bikes />;
+      case 'Gear': return <Gear />;
       case 'Bike Services': return <BikeServices />;
       case 'Bike Fittings': return <BikeFittings />;
       case 'Community': return <Community />;

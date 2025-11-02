@@ -1,4 +1,4 @@
-import React from "react";
+import { useState, useEffect } from 'react';
 import "./About.css";
 
 const reviews = [
@@ -11,12 +11,18 @@ const reviews = [
 ];
 
 const About = ({items = reviews}) => {
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
   return (
     <div className="about-page">
-      <header className="hero-section">
+      <div className={`hero-section ${isVisible ? 'fade-in' : ''}`}>
         <h1 className="hero-title">ABOUT</h1>
-        <div className="hero-underline" />
-      </header>
+        <div className="hero-underline"></div>
+      </div>
 
       <section className="our-vision-wrap">
         <div className="vision-column philosophy">
