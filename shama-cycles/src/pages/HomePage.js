@@ -37,8 +37,24 @@ const HomePage = ({ currentPage, setCurrentPage }) => {
               </button>
             </div>
 
-            <div className="image-wrapper">
-              <img className="left-image-placeholder" src="shama_home_1.webp" alt="" />
+             <div className="left-photo-grid">
+                <img className="image-placeholder" src="shama_home_1.webp" alt="" />
+                <img className="image-placeholder" src="shama_home_6.webp" alt="" />
+              </div>
+
+            <div className="stats-section">
+              <div className="stat-item">
+                <span className="stat-number">15+</span>
+                <span className="stat-label">Years Experience</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">1000+</span>
+                <span className="stat-label">Bikes Fitted</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-number">500+</span>
+                <span className="stat-label">Happy Customers</span>
+              </div>
             </div>
           </div>
 

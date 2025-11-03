@@ -6,7 +6,7 @@ const reviews = [
   { name: "Haley R", avatarLetter: "H", rating: 5, text: "Came in for a new bike fitting and left with much more - great advice and helpful tips. Very knowledgeable and passionate about helping (newer) cyclists like me." },
   { name: "María B", avatarLetter: "M", rating: 5, text: "Philip fit me on my Cervelho P3x last year for my Ironman. His professionalism and understanding of the bike fit is amazing! He's made me more aerodynamic, while keeping me comfortable for long distance racing. He's the only mechanic that takes care of my bike." },
   { name: "Tristan Q", avatarLetter: "T", rating: 5, text: "They specialize in race/specialty bikes. However, they really came to my rescue by making a custom crankset. For my bike now it’s as good as new. I definitely recommend if your bike is ever need of repair. Check them out! Mark was a big help!" },
-  { name: "Marcelo R", avatarLetter: "M", rating: 5, text: "Great experience. Both Mark and Phillip are extremely knowledgeable. They helped me set up my bike. These guys are Pro, the bikes they maintain are all professional level bikes. Great shop, highly recommend." },
+  { name: "Marcelo R", avatarLetter: "M", rating: 5, text: "Great experience. Both Mark and Phillip are extremely knowledgeable. They helped me set up my bike. These guys are pro, the bikes they maintain are all professional level bikes. Great shop, highly recommend." },
   { name: "Ryan W", avatarLetter: "R", rating: 5, text: "Amazing team and unrivaled shop! Philip, Mark and team do it all — new builds, repairs, fitting sessions and much more. I’ve done two bike fits, service and several component upgrades based on advice and guidance from the team here. " },
 ];
 
@@ -78,7 +78,7 @@ const About = ({items = reviews}) => {
             <div className="card tiny-card">
               <div className="card-header">Refine &amp; Fit</div>
               <div className="card-body">
-                Every build includes a precise fitting so your ride feels perfect.
+                Every build includes a fitting so your ride feels perfect.
               </div>
             </div>
           </div>
