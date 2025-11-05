@@ -94,7 +94,7 @@ const About = ({items = reviews}) => {
         </div>
 
         <div className="philip-text">
-          <h1>Meet Philip Shama</h1>
+          <h1 className='philip-title'>Meet Philip Shama</h1>
           <p>
             Philip Shama loves many things. He enjoys fresh brewed coffee in the morning,
             watching Le Tour (well, actually all tours), and spending time with his family.

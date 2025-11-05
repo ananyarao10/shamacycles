@@ -1,5 +1,5 @@
 .bikes-content {
-  margin: 0 auto;
+  margin-bottom: 1rem;
   padding: 0px 24px;
   opacity: 0;
   transform: translateY(20px);
@@ -11,9 +11,8 @@
   transform: translateY(0);
 }
 
-/* Brands Section */
 .brands-section {
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .brands-grid {
@@ -43,7 +42,14 @@
 .brand-logo-container {
   width: 100%;
   height: 120px;
-  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-logo {
+  max-width: 120%;
+  max-height: 120%;
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -51,30 +57,23 @@
   overflow: hidden;
 }
 
-.brand-logo {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-}
-
 .brand-name {
   font-size: 1rem;
   font-weight: 600;
   color: #111827;
   text-align: center;
-  margin: 0;
+  margin-top: 10px;
 }
 
-/* Builds Section */
 .builds-section {
-  margin-top: 80px;
+  margin-top: 2rem;
 }
 
 .builds-title {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: bold;
   color: #111827;
-  margin: 0 0 48px 0;
+  margin: 0 0 30px 0;
 }
 
 .builds-grid {
@@ -108,24 +107,6 @@
   transform: scale(1.05);
 }
 
-.build-name-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  padding: 24px;
-  display: flex;
-  align-items: flex-end;
-}
-
-.build-name {
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 600;
-}
-
-/* Dialog */
 .dialog-overlay {
   position: fixed;
   inset: 0;
@@ -146,8 +127,7 @@
 .dialog-content {
   background: white;
   border-radius: 16px;
-  max-width: 700px;
-  width: 100%;
+  width: 60%;
   max-height: 90vh;
   overflow: auto;
   position: relative;
@@ -244,7 +224,7 @@
   font-size: 1.25rem;
   font-weight: 600;
   color: #111827;
-  margin: 0;
+  margin-bottom: 1rem;
 }
 
 .info-text {
@@ -254,42 +234,83 @@
   margin: 0;
 }
 
-.models-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Gallery Styles */
+.gallery-container {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 16px;
 }
 
-.model-item {
-  font-size: 1rem;
-  color: #111827;
-  padding: 10px 16px;
+.gallery-main {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/10;
+  border-radius: 12px;
+  overflow: hidden;
   background: #f9fafb;
-  border-radius: 8px;
-  border-left: 3px solid #dc2626;
-}
-
-.brand-website-link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 14px 32px;
-  background: #dc2626;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1.05rem;
-  transition: all 0.3s;
-  align-self: flex-start;
+  justify-content: center;
 }
 
-.brand-website-link:hover {
-  background: #b91c1c;
-  transform: translateX(4px);
+.gallery-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  color: #111827;
+}
+
+.gallery-arrow:hover {
+  background: white;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-arrow-left {
+  left: 16px;
+}
+
+.gallery-arrow-right {
+  right: 16px;
+}
+
+.gallery-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.gallery-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d1d5db;
+  transition: all 0.3s;
+}
+
+.gallery-dot.active {
+  background: #dc2626;
+  width: 12px;
+  height: 12px;
 }
 
 @media (max-width: 1024px) {
@@ -322,5 +343,18 @@
   .dialog-logo-container {
     width: 150px;
     height: 150px;
+  }
+  
+  .gallery-arrow {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .gallery-arrow-left {
+    left: 8px;
+  }
+  
+  .gallery-arrow-right {
+    right: 8px;
   }
 }
