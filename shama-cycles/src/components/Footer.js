@@ -2,8 +2,8 @@ import React from 'react';
 import { Facebook, Instagram } from 'lucide-react';
 import './Footer.css';
 
-const Footer = () => {
-  const navItems = ['Home', 'About', 'Bikes', 'Services', 'Community', 'Our Race Team'];
+const Footer = ({ setCurrentPage }) => {
+  const navItems = ['About', 'Bikes', 'Gear', 'Bike Fittings', 'Bike Services', 'Our Race Team', 'Community', 'Contact Us'];
   
   return (
     <footer className="footer">
@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="footer-links">
             {navItems.map((item, index) => (
               <React.Fragment key={item}>
-                <a href="#" className="footer-link">
+                <a className="footer-link" onClick={() => setCurrentPage(item)}>
                   {item}
                 </a>
                 {index < navItems.length - 1 && <span className="separator">|</span>}
@@ -32,10 +32,10 @@ const Footer = () => {
           </div>
           
           <div className="social-links">
-            <a href="#" className="social-link facebook">
+            <a target="_blank" rel="noreferrer" href="https://www.facebook.com/p/Shama-Cycles-100063533020164/" className="social-link facebook">
               <Facebook size={24} fill="currentColor" />
             </a>
-            <a href="#" className="social-link instagram">
+            <a target="_blank" rel="noreferrer" href="https://www.instagram.com/shamacycles/?hl=en" className="social-link instagram">
               <Instagram size={24} />
             </a>
           </div>

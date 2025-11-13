@@ -61,9 +61,10 @@
 }
 
 .footer-link {
-  font-size: 0.875rem;
+  font-size: 1rem;
   color: #1f2937;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .footer-link:hover {

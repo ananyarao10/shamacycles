@@ -36,7 +36,7 @@ const App = () => {
       <main className="main-content">
         {renderPage()}
       </main>
-      <Footer />
+      <Footer setCurrentPage={setCurrentPage}/>
     </div>
   );
 };
