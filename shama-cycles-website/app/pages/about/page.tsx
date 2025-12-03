@@ -34,7 +34,7 @@ const About = () => {
       <section className="flex flex-col md:flex-row gap-6 md:gap-6 justify-between mb-12 max-w-380 mx-auto p-6 md:p-10 rounded-xl shadow-[0_10px_40px_rgba(220,38,38,0.15)] bg-cover bg-center" style={{ backgroundImage: "url('/bike_abt.webp')" }}>
         {/* Philosophy */}
         <div className="flex-1 flex flex-col gap-4">
-          <h3 className="text-red-600 font-bold text-xl relative pb-2">Our Philosophy
+          <h3 className="text-red-600 font-bold text-2xl relative pb-2">Our Philosophy
             <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-red-600 rounded"></span>
           </h3>
           <div className="flex flex-col gap-3">
@@ -50,8 +50,8 @@ const About = () => {
         </div>
 
         {/* Mission */}
-        <div className="flex-1 flex flex-col items-center justify-center text-center bg-gradient-to-br from-red-600 to-red-800 rounded-xl p-10">
-          <h3 className="text-white font-bold text-xl relative pb-2">Our Mission
+        <div className="flex-1 flex flex-col items-center justify-center text-center bg-linear-to-br from-red-600 to-red-800 rounded-xl p-10">
+          <h3 className="text-white font-bold text-2xl relative pb-2">Our Mission
             <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-10 h-[3px] bg-white rounded"></span>
           </h3>
           <div className="bg-white bg-opacity-95 rounded-xl p-8 text-gray-900 text-sm shadow-md mt-4">
@@ -61,7 +61,7 @@ const About = () => {
 
         {/* Process */}
         <div className="flex-1 flex flex-col gap-4">
-          <h3 className="text-red-600 font-bold text-xl relative pb-2">Our Process
+          <h3 className="text-red-600 font-bold text-2xl relative pb-2">Our Process
             <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-red-600 rounded"></span>
           </h3>
           <div className="flex flex-col gap-3">
@@ -88,9 +88,9 @@ const About = () => {
             <img key={i} src={`/philip_${i}.webp`} alt="" className="rounded-xl w-76 h-52 object-cover shadow-lg transform transition-all hover:scale-105"/>
           ))}
         </div>
-        <div className="max-w-xl space-y-4">
+        <div className="max-w-xl space-y-4 mt-10">
           <h1 className="text-3xl font-bold relative inline-block">Meet Philip Shama
-            <span className="absolute bottom-0 left-0 w-16 h-1 bg-red-600 rounded"></span>
+            <span className="absolute bottom-[-4] left-0 w-20 h-1 bg-red-600 rounded"></span>
           </h1>
           <p>Philip Shama loves many things. He enjoys fresh brewed coffee in the morning, watching Le Tour (well, actually all tours), and spending time with his family. But he's also one of those people lucky enough to say he really loves his job.</p>
           <p>His passion for fine detail and commitment to quality craftsmanship can be seen in every bike that leaves the shop. Philip believes the riding experience doesn’t stop when a client picks up their bike — he follows up to make sure each ride feels just right.</p>
@@ -101,13 +101,13 @@ const About = () => {
       {/* Testimonials */}
       <section className="mb-12">
         <h2 className="text-3xl font-bold text-center mb-8 relative inline-block w-full">What our customers are saying
-          <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-20 h-1 bg-red-600 rounded"></span>
+          <span className="absolute bottom-[-4] left-1/2 transform -translate-x-1/2 w-25 h-1 bg-red-600 rounded"></span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((r, idx) => (
-            <article key={idx} className="bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl p-5 shadow-md transition-transform hover:-translate-y-2 hover:shadow-lg relative overflow-hidden">
+            <article key={idx} className="bg-linear-to-br from-gray-100 to-gray-200 rounded-xl p-5 shadow-md transition-transform hover:-translate-y-2 hover:shadow-lg relative overflow-hidden">
               <header className="flex items-center gap-3 mb-2">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-red-600 to-red-800 text-white font-bold flex items-center justify-center">{r.avatarLetter}</div>
+                <div className="w-12 h-12 rounded-full bg-linear-to-br from-red-600 to-red-800 text-white font-bold flex items-center justify-center">{r.avatarLetter}</div>
                 <div className="flex flex-col">
                   <div className="font-bold text-gray-900">{r.name}</div>
                   <div className="text-red-600">{Array.from({ length: 5 }).map((_, i) => <span key={i}>{i<r.rating?'★':'☆'}</span>)}</div>

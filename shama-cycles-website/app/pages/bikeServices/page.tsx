@@ -33,7 +33,7 @@ const BikeServices = () => {
       <section className="mb-20">
         <div className="mb-10">
           <h2 className="text-3xl font-bold mb-2">Custom Bike Builds</h2>
-          <div className="h-1 w-20 bg-gradient-to-r from-red-600 to-red-400 rounded"></div>
+          <div className="h-1 w-20 bg-linear-to-r from-red-600 to-red-400 rounded"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           {/** Frame Card **/}
@@ -44,7 +44,7 @@ const BikeServices = () => {
             onMouseEnter={() => setActiveCard("frames")}
             onMouseLeave={() => setActiveCard(null)}
           >
-            <div className="h-40 bg-gradient-to-br from-gray-800 to-gray-600 flex items-center justify-center">
+            <div className="h-40 bg-linear-to-br from-gray-800 to-gray-600 flex items-center justify-center">
               <span className="text-6xl filter grayscale brightness-200">🚴</span>
             </div>
             <div className="p-5">
@@ -75,7 +75,7 @@ const BikeServices = () => {
             onMouseEnter={() => setActiveCard("wheels")}
             onMouseLeave={() => setActiveCard(null)}
           >
-            <div className="h-40 bg-gradient-to-br from-gray-700 to-gray-500 flex items-center justify-center">
+            <div className="h-40 bg-linear-to-br from-gray-700 to-gray-500 flex items-center justify-center">
               <span className="text-6xl filter grayscale brightness-200">⚙️</span>
             </div>
             <div className="p-5">
@@ -105,7 +105,7 @@ const BikeServices = () => {
             onMouseEnter={() => setActiveCard("groups")}
             onMouseLeave={() => setActiveCard(null)}
           >
-            <div className="h-40 bg-gradient-to-br from-gray-600 to-gray-400 flex items-center justify-center">
+            <div className="h-40 bg-linear-to-br from-gray-600 to-gray-400 flex items-center justify-center">
               <span className="text-6xl filter grayscale brightness-200">⚡</span>
             </div>
             <div className="p-5">

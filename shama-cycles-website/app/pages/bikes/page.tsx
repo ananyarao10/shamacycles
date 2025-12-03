@@ -19,7 +19,6 @@ const Bikes = () => {
     { 
       name: '3T Bike', 
       logo: '/3t_2.webp',
-      description: 'Italian performance bikes known for innovation and aerodynamics',
       uniqueness: 'What makes 3T special is their engineering-first approach and willingness to challenge convention. Perfect for riders who want cutting-edge aerodynamics and versatility in one package.',
       bestFor: 'Gravel racers, triathletes, and road cyclists seeking maximum efficiency',
       gallery: ['/3t_1.webp', '/3t_2.webp', '/3t_3.wepb']
@@ -27,7 +26,6 @@ const Bikes = () => {
     { 
       name: 'Colnago', 
       logo: '/colnago_3.webp',
-      description: 'Legendary Italian brand with decades of racing heritage',
       uniqueness: 'Colnago represents the pinnacle of Italian cycling tradition with iconic designs and unmatched racing pedigree. Their frames blend artistry with performance.',
       bestFor: 'Enthusiasts who appreciate heritage, collectors, and competitive racers',
       gallery: ['/colnago_1.webp', '/colnago_2.webp', '/colnago_3.webp']
@@ -35,7 +33,6 @@ const Bikes = () => {
     { 
       name: 'Quintana Roo', 
       logo: '/quintana_3.webp',
-      description: 'American triathlon and time trial specialists',
       uniqueness: 'Purpose-built exclusively for triathlon and time trials with features like integrated storage and optimized positioning. Every detail focused on going fast alone.',
       bestFor: 'Triathletes and time trialists who demand specialized equipment',
       gallery: ['/quintana_1.webp', '/quintana_2.webp', '/quintana_3.webp']
@@ -43,7 +40,6 @@ const Bikes = () => {
     { 
       name: 'Argon18', 
       logo: '/argon_2.webp',
-      description: 'Canadian engineering excellence in racing bikes',
       uniqueness: 'Argon18 combines aerospace-grade engineering with real-world testing. Their 3D System allows precise fit adjustments for optimal power transfer and comfort.',
       bestFor: 'Serious racers and triathletes seeking measurable performance gains',
       gallery: ['/argon_1.webp', '/argon_2.webp', '/argon_3.wepb']
@@ -51,7 +47,6 @@ const Bikes = () => {
     { 
       name: 'Cipollini', 
       logo: '/cipollini_2.webp',
-      description: 'Italian superbikes with distinctive style and performance',
       uniqueness: 'Named after champion Mario Cipollini, these bikes are as much about making a statement as winning races. Bold Italian design meets uncompromising performance.',
       bestFor: 'Riders who want to stand out and go fast with unmistakable style',
       gallery: ['/cipollini_1.webp', '/cipollini_2.webp', '/cipollini_3.webp']
@@ -59,7 +54,6 @@ const Bikes = () => {
     { 
       name: 'Felt Bicycles', 
       logo: '/felt_1.webp',
-      description: 'Performance bikes across all disciplines',
       uniqueness: 'Felt pioneered many modern bike technologies and offers exceptional value without compromising quality. Their range covers every cycling discipline with proven designs.',
       bestFor: 'Performance-minded cyclists seeking reliability across all riding styles',
       gallery: ['/felt_1.webp']
@@ -67,7 +61,6 @@ const Bikes = () => {
     { 
       name: 'Alchemy', 
       logo: '/alchemy_3.webp',
-      description: 'Handcrafted American custom bicycles',
       uniqueness: 'Every Alchemy frame is handmade in Denver with custom geometry tailored to you. True craftsmanship meets modern materials for a bike that fits like nothing else.',
       bestFor: 'Riders seeking a truly custom, made-for-you bicycle experience',
       gallery: ['/alchemy_1.webp', '/alchemy_2.webp', '/alchemy_3.webp']
@@ -75,7 +68,6 @@ const Bikes = () => {
     { 
       name: 'Drop Cycles', 
       logo: '/drop_1.webp',
-      description: 'Custom steel and titanium frame builders',
       uniqueness: 'Drop specializes in timeless steel and titanium frames built to your exact specifications. These bikes age beautifully and ride with unmatched character.',
       bestFor: 'Riders who value craftsmanship, durability, and the classic ride quality of steel',
       gallery: ['/drop_1.webp', '/drop_2.webp', '/drop_3.webp']
@@ -83,7 +75,6 @@ const Bikes = () => {
     { 
       name: 'Officine Mattio', 
       logo: '/mattio_1.webp',
-      description: 'Italian artisan frame builders',
       uniqueness: 'Small-batch Italian artisans who treat each frame as a work of art. Combining old-world craftsmanship with modern technology for heirloom-quality bicycles.',
       bestFor: 'Discerning cyclists who want exclusivity and Italian artisan quality',
       gallery: ['/mattio_1.webp']
@@ -91,7 +82,6 @@ const Bikes = () => {
     { 
       name: 'Time', 
       logo: '/time_1.webp',
-      description: 'French carbon fiber pioneers',
       uniqueness: 'Time invented carbon fiber tubes and pioneered advanced layup techniques. Their frames are known for exceptional comfort without sacrificing stiffness.',
       bestFor: 'Endurance riders and cyclists prioritizing all-day comfort with performance',
       gallery: ['/time_1.webp', '/time_2.webp', '/time_3.webp']
@@ -136,34 +126,34 @@ const Bikes = () => {
       </div>
 
       {/* Brands Grid */}
-      <div className={`grid gap-6 px-6 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
-        {brands.map((brand, index) => (
-          <div 
-            key={index}
-            className="flex flex-col items-center gap-4 p-6 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all"
-            onClick={() => navigateToBrandPage(brand.name)}
-          >
-            <div className="w-full h-28 flex items-center justify-center overflow-hidden">
-              <img src={brand.logo} alt={brand.name} className="max-w-full max-h-full rounded-md" />
-            </div>
-            <h3 className="text-lg font-semibold text-center text-gray-900">{brand.name}</h3>
-          </div>
-        ))}
-      </div>
+        <div className={`grid gap-6 px-6 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
+            {brands.map((brand, index) => (
+                <div 
+                key={index}
+                className="flex flex-col items-center gap-4 p-6 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all"
+                onClick={() => setSelectedBrand(brand)} // <-- Open dialog
+                >
+                <div className="w-full h-28 flex items-center justify-center overflow-hidden">
+                    <img src={brand.logo} alt={brand.name} className="max-w-full max-h-full rounded-md" />
+                </div>
+                <h3 className="text-lg font-semibold text-center text-gray-900">{brand.name}</h3>
+                </div>
+            ))}
+        </div>
 
       {/* Builds Section */}
       <div className="mt-16 w-full px-6">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">See some of our latest builds!</h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {builds.map((build) => (
-            <div key={build.id} className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-transform hover:scale-105">
+            <div key={build.id} className="relative aspect-4/3 overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-transform hover:scale-105">
               <img src={build.image} alt={`Build ${build.id}`} className="w-full h-full object-cover" />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Optional Dialog */}
+      {/* Bike Brand Dialog */}
       {selectedBrand && (
         <div className="fixed inset-0 bg-black/75 flex items-center justify-center z-50 p-6" onClick={closeDialog}>
           <div className="bg-white rounded-2xl w-[60%] max-h-[90vh] overflow-auto p-12 relative transition-transform" onClick={(e) => e.stopPropagation()}>
@@ -174,7 +164,6 @@ const Bikes = () => {
             <div className="flex flex-col gap-8">
               <div className="flex flex-col items-center gap-6 border-b border-gray-200 pb-8">
                 <h2 className="text-2xl font-bold text-gray-900">{selectedBrand.name}</h2>
-                <p className="text-gray-600 text-center">{selectedBrand.description}</p>
               </div>
 
               <div className="flex flex-col gap-8">

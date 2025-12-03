@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 
+let hideTimeout: NodeJS.Timeout;
+
 const Navbar: React.FC = () => {
   const router = useRouter();
   const [showServicesDropdown, setShowServicesDropdown] = useState(false);
@@ -37,12 +39,12 @@ const Navbar: React.FC = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <div className="shrink-0 cursor-pointer" onClick={() => handleNavigation("/")}>
+          <div className="shrink-0 cursor-pointer mt-1" onClick={() => handleNavigation("/")}>
             <img src="/shama_logo.png" alt="Shama Logo" className="h-12 w-auto" />
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-6 items-center">
+          <div className="hidden md:flex space-x-6 items-center mt-1">
             {navItems.map((item) => (
               <button
                 key={item.label}
@@ -55,30 +57,37 @@ const Navbar: React.FC = () => {
 
             {/* Services Dropdown */}
             <div
-              className="relative"
-              onMouseEnter={() => setShowServicesDropdown(true)}
-              onMouseLeave={() => setShowServicesDropdown(false)}
+            className="relative"
+            onMouseEnter={() => {
+                clearTimeout(hideTimeout);
+                setShowServicesDropdown(true);
+            }}
+            onMouseLeave={() => {
+                hideTimeout = setTimeout(() => setShowServicesDropdown(false), 100);
+            }}
             >
-              <button className="flex items-center gap-1 px-1 pb-1 border-b-2 border-transparent hover:text-black transition">
+            {/* Services Button */}
+            <button className="flex items-center gap-1 px-1 pb-1 border-b-2 border-transparent hover:text-black transition">
                 Services
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform ${showServicesDropdown ? "rotate-180" : ""}`}
+                className={`w-4 h-4 transition-transform ${showServicesDropdown ? "rotate-180" : ""}`}
                 />
-              </button>
+            </button>
 
-              {showServicesDropdown && (
+            {/* Dropdown Menu */}
+            {showServicesDropdown && (
                 <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 z-20">
-                  {serviceItems.map((service) => (
+                {serviceItems.map((service) => (
                     <button
-                      key={service.label}
-                      className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-black transition"
-                      onClick={() => handleNavigation(service.path)}
+                    key={service.label}
+                    className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-black transition"
+                    onClick={() => handleNavigation(service.path)}
                     >
-                      {service.label}
+                    {service.label}
                     </button>
-                  ))}
+                ))}
                 </div>
-              )}
+            )}
             </div>
 
             {navItemsAfterServices.map((item) => (

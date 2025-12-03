@@ -113,7 +113,7 @@ const OurRaceTeam = () => {
       </div>
 
       {/* Sponsors */}
-      <div className="py-12 bg-gradient-to-b from-transparent via-pink-100 to-transparent">
+      <div className="py-12 bg-linear-to-b from-transparent via-pink-100 to-transparent">
         <h2 className="text-3xl font-bold text-center mb-12">Our Sponsors</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {sponsors.map((sponsor, idx) => (
