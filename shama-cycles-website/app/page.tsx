@@ -1,0 +1,108 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+
+interface HomePageProps {
+  currentPage: string;
+  setCurrentPage: (page: string) => void;
+}
+
+const HomePage: React.FC<HomePageProps> = ({ currentPage, setCurrentPage }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
+
+  return (
+    <div className="relative min-h-[91vh] bg-white overflow-hidden">
+      {/* Background orbs can be added here if desired */}
+      <div className="relative overflow-hidden px-6 py-12">
+      {/* Hero Section */}
+      <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
+        <h1 className="text-[7rem] md:text-7xl font-bold text-gray-900 tracking-[-0.02em]">SHAMA CYCLES</h1>
+        <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
+      </div>
+
+        {/* Content Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(400px,1fr)_minmax(400px,1fr)] gap-8 items-start">
+          {/* Left Column */}
+          <div
+            className={`flex flex-col gap-8 transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
+            }`}
+          >
+            <div>
+              <p className="text-[1.8rem] font-light text-gray-800 mt-3 mb-3">
+                A home away from home for bike lovers.
+              </p>
+              <p className="text-[1.8rem] font-light text-gray-800 mb-3">
+                Personalized sales, bike fitting, and service.
+              </p>
+              <p className="text-[1.2rem] text-gray-600 leading-6 mb-3">
+                Making every new bike sale, upgrade and service specific for the customer and their needs.
+              </p>
+
+              <button
+                onClick={() => setCurrentPage('Bike Fittings')}
+                className={`inline-flex items-center gap-3 px-5 py-3 bg-red-600 text-white font-semibold text-[1.2rem] rounded-lg transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)] relative overflow-hidden mt-1 ${
+                  currentPage === 'Bike Fittings' ? 'ring-2 ring-red-800' : ''
+                }`}
+              >
+                <span className="transition-transform duration-300 transform group-hover:translate-x-1">→</span>
+                <span>Schedule a bike fit</span>
+              </button>
+            </div>
+
+            {/* Left Photo Grid */}
+            <div className="grid grid-cols-2 gap-4 mt-2">
+              <img className="rounded-md w-full h-full object-cover" src="/shama_home_1.webp" alt="" />
+              <img className="rounded-md w-full h-full object-cover" src="/shama_home_6.webp" alt="" />
+            </div>
+
+            {/* Stats Section */}
+            <div className="flex justify-around items-center gap-6 mt-4 flex-wrap md:flex-nowrap">
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="text-[3rem] font-bold text-red-600 leading-none">15+</div>
+                <div className="text-[1.4rem] font-medium uppercase tracking-wider text-black">Years Experience</div>
+              </div>
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="text-[3rem] font-bold text-red-600 leading-none">1000+</div>
+                <div className="text-[1.4rem] font-medium uppercase tracking-wider text-black">Bikes Fitted</div>
+              </div>
+              <div className="flex flex-col items-center gap-2 text-center">
+                <div className="text-[3rem] font-bold text-red-600 leading-none">500+</div>
+                <div className="text-[1.4rem] font-medium uppercase tracking-wider text-black">Happy Customers</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column */}
+          <div
+            className={`grid grid-cols-2 gap-4 transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
+            }`}
+          >
+            <img className="rounded-md w-full h-full object-cover" src="/shama_home_2.webp" alt="" />
+            <img className="rounded-md w-full h-full object-cover" src="/shama_home_3.webp" alt="" />
+            <img className="rounded-md w-full h-full object-cover" src="/shama_home_4.webp" alt="" />
+            <img className="rounded-md w-full h-full object-cover" src="/shama_home_5.webp" alt="" />
+          </div>
+        </div>
+      </div>
+
+      {/* Tailwind-compatible keyframes for glow */}
+      <style jsx global>{`
+        @keyframes glow {
+          0%, 100% { opacity: 0.8; }
+          50% { opacity: 1; box-shadow: 0 0 20px rgba(220, 38, 38, 0.5); }
+        }
+        .animate-[glow_3s_ease-in-out_infinite] {
+          animation: glow 3s ease-in-out infinite;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default HomePage;
