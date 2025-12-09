@@ -24,13 +24,11 @@ const OurRaceTeam = () => {
   ];
 
   const sponsors = [
-    { name: 'Sponsor One', logo: 'sponsor1.jpg', website: 'https://example.com' },
-    { name: 'Sponsor Two', logo: 'sponsor2.jpg', website: 'https://example.com' },
-    { name: 'Sponsor Three', logo: 'sponsor3.jpg', website: 'https://example.com' },
-    { name: 'Sponsor Four', logo: 'sponsor4.jpg', website: 'https://example.com' },
-    { name: 'Sponsor Five', logo: 'sponsor5.jpg', website: 'https://example.com' },
-    { name: 'Sponsor Six', logo: 'sponsor6.jpg', website: 'https://example.com' },
-    { name: 'Sponsor Seven', logo: 'sponsor7.jpg', website: 'https://example.com' }
+    { name: 'Hydromax USA', logo: '/hydromax.jpeg', website: 'https://hydromaxusa.com/' },
+    { name: 'The Caker', logo: '/caker.avif', website: 'https://www.thecaker.com/' },
+    { name: 'HED Wheels', logo: '/hed.avif', website: 'https://hedcycling.com/' },
+    { name: 'Vie13', logo: '/vie13.jpeg', website: 'https://vie13.com/' },
+    { name: 'Trinity Estate Homes', logo: '/trinity_estate_homes.png', website: 'https://www.trinityestatehomes.com/' },
   ];
 
   const teamImages = [
@@ -46,13 +44,11 @@ const OurRaceTeam = () => {
 
   return (
     <div className="relative overflow-hidden px-6 py-12">
-      {/* Hero Section */}
       <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-[6rem] md:text-5xl font-bold text-gray-900 tracking-[-0.02em]">OUR RACE TEAM</h1>
         <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
-      {/* Carousel */}
       <div className={`mb-12 transition-opacity duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
         <div className="relative w-full md:w-1/2 mx-auto aspect-16/10 rounded-xl overflow-hidden shadow-2xl">
           <img
@@ -87,7 +83,6 @@ const OurRaceTeam = () => {
         </div>
       </div>
 
-      {/* Roster */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
         <div className="bg-white p-8 rounded-xl shadow">
           <h3 className="text-2xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Men's Team</h3>
@@ -112,10 +107,9 @@ const OurRaceTeam = () => {
         </div>
       </div>
 
-      {/* Sponsors */}
       <div className="py-12 bg-linear-to-b from-transparent via-pink-100 to-transparent">
         <h2 className="text-3xl font-bold text-center mb-12">Our Sponsors</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
           {sponsors.map((sponsor, idx) => (
             <a
               key={idx}
@@ -124,9 +118,7 @@ const OurRaceTeam = () => {
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-4 p-6 bg-white rounded-xl shadow transition-transform hover:-translate-y-2 hover:shadow-2xl"
             >
-              <div className="w-28 h-28 rounded-full bg-gray-200 flex items-center justify-center overflow-hidden transition-colors hover:bg-red-100">
-                <img src={sponsor.logo} alt={sponsor.name} className="w-full h-full object-contain p-4" />
-              </div>
+              <img src={sponsor.logo} alt={sponsor.name} className="w-full h-full object-contain p-4" />
               <p className="text-gray-900 font-semibold text-center">{sponsor.name}</p>
             </a>
           ))}

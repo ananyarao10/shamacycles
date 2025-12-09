@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 interface HomePageProps {
   currentPage: string;
@@ -8,6 +9,7 @@ interface HomePageProps {
 }
 
 const HomePage: React.FC<HomePageProps> = ({ currentPage, setCurrentPage }) => {
+  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -16,17 +18,13 @@ const HomePage: React.FC<HomePageProps> = ({ currentPage, setCurrentPage }) => {
 
   return (
     <div className="relative min-h-[91vh] bg-white overflow-hidden">
-      {/* Background orbs can be added here if desired */}
       <div className="relative overflow-hidden px-6 py-12">
-      {/* Hero Section */}
       <div className={`text-center mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-[7rem] md:text-7xl font-bold text-gray-900 tracking-[-0.02em]">SHAMA CYCLES</h1>
         <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
-        {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(400px,1fr)_minmax(400px,1fr)] gap-8 items-start">
-          {/* Left Column */}
           <div
             className={`flex flex-col gap-8 transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'
@@ -44,7 +42,7 @@ const HomePage: React.FC<HomePageProps> = ({ currentPage, setCurrentPage }) => {
               </p>
 
               <button
-                onClick={() => setCurrentPage('Bike Fittings')}
+                onClick={() => router.push("/pages/bikeFittings")}
                 className={`inline-flex items-center gap-3 px-5 py-3 bg-red-600 text-white font-semibold text-[1.2rem] rounded-lg transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)] relative overflow-hidden mt-1 ${
                   currentPage === 'Bike Fittings' ? 'ring-2 ring-red-800' : ''
                 }`}
@@ -54,13 +52,11 @@ const HomePage: React.FC<HomePageProps> = ({ currentPage, setCurrentPage }) => {
               </button>
             </div>
 
-            {/* Left Photo Grid */}
             <div className="grid grid-cols-2 gap-4 mt-2">
               <img className="rounded-md w-full h-full object-cover" src="/shama_home_1.webp" alt="" />
               <img className="rounded-md w-full h-full object-cover" src="/shama_home_6.webp" alt="" />
             </div>
 
-            {/* Stats Section */}
             <div className="flex justify-around items-center gap-6 mt-4 flex-wrap md:flex-nowrap">
               <div className="flex flex-col items-center gap-2 text-center">
                 <div className="text-[3rem] font-bold text-red-600 leading-none">15+</div>
@@ -77,7 +73,6 @@ const HomePage: React.FC<HomePageProps> = ({ currentPage, setCurrentPage }) => {
             </div>
           </div>
 
-          {/* Right Column */}
           <div
             className={`grid grid-cols-2 gap-4 transition-all duration-1000 ${
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
@@ -91,7 +86,6 @@ const HomePage: React.FC<HomePageProps> = ({ currentPage, setCurrentPage }) => {
         </div>
       </div>
 
-      {/* Tailwind-compatible keyframes for glow */}
       <style jsx global>{`
         @keyframes glow {
           0%, 100% { opacity: 0.8; }

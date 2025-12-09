@@ -16,17 +16,9 @@ const BikeServices = () => {
 
   return (
     <div className="mx-auto px-6 py-12">
-      {/* Hero Section */}
-      <div
-        className={`text-center mb-16 transition-opacity duration-1000 ${
-          isVisible ? "opacity-100" : "opacity-0"
-        }`}
-      >
-        <h1 className="text-5xl font-bold mb-4 tracking-tight">BIKE SERVICES</h1>
-        <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Professional custom builds, premium components, and expert consultations
-          to optimize your cycling experience
-        </p>
+      <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
+        <h1 className="text-[6rem] md:text-5xl font-bold text-gray-900 tracking-[-0.02em]">BIKE SERVICES</h1>
+        <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
       {/* Custom Bike Builds */}

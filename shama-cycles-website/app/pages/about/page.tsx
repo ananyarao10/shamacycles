@@ -12,7 +12,7 @@ const reviews = [
 ];
 
 const openMoreReviews = () => {
-  window.open('https://www.google.com/search?q=shama+cycles', '_blank');
+  window.open('https://www.google.com/search?q=shama+cycles#lrd=0x8640c6c0b5b27d1f:0x984c9e7d965e1658,1,,,,', '_blank');
 }
 
 const About = () => {

@@ -70,9 +70,8 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Address */}
         <div className="mt-4 md:mt-2 text-gray-500 text-sm md:text-base md:ml-4">
-          5200 Richmond Rd #150, Houston, TX 77056
+          2000 Edwards St. #B150, Houston, TX 77007
         </div>
       </div>
     </footer>

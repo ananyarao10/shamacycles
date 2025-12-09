@@ -33,19 +33,16 @@ const ContactUs = () => {
 
   return (
     <div className="relative overflow-hidden px-6 py-12">
-      {/* Hero Section */}
       <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-[6rem] md:text-5xl font-bold text-gray-900 tracking-[-0.02em]">CONTACT US</h1>
         <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
-      {/* Contact Content */}
       <div className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
         <div className="grid lg:grid-cols-[400px_1fr] gap-20 mb-20">
 
-          {/* Contact Info */}
           <div className="flex flex-col gap-8">
-            <h2 className="text-3xl font-bold text-gray-900">Get in touch with us</h2>
+            <h2 className="text-3xl font-bold text-gray-900">Get in touch with us!</h2>
 
             <div className="flex flex-col gap-1">
               <h3 className="text-lg font-semibold text-gray-900">Email:</h3>
@@ -64,7 +61,7 @@ const ContactUs = () => {
             <div className="flex flex-col gap-1">
               <h3 className="text-lg font-semibold text-gray-900">Address:</h3>
               <p className="text-lg text-gray-900 leading-relaxed">
-                123 Edwards St
+                2000 Edwards St. #B150
                 <br />
                 Houston, TX 77007
               </p>
@@ -82,7 +79,7 @@ const ContactUs = () => {
                 </div>
                 <div className="flex justify-between">
                   <span>Saturday</span>
-                  <span>10:00 AM - 5:00 PM</span>
+                  <span>1:00 PM - 4:00 PM</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sunday</span>
@@ -91,7 +88,6 @@ const ContactUs = () => {
               </div>
             </div>
 
-            {/* Mailing List */}
             <div className="flex flex-col gap-2">
               <h3 className="text-lg font-semibold text-gray-900">Join our mailing list:</h3>
               <form onSubmit={handleMailingSignup} className="flex gap-2">
@@ -110,7 +106,6 @@ const ContactUs = () => {
             </div>
           </div>
 
-          {/* Contact Form */}
           <div className="bg-red-100 p-7 rounded-lg">
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
@@ -184,7 +179,6 @@ const ContactUs = () => {
           </div>
         </div>
 
-        {/* Location Section */}
         <div className="grid lg:grid-cols-2 gap-10 mt-20">
           <div className="overflow-hidden rounded-xl shadow-lg">
             <iframe
