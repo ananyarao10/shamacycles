@@ -38,12 +38,10 @@ const Navbar: React.FC = () => {
     <nav className="bg-white shadow">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <div className="shrink-0 cursor-pointer mt-1" onClick={() => handleNavigation("/")}>
             <img src="/shama_logo.png" alt="Shama Logo" className="h-12 w-auto" />
           </div>
 
-          {/* Desktop Menu */}
           <div className="hidden md:flex space-x-6 items-center mt-1">
             {navItems.map((item) => (
               <button
@@ -55,7 +53,6 @@ const Navbar: React.FC = () => {
               </button>
             ))}
 
-            {/* Services Dropdown */}
             <div
             className="relative"
             onMouseEnter={() => {
@@ -66,7 +63,6 @@ const Navbar: React.FC = () => {
                 hideTimeout = setTimeout(() => setShowServicesDropdown(false), 100);
             }}
             >
-            {/* Services Button */}
             <button className="flex items-center gap-1 px-1 pb-1 border-b-2 border-transparent hover:text-black transition">
                 Services
                 <ChevronDown
@@ -74,7 +70,6 @@ const Navbar: React.FC = () => {
                 />
             </button>
 
-            {/* Dropdown Menu */}
             {showServicesDropdown && (
                 <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 z-20">
                 {serviceItems.map((service) => (
@@ -101,7 +96,6 @@ const Navbar: React.FC = () => {
             ))}
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden flex items-center">
             <button
               className="text-gray-700 hover:text-black"
@@ -113,7 +107,6 @@ const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden bg-white shadow-lg border-t border-gray-200">
           <div className="flex flex-col space-y-1 px-4 py-4">
@@ -127,7 +120,6 @@ const Navbar: React.FC = () => {
               </button>
             ))}
 
-            {/* Mobile Services Dropdown */}
             <div className="flex flex-col">
               <button
                 className="flex items-center justify-between py-2 px-2 w-full text-gray-700 hover:text-black transition"

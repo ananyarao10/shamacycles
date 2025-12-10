@@ -195,7 +195,7 @@ const ContactUs = () => {
 
           <div className="flex flex-col gap-4">
             <img
-              src="shama_storefront.jpg"
+              src="/front_of_store.webp"
               alt="Shama Cycles Storefront on Edwards St"
               className="w-full h-96 object-cover rounded-xl shadow-lg"
             />

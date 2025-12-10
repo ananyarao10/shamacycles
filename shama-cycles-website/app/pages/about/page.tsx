@@ -24,64 +24,58 @@ const About = () => {
 
   return (
     <div className="relative overflow-hidden px-6 py-12">
-      {/* Hero Section */}
       <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-[6rem] md:text-5xl font-bold text-gray-900 tracking-[-0.02em]">ABOUT</h1>
         <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
-      {/* Vision Section */}
       <section className="flex flex-col md:flex-row gap-6 md:gap-6 justify-between mb-12 max-w-380 mx-auto p-6 md:p-10 rounded-xl shadow-[0_10px_40px_rgba(220,38,38,0.15)] bg-cover bg-center" style={{ backgroundImage: "url('/bike_abt.webp')" }}>
-        {/* Philosophy */}
         <div className="flex-1 flex flex-col gap-4">
-          <h3 className="text-red-600 font-bold text-2xl relative pb-2">Our Philosophy
-            <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-red-600 rounded"></span>
+          <h3 className="text-red-600 font-bold text-3xl relative pb-2">Our Philosophy
+            <span className="absolute bottom-0 left-0 w-15 h-[3px] bg-red-600 rounded"></span>
           </h3>
           <div className="flex flex-col gap-3">
             <div className="bg-white rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">
               <div className="font-bold mb-2">A Personalized Approach</div>
-              <div className="text-gray-700 text-sm">We understand that every rider has a distinct style, taste, and set of goals. Whether you're racing, commuting, or exploring gravel roads, we take the time to understand what matters most to you.</div>
+              <div className="text-gray-700 text-base">We understand that every rider has a distinct style, taste, and set of goals. Whether you're racing, commuting, or exploring gravel roads, we take the time to understand what matters most to you.</div>
             </div>
             <div className="bg-white rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">
               <div className="font-bold mb-2">Focused, Not Rushed</div>
-              <div className="text-gray-700 text-sm">Every build and service we do is intentional. We believe that bike building and detailing should always be focused, never rushed — so that every ride feels right.</div>
+              <div className="text-gray-700 text-base">Every build and service we do is intentional. We believe that bike building and detailing should be focused and never rushed, so every ride feels right.</div>
             </div>
           </div>
         </div>
 
-        {/* Mission */}
         <div className="flex-1 flex flex-col items-center justify-center text-center bg-linear-to-br from-red-600 to-red-800 rounded-xl p-10">
-          <h3 className="text-white font-bold text-2xl relative pb-2">Our Mission
-            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-10 h-[3px] bg-white rounded"></span>
+          <h3 className="text-white font-bold text-3xl relative pb-2">Our Mission
+            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-15 h-[3px] bg-white rounded"></span>
           </h3>
-          <div className="bg-white bg-opacity-95 rounded-xl p-8 text-gray-900 text-sm shadow-md mt-4">
-            Our mission is to build custom road, gravel, triathlon, and track bikes that feel good to ride, perform well, and look great — all at the same time.
+          <div className="bg-white bg-opacity-95 rounded-xl p-8 text-gray-900 text-base shadow-md mt-4">
+            Our mission is to build custom road, gravel, triathlon, and track bikes that feel good to ride, perform well, and look great all at the same time.
           </div>
         </div>
 
-        {/* Process */}
         <div className="flex-1 flex flex-col gap-4">
-          <h3 className="text-red-600 font-bold text-2xl relative pb-2">Our Process
-            <span className="absolute bottom-0 left-0 w-10 h-[3px] bg-red-600 rounded"></span>
+          <h3 className="text-red-600 font-bold text-3xl relative pb-2">Our Process
+            <span className="absolute bottom-0 left-0 w-15 h-[3px] bg-red-600 rounded"></span>
           </h3>
           <div className="flex flex-col gap-3">
             <div className="bg-white rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">
               <div className="font-bold mb-2">Listen & Understand</div>
-              <div className="text-gray-700 text-sm">We start with your riding goals, preferences, and budget.</div>
+              <div className="text-gray-700 text-base">We start with your goals, preferences, and budget.</div>
             </div>
             <div className="bg-white rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">
               <div className="font-bold mb-2">Design & Build</div>
-              <div className="text-gray-700 text-sm">We source and assemble components to create a bike that matches your exact fit and riding style.</div>
+              <div className="text-gray-700 text-base">We source and assemble components to create a bike that matches your exact fit and riding style.</div>
             </div>
             <div className="bg-white rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">
               <div className="font-bold mb-2">Refine & Fit</div>
-              <div className="text-gray-700 text-sm">Every build includes a fitting so your ride feels perfect.</div>
+              <div className="text-gray-700 text-base">Every build includes a fitting so your ride feels perfect.</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Meet Philip */}
       <section className="flex flex-col md:flex-row gap-12 items-start justify-center mb-12 max-w-360 mx-auto">
         <div className="grid grid-cols-2 gap-4">
           {[1,2,3,4].map(i => (
@@ -90,7 +84,7 @@ const About = () => {
         </div>
         <div className="max-w-xl space-y-4 mt-10">
           <h1 className="text-3xl font-bold relative inline-block">Meet Philip Shama
-            <span className="absolute bottom-[-4] left-0 w-20 h-1 bg-red-600 rounded"></span>
+            <span className="absolute bottom-[-6] left-0 w-20 h-1 bg-red-600 rounded"></span>
           </h1>
           <p>Philip Shama loves many things. He enjoys fresh brewed coffee in the morning, watching Le Tour (well, actually all tours), and spending time with his family. But he's also one of those people lucky enough to say he really loves his job.</p>
           <p>His passion for fine detail and commitment to quality craftsmanship can be seen in every bike that leaves the shop. Philip believes the riding experience doesn’t stop when a client picks up their bike — he follows up to make sure each ride feels just right.</p>
@@ -98,10 +92,9 @@ const About = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
       <section className="mb-12">
         <h2 className="text-3xl font-bold text-center mb-8 relative inline-block w-full">What our customers are saying
-          <span className="absolute bottom-[-4] left-1/2 transform -translate-x-1/2 w-25 h-1 bg-red-600 rounded"></span>
+          <span className="absolute bottom-[-7] left-1/2 transform -translate-x-1/2 w-35 h-1 bg-red-600 rounded"></span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((r, idx) => (
