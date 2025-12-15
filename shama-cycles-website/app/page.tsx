@@ -4,11 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 
-interface HomePageProps {
-  currentPage: string;
-}
-
-const HomePage: React.FC<HomePageProps> = ({ currentPage }) => {
+const HomePage: React.FC = () => {
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
 
@@ -43,9 +39,7 @@ const HomePage: React.FC<HomePageProps> = ({ currentPage }) => {
 
               <button
                 onClick={() => router.push("/pages/bikeFittings")}
-                className={`inline-flex items-center gap-3 px-5 py-3 bg-red-600 text-white font-semibold text-[1.2rem] rounded-lg transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)] relative overflow-hidden mt-1 ${
-                  currentPage === 'Bike Fittings' ? 'ring-2 ring-red-800' : ''
-                }`}
+                className="inline-flex items-center gap-3 px-5 py-3 bg-red-600 text-white font-semibold text-[1.2rem] rounded-lg transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)] relative overflow-hidden mt-1"
               >
                 <span className="transition-transform duration-300 transform group-hover:translate-x-1">→</span>
                 <span>Schedule a bike fit</span>
@@ -54,10 +48,10 @@ const HomePage: React.FC<HomePageProps> = ({ currentPage }) => {
 
             <div className="grid grid-cols-2 gap-4 mt-2">
               <div className="relative w-full h-48">
-                <Image className="rounded-md object-cover" src="/shama_home_1.webp" alt="" fill />
+                <Image className="rounded-md object-cover" src="/shama_home_1.webp" alt="Shama Cycles" fill />
               </div>
               <div className="relative w-full h-48">
-                <Image className="rounded-md object-cover" src="/shama_home_6.webp" alt="" fill />
+                <Image className="rounded-md object-cover" src="/shama_home_6.webp" alt="Shama Cycles" fill />
               </div>
             </div>
 
@@ -83,16 +77,16 @@ const HomePage: React.FC<HomePageProps> = ({ currentPage }) => {
             }`}
           >
             <div className="relative w-full h-48">
-              <Image className="rounded-md object-cover" src="/shama_home_2.webp" alt="" fill />
+              <Image className="rounded-md object-cover" src="/shama_home_2.webp" alt="Shama Cycles" fill />
             </div>
             <div className="relative w-full h-48">
-              <Image className="rounded-md object-cover" src="/shama_home_3.webp" alt="" fill />
+              <Image className="rounded-md object-cover" src="/shama_home_3.webp" alt="Shama Cycles" fill />
             </div>
             <div className="relative w-full h-48">
-              <Image className="rounded-md object-cover" src="/shama_home_4.webp" alt="" fill />
+              <Image className="rounded-md object-cover" src="/shama_home_4.webp" alt="Shama Cycles" fill />
             </div>
             <div className="relative w-full h-48">
-              <Image className="rounded-md object-cover" src="/shama_home_5.webp" alt="" fill />
+              <Image className="rounded-md object-cover" src="/shama_home_5.webp" alt="Shama Cycles" fill />
             </div>
           </div>
         </div>
