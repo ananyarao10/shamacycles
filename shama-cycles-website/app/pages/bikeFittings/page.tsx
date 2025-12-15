@@ -1,14 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, Check, Calendar, X } from 'lucide-react';
+import { Check } from 'lucide-react';
 import CalendlyWidget from '../../components/CalendlyWidget';
 
 const BikeFittings = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    setTimeout(() => setIsVisible(true), 0);
   }, []);
 
   return (
@@ -25,9 +25,9 @@ const BikeFittings = () => {
               <h3 className="text-xl font-bold">Why a Custom Fit Matters</h3>
             </div>
             <div className="bg-gray-50 p-6 space-y-4 text-base">
-              <p>A custom bike fit is essential for every cyclist's comfort, performance, and overall riding experience.</p>
-              <p>Whether you've just purchased a new bike or have been riding the same one for years, proper fit ensures optimal efficiency and prevents injury.</p>
-              <p>Since every cyclist has unique body mechanics and movement patterns, there's no one-size-fits-all position.</p>
+              <p>A custom bike fit is essential for every cyclist&apos;s comfort, performance, and overall riding experience.</p>
+              <p>Whether you&apos;ve just purchased a new bike or have been riding the same one for years, proper fit ensures optimal efficiency and prevents injury.</p>
+              <p>Since every cyclist has unique body mechanics and movement patterns, there&apos;s no one-size-fits-all position.</p>
             </div>
           </div>
 
@@ -36,7 +36,7 @@ const BikeFittings = () => {
               <h3 className="text-xl font-bold">The Shama Cycles Approach</h3>
             </div>
             <div className="bg-gray-50 p-6 space-y-4 text-base">
-              <p>Philip Shama draws on over 14 years of experience and training under John Cobb (Texas A&M Wind Tunnel), Dr. Andy Pruitt, Retul Fit Programs, and Dan Empfield's FIST fitting.</p>
+              <p>Philip Shama draws on over 14 years of experience and training under John Cobb (Texas A&M Wind Tunnel), Dr. Andy Pruitt, Retul Fit Programs, and Dan Empfield&apos;s FIST fitting.</p>
               <p>Philip works closely with every client, following up after rides to fine-tune comfort and performance until the fit is just right.</p>
               <p>Being the largest Guru dealer in the world gives us an advantage in custom bike fitting and frame design.</p>
             </div>
@@ -104,7 +104,7 @@ const BikeFittings = () => {
         </div>
 
         <div className="bg-blue-50 border-l-4 border-blue-600 p-6 mb-15 rounded">
-          <p className="text-gray-800"><strong>Follow-up Fits:</strong> We don't believe fits are always a one-visit fix. Big changes may require multiple visits, and new equipment needs adaptation time. That's why we don't charge for follow-up fits. Your satisfaction is our priority.</p>
+          <p className="text-gray-800"><strong>Follow-up Fits:</strong> We don&apos;t believe fits are always a one-visit fix. Big changes may require multiple visits, and new equipment needs adaptation time. That&apos;s why we don&apos;t charge for follow-up fits. Your satisfaction is our priority.</p>
         </div>
 
         <div>

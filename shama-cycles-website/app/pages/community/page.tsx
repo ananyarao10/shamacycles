@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const Community = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    setTimeout(() => setIsVisible(true), 0);
   }, []);
 
   return (
@@ -19,21 +20,21 @@ const Community = () => {
       <div className="grid grid-cols-3 gap-8 mb-12">
         <div className="space-y-6">
           <div className="h-85 bg-gray-200 flex items-center justify-center">
-            <img src="/community_1.webp" alt="Community" className="w-full h-full object-cover rounded-md" />
+            <Image src="/community_1.webp" alt="Community" className="w-full h-full object-cover rounded-md" fill />
           </div>
           <p className="text-base text-gray-700">blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
         </div>
 
         <div className="space-y-6">
           <div className="h-95 bg-gray-200 flex items-center justify-center">
-            <img src="/community_2.webp" alt="Community Event" className="w-full h-full object-cover rounded-md" />
+            <Image src="/community_2.webp" alt="Community Event" className="w-full h-full object-cover rounded-md" fill />
           </div>
           <p className="text-base text-gray-700">blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
         </div>
 
         <div className="space-y-6">
           <div className="h-85 bg-gray-200 flex items-center justify-center">
-            <img src="/community_4.webp" alt="Community" className="w-full h-full object-cover rounded-md" />
+            <Image src="/community_4.webp" alt="Community" className="w-full h-full object-cover rounded-md" fill />
           </div>
           <p className="text-base text-gray-700">blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
         </div>

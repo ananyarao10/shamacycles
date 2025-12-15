@@ -3,15 +3,13 @@
 import React, { useState, useEffect } from "react";
 
 type CardType = "frames" | "wheels" | "groups" | null;
-type PackageType = "essential" | "performance" | "elite" | null;
 
 const BikeServices = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCard, setActiveCard] = useState<CardType>(null);
-  const [activePackage, setActivePackage] = useState<PackageType>(null);
 
   useEffect(() => {
-    setIsVisible(true);
+    setTimeout(() => setIsVisible(true), 0);
   }, []);
 
   return (
@@ -42,7 +40,7 @@ const BikeServices = () => {
             <div className="p-5">
               <h3 className="text-xl font-semibold mb-2">Frame Selection</h3>
               <p className="text-gray-600 text-sm mb-3">
-                Premium carbon and titanium frames from the world's leading
+                Premium carbon and titanium frames from the world&apos;s leading
                 manufacturers
               </p>
               <ul className="text-sm text-gray-700 space-y-1">

@@ -2,13 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 const OurRaceTeam = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    setIsVisible(true);
+    setTimeout(() => setIsVisible(true), 0);
   }, []);
 
   const mensTeam = [
@@ -51,10 +52,11 @@ const OurRaceTeam = () => {
 
       <div className={`mb-12 transition-opacity duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
         <div className="relative w-full md:w-1/2 mx-auto aspect-16/10 rounded-xl overflow-hidden shadow-2xl">
-          <img
+          <Image
             src={teamImages[currentImageIndex]}
             alt={`Team ${currentImageIndex + 1}`}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
           />
 
           <button
@@ -85,7 +87,7 @@ const OurRaceTeam = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
         <div className="bg-white p-8 rounded-xl shadow">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Men's Team</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Men&apos;s Team</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6">
             {mensTeam.map((member, idx) => (
               <div key={idx} className="text-gray-700 py-2 border-b border-gray-200 hover:text-red-600 hover:pl-2 transition-all">
@@ -96,7 +98,7 @@ const OurRaceTeam = () => {
         </div>
 
         <div className="bg-white p-8 rounded-xl shadow">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Women's Team</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Women&apos;s Team</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6">
             {womensTeam.map((member, idx) => (
               <div key={idx} className="text-gray-700 py-2 border-b border-gray-200 hover:text-red-600 hover:pl-2 transition-all">
@@ -118,7 +120,7 @@ const OurRaceTeam = () => {
               rel="noopener noreferrer"
               className="flex flex-col items-center gap-4 p-6 bg-white rounded-xl shadow transition-transform hover:-translate-y-2 hover:shadow-2xl"
             >
-              <img src={sponsor.logo} alt={sponsor.name} className="w-full h-full object-contain p-4" />
+              <Image src={sponsor.logo} alt={sponsor.name} width={100} height={100} className="w-full h-full object-contain p-4" />
               <p className="text-gray-900 font-semibold text-center">{sponsor.name}</p>
             </a>
           ))}

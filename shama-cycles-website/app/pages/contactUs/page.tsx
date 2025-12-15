@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const ContactUs = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,7 +15,7 @@ const ContactUs = () => {
   const [mailingEmail, setMailingEmail] = useState("");
 
   useEffect(() => {
-    setIsVisible(true);
+    setTimeout(() => setIsVisible(true), 0);
   }, []);
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -194,9 +195,11 @@ const ContactUs = () => {
           </div>
 
           <div className="flex flex-col gap-4">
-            <img
+            <Image
               src="/front_of_store.webp"
               alt="Shama Cycles Storefront on Edwards St"
+              width={400}
+              height={384}
               className="w-full h-96 object-cover rounded-xl shadow-lg"
             />
             <p className="text-center text-gray-600 font-medium">

@@ -2,18 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 
 interface HomePageProps {
   currentPage: string;
-  setCurrentPage: (page: string) => void;
 }
 
-const HomePage: React.FC<HomePageProps> = ({ currentPage, setCurrentPage }) => {
+const HomePage: React.FC<HomePageProps> = ({ currentPage }) => {
   const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    setTimeout(() => setIsVisible(true), 0);
   }, []);
 
   return (
@@ -53,8 +53,12 @@ const HomePage: React.FC<HomePageProps> = ({ currentPage, setCurrentPage }) => {
             </div>
 
             <div className="grid grid-cols-2 gap-4 mt-2">
-              <img className="rounded-md w-full h-full object-cover" src="/shama_home_1.webp" alt="" />
-              <img className="rounded-md w-full h-full object-cover" src="/shama_home_6.webp" alt="" />
+              <div className="relative w-full h-48">
+                <Image className="rounded-md object-cover" src="/shama_home_1.webp" alt="" fill />
+              </div>
+              <div className="relative w-full h-48">
+                <Image className="rounded-md object-cover" src="/shama_home_6.webp" alt="" fill />
+              </div>
             </div>
 
             <div className="flex justify-around items-center gap-6 mt-4 flex-wrap md:flex-nowrap">
@@ -78,10 +82,18 @@ const HomePage: React.FC<HomePageProps> = ({ currentPage, setCurrentPage }) => {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
             }`}
           >
-            <img className="rounded-md w-full h-full object-cover" src="/shama_home_2.webp" alt="" />
-            <img className="rounded-md w-full h-full object-cover" src="/shama_home_3.webp" alt="" />
-            <img className="rounded-md w-full h-full object-cover" src="/shama_home_4.webp" alt="" />
-            <img className="rounded-md w-full h-full object-cover" src="/shama_home_5.webp" alt="" />
+            <div className="relative w-full h-48">
+              <Image className="rounded-md object-cover" src="/shama_home_2.webp" alt="" fill />
+            </div>
+            <div className="relative w-full h-48">
+              <Image className="rounded-md object-cover" src="/shama_home_3.webp" alt="" fill />
+            </div>
+            <div className="relative w-full h-48">
+              <Image className="rounded-md object-cover" src="/shama_home_4.webp" alt="" fill />
+            </div>
+            <div className="relative w-full h-48">
+              <Image className="rounded-md object-cover" src="/shama_home_5.webp" alt="" fill />
+            </div>
           </div>
         </div>
       </div>

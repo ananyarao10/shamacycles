@@ -1,14 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const reviews = [
   { name: "Eric B", avatarLetter: "E", rating: 5, text: `Stopped in before a trip and needed a bike box — they gave me one right away, no fuss, no charge. Super helpful and kind. On top of that, the shop itself is great: excellent layout, quality gear, and a team that clearly cares. Wish more places were like this.`},
   { name: "Haley R", avatarLetter: "H", rating: 5, text: "Came in for a new bike fitting and left with much more - great advice and helpful tips. Very knowledgeable and passionate about helping (newer) cyclists like me." },
-  { name: "María B", avatarLetter: "M", rating: 5, text: "Philip fit me on my Cervelho P3x last year for my Ironman. His professionalism and understanding of the bike fit is amazing! He's made me more aerodynamic, while keeping me comfortable for long distance racing. He's the only mechanic that takes care of my bike." },
-  { name: "Tristan Q", avatarLetter: "T", rating: 5, text: "They specialize in race/specialty bikes. However, they really came to my rescue by making a custom crankset. For my bike now it’s as good as new. I definitely recommend if your bike is ever need of repair. Check them out! Mark was a big help!" },
+  { name: "María B", avatarLetter: "M", rating: 5, text: "Philip fit me on my Cervelho P3x last year for my Ironman. His professionalism and understanding of the bike fit is amazing! He&apos;s made me more aerodynamic, while keeping me comfortable for long distance racing. He&apos;s the only mechanic that takes care of my bike." },
+  { name: "Tristan Q", avatarLetter: "T", rating: 5, text: "They specialize in race/specialty bikes. However, they really came to my rescue by making a custom crankset. For my bike now it&apos;s as good as new. I definitely recommend if your bike is ever need of repair. Check them out! Mark was a big help!" },
   { name: "Marcelo R", avatarLetter: "M", rating: 5, text: "Great experience. Both Mark and Phillip are extremely knowledgeable. They helped me set up my bike. These guys are pro, the bikes they maintain are all professional level bikes. Great shop, highly recommend." },
-  { name: "Ryan W", avatarLetter: "R", rating: 5, text: "Amazing team and unrivaled shop! Philip, Mark and team do it all — new builds, repairs, fitting sessions and much more. I've done two bike fits, service and several component upgrades based on advice and guidance from the team here." },
+  { name: "Ryan W", avatarLetter: "R", rating: 5, text: "Amazing team and unrivaled shop! Philip, Mark and team do it all — new builds, repairs, fitting sessions and much more. I&apos;ve done two bike fits, service and several component upgrades based on advice and guidance from the team here." },
 ];
 
 const openMoreReviews = () => {
@@ -19,7 +20,7 @@ const About = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    setIsVisible(true);
+    setTimeout(() => setIsVisible(true), 0);
   }, []);
 
   return (
@@ -37,7 +38,7 @@ const About = () => {
           <div className="flex flex-col gap-3">
             <div className="bg-white rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">
               <div className="font-bold mb-2">A Personalized Approach</div>
-              <div className="text-gray-700 text-base">We understand that every rider has a distinct style, taste, and set of goals. Whether you're racing, commuting, or exploring gravel roads, we take the time to understand what matters most to you.</div>
+              <div className="text-gray-700 text-base">We understand that every rider has a distinct style, taste, and set of goals. Whether you&apos;re racing, commuting, or exploring gravel roads, we take the time to understand what matters most to you.</div>
             </div>
             <div className="bg-white rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">
               <div className="font-bold mb-2">Focused, Not Rushed</div>
@@ -79,16 +80,18 @@ const About = () => {
       <section className="flex flex-col md:flex-row gap-12 items-start justify-center mb-12 max-w-360 mx-auto">
         <div className="grid grid-cols-2 gap-4">
           {[1,2,3,4].map(i => (
-            <img key={i} src={`/philip_${i}.webp`} alt="" className="rounded-xl w-76 h-52 object-cover shadow-lg transform transition-all hover:scale-105"/>
+            <div key={i} className="relative w-76 h-52">
+              <Image src={`/philip_${i}.webp`} alt="" className="rounded-xl object-cover shadow-lg transform transition-all hover:scale-105" fill />
+            </div>
           ))}
         </div>
         <div className="max-w-xl space-y-4 mt-10">
           <h1 className="text-3xl font-bold relative inline-block">Meet Philip Shama
             <span className="absolute bottom-[-6] left-0 w-20 h-1 bg-red-600 rounded"></span>
           </h1>
-          <p>Philip Shama loves many things. He enjoys fresh brewed coffee in the morning, watching Le Tour (well, actually all tours), and spending time with his family. But he's also one of those people lucky enough to say he really loves his job.</p>
+          <p>Philip Shama loves many things. He enjoys fresh brewed coffee in the morning, watching Le Tour (well, actually all tours), and spending time with his family. But he&apos;s also one of those people lucky enough to say he really loves his job.</p>
           <p>His passion for fine detail and commitment to quality craftsmanship can be seen in every bike that leaves the shop. Philip believes the riding experience doesn’t stop when a client picks up their bike — he follows up to make sure each ride feels just right.</p>
-          <p>When he's not at the shop, you can find Philip riding his bike around Houston or racing throughout the season.</p>
+          <p>When he&apos;s not at the shop, you can find Philip riding his bike around Houston or racing throughout the season.</p>
         </div>
       </section>
 

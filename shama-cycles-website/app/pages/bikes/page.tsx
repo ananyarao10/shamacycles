@@ -1,18 +1,24 @@
 "use client";
 
-import { useState, useEffect, Key } from "react";
+import { useState, useEffect } from "react";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
+
+interface Brand {
+  name: string;
+  logo: string;
+  uniqueness: string;
+  bestFor: string;
+  gallery: string[];
+}
 
 const Bikes = () => {
-  const router = useRouter();
-
   const [isVisible, setIsVisible] = useState(false);
-  const [selectedBrand, setSelectedBrand] = useState<any>(null);
+  const [selectedBrand, setSelectedBrand] = useState<Brand | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
 
   useEffect(() => {
-    setIsVisible(true);
+    setTimeout(() => setIsVisible(true), 0);
   }, []);
 
   const brands = [
@@ -112,11 +118,6 @@ const Bikes = () => {
     }
   };
 
-  const navigateToBrandPage = (brandName: string) => {
-    const slug = brandName.toLowerCase().replace(/\s+/g, '-');
-    router.push(`/brands/${slug}`);
-  };
-
   return (
     <div className="relative overflow-hidden px-6 py-12">
       {/* Hero Section */}
@@ -134,7 +135,7 @@ const Bikes = () => {
                 onClick={() => setSelectedBrand(brand)} // <-- Open dialog
                 >
                 <div className="w-full h-28 flex items-center justify-center overflow-hidden">
-                    <img src={brand.logo} alt={brand.name} className="max-w-full max-h-full rounded-md" />
+                    <Image src={brand.logo} alt={brand.name} className="max-w-full max-h-full rounded-md" fill />
                 </div>
                 <h3 className="text-lg font-semibold text-center text-gray-900">{brand.name}</h3>
                 </div>
@@ -147,7 +148,7 @@ const Bikes = () => {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {builds.map((build) => (
             <div key={build.id} className="relative aspect-4/3 overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-transform hover:scale-105">
-              <img src={build.image} alt={`Build ${build.id}`} className="w-full h-full object-cover" />
+              <Image src={build.image} alt={`Build ${build.id}`} className="object-cover" fill />
             </div>
           ))}
         </div>
@@ -184,14 +185,14 @@ const Bikes = () => {
                       <ChevronLeft size={32} />
                     </button>
 
-                    <img src={selectedBrand.gallery[selectedImage]} alt={`${selectedBrand.name} ${selectedImage + 1}`} className="w-full h-full object-cover" />
+                    <Image src={selectedBrand.gallery[selectedImage]} alt={`${selectedBrand.name} ${selectedImage + 1}`} className="object-cover" fill />
 
                     <button className="absolute right-2 top-1/2 -translate-y-1/2 bg-white w-12 h-12 rounded-full flex items-center justify-center shadow hover:scale-110 transition" onClick={nextImage}>
                       <ChevronRight size={32} />
                     </button>
                   </div>
                   <div className="flex justify-center gap-2">
-                    {selectedBrand.gallery.map((_: any, idx: Key | null | undefined) => (
+                    {selectedBrand.gallery.map((image: string, idx: number) => (
                       <span key={idx} className={`w-3 h-3 rounded-full ${selectedImage === idx ? 'bg-red-600 w-3.5 h-3.5' : 'bg-gray-300'}`}></span>
                     ))}
                   </div>

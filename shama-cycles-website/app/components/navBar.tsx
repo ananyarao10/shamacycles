@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
 
@@ -39,7 +40,7 @@ const Navbar: React.FC = () => {
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="shrink-0 cursor-pointer mt-1" onClick={() => handleNavigation("/")}>
-            <img src="/shama_logo.png" alt="Shama Logo" className="h-12 w-auto" />
+            <Image src="/shama_logo.png" alt="Shama Logo" width={48} height={48} className="h-12 w-auto" />
           </div>
 
           <div className="hidden md:flex space-x-6 items-center mt-1">

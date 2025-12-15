@@ -2,10 +2,16 @@
 
 import { useEffect } from 'react';
 
+declare global {
+  interface Window {
+    Calendly?: unknown;
+  }
+}
+
 const CalendlyWidget = () => {
   useEffect(() => {
     // Load Calendly script only on client side
-    if (!(window as any).Calendly) {
+    if (!window.Calendly) {
       const script = document.createElement('script');
       script.src = 'https://assets.calendly.com/assets/external/widget.js';
       script.async = true;

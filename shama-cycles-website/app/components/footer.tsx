@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { Facebook, Instagram } from "lucide-react";
 import { useRouter } from "next/navigation";
 
@@ -28,7 +29,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
           {/* Logo Section */}
           <div className="flex items-center gap-4 md:gap-2 cursor-pointer" onClick={() => handleNavigation("/")}>
-            <img src="/shama_logo.png" alt="Shama Cycles Logo" className="h-12 w-12" />
+            <Image src="/shama_logo.png" alt="Shama Cycles Logo" width={48} height={48} className="h-12 w-12" />
             <p className="text-gray-500 text-sm">&copy; 2025</p>
           </div>
 
