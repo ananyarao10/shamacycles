@@ -14,7 +14,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="relative min-h-[91vh] bg-white overflow-hidden">
-      <div className="relative overflow-hidden px-6 py-12">
+      <div className="relative overflow-hidden px-6 py-8">
       <div className={`text-center mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-[7rem] md:text-7xl font-bold text-gray-900 tracking-[-0.02em]">SHAMA CYCLES</h1>
         <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
@@ -27,26 +27,26 @@ const HomePage: React.FC = () => {
             }`}
           >
             <div>
-              <p className="text-[1.8rem] font-light text-gray-800 mt-3 mb-3">
-                A home away from home for bike lovers.
+              <p className="text-[1.6rem] font-light text-gray-800 mt-3 mb-2">
+                A home away from home for bike lovers
               </p>
-              <p className="text-[1.8rem] font-light text-gray-800 mb-3">
-                Personalized sales, bike fitting, and service.
+              <p className="text-[1.6rem] font-light text-gray-800 mb-2">
+                Personalized sales, bike fitting, and service
               </p>
-              <p className="text-[1.2rem] text-gray-600 leading-6 mb-3">
-                Making every new bike sale, upgrade and service specific for the customer and their needs.
+              <p className="text-[1rem] text-gray-600 leading-6 mb-2">
+                Making every bike sale, upgrade and service specific for the customer and their needs
               </p>
 
               <button
                 onClick={() => router.push("/bikeFittings")}
-                className="inline-flex items-center gap-3 px-5 py-3 bg-red-600 text-white font-semibold text-[1.2rem] rounded-lg transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)] relative overflow-hidden mt-1"
+                className="inline-flex items-center gap-3 px-4 py-2 bg-red-600 text-white font-semibold text-[1rem] rounded-lg transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)] relative overflow-hidden mt-1"
               >
                 <span className="transition-transform duration-300 transform group-hover:translate-x-1">→</span>
                 <span>Schedule a bike fit</span>
               </button>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 mt-2">
+            <div className="grid grid-cols-2 gap-4">
               <div className="relative w-full h-48">
                 <Image className="rounded-md object-cover" src="/shama_home_1.webp" alt="Shama Cycles" fill />
               </div>
@@ -55,18 +55,18 @@ const HomePage: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex justify-around items-center gap-6 mt-4 flex-wrap md:flex-nowrap">
+            <div className="flex justify-around items-center gap-6 flex-wrap md:flex-nowrap">
               <div className="flex flex-col items-center gap-2 text-center">
-                <div className="text-[3rem] font-bold text-red-600 leading-none">15+</div>
-                <div className="text-[1.4rem] font-medium uppercase tracking-wider text-black">Years Experience</div>
+                <div className="text-[2.6rem] font-bold text-red-600 leading-none">15+</div>
+                <div className="text-[1.1rem] font-medium uppercase tracking-wider text-black">Years Experience</div>
               </div>
               <div className="flex flex-col items-center gap-2 text-center">
-                <div className="text-[3rem] font-bold text-red-600 leading-none">1000+</div>
-                <div className="text-[1.4rem] font-medium uppercase tracking-wider text-black">Bikes Fitted</div>
+                <div className="text-[2.6rem] font-bold text-red-600 leading-none">1000+</div>
+                <div className="text-[1.1rem] font-medium uppercase tracking-wider text-black">Bikes Fitted</div>
               </div>
               <div className="flex flex-col items-center gap-2 text-center">
-                <div className="text-[3rem] font-bold text-red-600 leading-none">500+</div>
-                <div className="text-[1.4rem] font-medium uppercase tracking-wider text-black">Happy Customers</div>
+                <div className="text-[2.6rem] font-bold text-red-600 leading-none">500+</div>
+                <div className="text-[1.1rem] font-medium uppercase tracking-wider text-black">Happy Customers</div>
               </div>
             </div>
           </div>
@@ -76,16 +76,16 @@ const HomePage: React.FC = () => {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
             }`}
           >
-            <div className="relative w-full h-75">
+            <div className="relative w-full h-60">
               <Image className="rounded-md object-cover" src="/shama_home_2.webp" alt="Shama Cycles" fill />
             </div>
-            <div className="relative w-full h-75">
+            <div className="relative w-full h-60">
               <Image className="rounded-md object-cover" src="/shama_home_3.webp" alt="Shama Cycles" fill />
             </div>
-            <div className="relative w-full h-75">
+            <div className="relative w-full h-60">
               <Image className="rounded-md object-cover" src="/shama_home_4.webp" alt="Shama Cycles" fill />
             </div>
-            <div className="relative w-full h-75">
+            <div className="relative w-full h-60">
               <Image className="rounded-md object-cover" src="/shama_home_5.webp" alt="Shama Cycles" fill />
             </div>
           </div>

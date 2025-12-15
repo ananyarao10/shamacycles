@@ -13,15 +13,50 @@ const OurRaceTeam = () => {
   }, []);
 
   const mensTeam = [
-    'John Smith', 'Mike Chen', 'David Anderson', 'Chris Martinez',
-    'Ryan Thompson', 'Alex Johnson', 'Kevin Brown', 'Daniel Lee',
-    'Marcus Wilson', 'Tyler Davis', 'Jordan Taylor', 'Brandon Moore'
+    'Peter Aubin',
+    'John Donovan',
+    'Erique Williams',
+    'John Yoder',
+    'Philip Shama',
+    'Andrew Yoder',
+    'Taylor Pruet',
+    'Said Assali',
+    'Leonard Gremillion',
+    'Fabian Narvaez',
+    'Vernon McDonald',
+    'Henk Noordermeer',
+    'Reed Olmsteed',
+    'Steve Quick',
+    'Jeff Grant',
+    'Lance Looper',
+    'Jose Baker',
+    'Hendra Wibowo',
+    'Nathan Lesniewski',
+    'Paul VonBurg',
+    'Ahmed King',
+    'Shlomy Goffri',
+    'Grant Najera',
+    'Jason Van Loo',
+    'Stuart Page',
+    'Philip Davis',
+    'Enoc Garza',
+    'Luke Rucker',
+    'Pat Simpson'
   ];
 
   const womensTeam = [
-    'Jennifer Wagner', 'Landi Orza', 'Kelley Devine', 'Tracy Jones Martin',
-    'Michelle Yoder', 'Skevi Yoder', 'Ash Lesniewski', 'Audrey Maness',
-    'Sarah Johnson', 'Emily Rodriguez', 'Amanda Garcia', 'Jessica White'
+    'Jennifer Wagner',
+    'Landi Orza',
+    'Kelley Devine',
+    'Tracy Jones Martin',
+    'Michelle Yoder',
+    'Skevi Yoder',
+    'Ash Lesniewski',
+    'Audrey Maness',
+    'Peggy Yetman',
+    'Isabel Lachner',
+    'Kate Looney',
+    'Karen Satriano'
   ];
 
   const sponsors = [
@@ -87,10 +122,10 @@ const OurRaceTeam = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
         <div className="bg-white p-8 rounded-xl shadow">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Men&apos;s Team</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6">
+          <h3 className="text-xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Men&apos;s Team</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-6">
             {mensTeam.map((member, idx) => (
-              <div key={idx} className="text-gray-700 py-2 border-b border-gray-200 hover:text-red-600 hover:pl-2 transition-all">
+              <div key={idx} className="text-gray-700 py-2 border-b border-gray-200 hover:text-red-600 hover:pl-2 transition-all text-[0.8rem]">
                 {member}
               </div>
             ))}
@@ -98,10 +133,10 @@ const OurRaceTeam = () => {
         </div>
 
         <div className="bg-white p-8 rounded-xl shadow">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Women&apos;s Team</h3>
+          <h3 className="text-xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Women&apos;s Team</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6">
             {womensTeam.map((member, idx) => (
-              <div key={idx} className="text-gray-700 py-2 border-b border-gray-200 hover:text-red-600 hover:pl-2 transition-all">
+              <div key={idx} className="text-gray-700 py-2 border-b border-gray-200 hover:text-red-600 hover:pl-2 transition-all text-[0.8rem]">
                 {member}
               </div>
             ))}
@@ -109,8 +144,8 @@ const OurRaceTeam = () => {
         </div>
       </div>
 
-      <div className="py-12 bg-linear-to-b from-transparent via-pink-100 to-transparent">
-        <h2 className="text-3xl font-bold text-center mb-12">Our Sponsors</h2>
+      <div className="py-8 bg-linear-to-b from-transparent via-pink-100 to-transparent">
+        <h2 className="text-2xl font-bold text-center mb-12">Our Sponsors</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
           {sponsors.map((sponsor, idx) => (
             <a
