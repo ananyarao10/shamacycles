@@ -76,16 +76,16 @@ const HomePage: React.FC = () => {
               isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
             }`}
           >
-            <div className="relative w-full h-48">
+            <div className="relative w-full h-75">
               <Image className="rounded-md object-cover" src="/shama_home_2.webp" alt="Shama Cycles" fill />
             </div>
-            <div className="relative w-full h-48">
+            <div className="relative w-full h-75">
               <Image className="rounded-md object-cover" src="/shama_home_3.webp" alt="Shama Cycles" fill />
             </div>
-            <div className="relative w-full h-48">
+            <div className="relative w-full h-75">
               <Image className="rounded-md object-cover" src="/shama_home_4.webp" alt="Shama Cycles" fill />
             </div>
-            <div className="relative w-full h-48">
+            <div className="relative w-full h-75">
               <Image className="rounded-md object-cover" src="/shama_home_5.webp" alt="Shama Cycles" fill />
             </div>
           </div>

@@ -19,22 +19,22 @@ const Community = () => {
 
       <div className="grid grid-cols-3 gap-8 mb-12">
         <div className="space-y-6">
-          <div className="h-85 bg-gray-200 flex items-center justify-center">
-            <Image src="/community_1.webp" alt="Community" className="w-full h-full object-cover rounded-md" fill />
+          <div className="h-85 bg-gray-200 relative">
+            <Image src="/community_1.webp" alt="Community" className="object-cover rounded-md" fill />
           </div>
           <p className="text-base text-gray-700">blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
         </div>
 
         <div className="space-y-6">
-          <div className="h-95 bg-gray-200 flex items-center justify-center">
-            <Image src="/community_2.webp" alt="Community Event" className="w-full h-full object-cover rounded-md" fill />
+          <div className="h-95 bg-gray-200 relative">
+            <Image src="/community_2.webp" alt="Community Event" className="object-cover rounded-md" fill />
           </div>
           <p className="text-base text-gray-700">blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
         </div>
 
         <div className="space-y-6">
-          <div className="h-85 bg-gray-200 flex items-center justify-center">
-            <Image src="/community_4.webp" alt="Community" className="w-full h-full object-cover rounded-md" fill />
+          <div className="h-85 bg-gray-200 relative">
+            <Image src="/community_4.webp" alt="Community" className="object-cover rounded-md" fill />
           </div>
           <p className="text-base text-gray-700">blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</p>
         </div>

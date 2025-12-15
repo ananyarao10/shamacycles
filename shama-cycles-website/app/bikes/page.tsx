@@ -126,21 +126,22 @@ const Bikes = () => {
         <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
-      {/* Brands Grid */}
-        <div className={`grid gap-6 px-6 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
+      <div className={`transition-all duration-1000 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"}`}>
+        <div className="grid gap-6 mx-auto lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2">
             {brands.map((brand, index) => (
                 <div 
                 key={index}
                 className="flex flex-col items-center gap-4 p-6 bg-white rounded-lg shadow-md cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all"
-                onClick={() => setSelectedBrand(brand)} // <-- Open dialog
+                onClick={() => setSelectedBrand(brand)} 
                 >
-                <div className="w-full h-28 flex items-center justify-center overflow-hidden">
-                    <Image src={brand.logo} alt={brand.name} className="max-w-full max-h-full rounded-md" fill />
+                <div className="w-full h-28 flex items-center justify-center overflow-hidden relative">
+                    <Image src={brand.logo} alt={brand.name} className="rounded-md" fill />
                 </div>
                 <h3 className="text-lg font-semibold text-center text-gray-900">{brand.name}</h3>
                 </div>
             ))}
         </div>
+      </div>
 
       {/* Builds Section */}
       <div className="mt-16 w-full px-6">
