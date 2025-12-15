@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Check } from 'lucide-react';
-import CalendlyWidget from '../../components/CalendlyWidget';
+import CalendlyWidget from '../components/CalendlyWidget';
 
 const BikeFittings = () => {
   const [isVisible, setIsVisible] = useState(false);
