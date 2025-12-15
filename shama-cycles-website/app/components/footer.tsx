@@ -9,14 +9,14 @@ const Footer: React.FC = () => {
   const router = useRouter();
 
   const navItems = [
-    { label: "About", path: "/pages/about" },
-    { label: "Bikes", path: "/pages/bikes" },
-    { label: "Gear", path: "/pages/gear" },
-    { label: "Bike Fittings", path: "/pages/bikeFittings" },
-    { label: "Bike Services", path: "/pages/bikeServices" },
-    { label: "Our Race Team", path: "/pages/ourRaceTeam" },
-    { label: "Community", path: "/pages/community" },
-    { label: "Contact Us", path: "/pages/contactUs" },
+    { label: "About", path: "/about" },
+    { label: "Bikes", path: "/bikes" },
+    { label: "Gear", path: "/gear" },
+    { label: "Bike Fittings", path: "/bikeFittings" },
+    { label: "Bike Services", path: "/bikeServices" },
+    { label: "Our Race Team", path: "/ourRaceTeam" },
+    { label: "Community", path: "/community" },
+    { label: "Contact Us", path: "/contactUs" },
   ];
 
   const handleNavigation = (path: string) => {

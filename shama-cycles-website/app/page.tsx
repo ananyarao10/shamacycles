@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
               </p>
 
               <button
-                onClick={() => router.push("/pages/bikeFittings")}
+                onClick={() => router.push("/bikeFittings")}
                 className="inline-flex items-center gap-3 px-5 py-3 bg-red-600 text-white font-semibold text-[1.2rem] rounded-lg transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)] relative overflow-hidden mt-1"
               >
                 <span className="transition-transform duration-300 transform group-hover:translate-x-1">→</span>
