@@ -2,23 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Check, Calendar, X } from 'lucide-react';
+import CalendlyWidget from '../../components/CalendlyWidget';
 
 const BikeFittings = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [showCalendly, setShowCalendly] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
-  useEffect(() => {
-    if (showCalendly && !(window as any).Calendly) {
-      const script = document.createElement('script');
-      script.src = 'https://assets.calendly.com/assets/external/widget.js';
-      script.async = true;
-      document.body.appendChild(script);
-    }
-  }, [showCalendly]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -118,8 +109,7 @@ const BikeFittings = () => {
 
         <div>
           <h2 className="text-4xl font-bold text-center text-black">Schedule a fitting</h2>
-          <div className="calendly-inline-widget" data-url="https://calendly.com/ar156-rice/30min?hide_event_type_details=1&hide_gdpr_banner=1" style={{ minWidth: '450px', height: '700px' }}></div>
-          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <CalendlyWidget />
         </div>
       </div>
     </div>
