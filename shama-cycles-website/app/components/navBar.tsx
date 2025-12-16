@@ -36,18 +36,18 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white shadow">
+    <nav className="bg-white shadow-sm">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <div className="shrink-0 cursor-pointer mt-1" onClick={() => handleNavigation("/")}>
+          <div className="shrink-0 cursor-pointer mt-1 hover:opacity-80 transition-opacity" onClick={() => handleNavigation("/")}>
             <Image src="/shama_logo.png" alt="Shama Logo" width={48} height={48} className="h-12 w-auto" />
           </div>
 
-          <div className="hidden md:flex space-x-6 items-center mt-1">
+          <div className="hidden md:flex space-x-1 items-center mt-1">
             {navItems.map((item) => (
               <button
                 key={item.label}
-                className="px-1 pb-1 border-b-2 border-transparent hover:text-black transition"
+                className="px-3 py-2 rounded-lg font-medium text-gray-700 hover:font-bold  transition-all duration-200 cursor-pointer"
                 onClick={() => handleNavigation(item.path)}
               >
                 {item.label}
@@ -55,41 +55,41 @@ const Navbar: React.FC = () => {
             ))}
 
             <div
-            className="relative"
-            onMouseEnter={() => {
+              className="relative"
+              onMouseEnter={() => {
                 clearTimeout(hideTimeout);
                 setShowServicesDropdown(true);
-            }}
-            onMouseLeave={() => {
+              }}
+              onMouseLeave={() => {
                 hideTimeout = setTimeout(() => setShowServicesDropdown(false), 100);
-            }}
+              }}
             >
-            <button className="flex items-center gap-1 px-1 pb-1 border-b-2 border-transparent hover:text-black transition">
+              <button className="flex items-center gap-1 px-3 py-2 rounded-lg font-medium text-gray-700 hover:font-bold transition-all duration-200 cursor-pointer">
                 Services
                 <ChevronDown
-                className={`w-4 h-4 transition-transform ${showServicesDropdown ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 transition-transform duration-200 ${showServicesDropdown ? "rotate-180" : ""}`}
                 />
-            </button>
+              </button>
 
-            {showServicesDropdown && (
-                <div className="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-1 z-20">
-                {serviceItems.map((service) => (
+              {showServicesDropdown && (
+                <div className="absolute left-0 mt-2 w-56 bg-white shadow-xl rounded-lg py-2 z-20 border border-gray-100">
+                  {serviceItems.map((service) => (
                     <button
-                    key={service.label}
-                    className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-black transition"
-                    onClick={() => handleNavigation(service.path)}
+                      key={service.label}
+                      className="w-full text-left px-4 py-3 text-gray-700 hover:font-bold  transition-all duration-150 cursor-pointer font-medium"
+                      onClick={() => handleNavigation(service.path)}
                     >
-                    {service.label}
+                      {service.label}
                     </button>
-                ))}
+                  ))}
                 </div>
-            )}
+              )}
             </div>
 
             {navItemsAfterServices.map((item) => (
               <button
                 key={item.label}
-                className="px-1 pb-1 border-b-2 border-transparent hover:text-black transition"
+                className="px-3 py-2 rounded-lg font-medium text-gray-700 hover:font-bold  transition-all duration-200 cursor-pointer"
                 onClick={() => handleNavigation(item.path)}
               >
                 {item.label}
@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
 
           <div className="md:hidden flex items-center">
             <button
-              className="text-gray-700 hover:text-black"
+              className="text-gray-700 hover:font-bold  cursor-pointer transition-colors"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -114,7 +114,7 @@ const Navbar: React.FC = () => {
             {navItems.map((item) => (
               <button
                 key={item.label}
-                className="text-left py-2 px-2 w-full text-gray-700 hover:text-black transition"
+                className="text-left py-3 px-3 w-full text-gray-700 hover:font-bold  rounded-lg transition-all duration-200 cursor-pointer font-medium"
                 onClick={() => handleNavigation(item.path)}
               >
                 {item.label}
@@ -123,19 +123,19 @@ const Navbar: React.FC = () => {
 
             <div className="flex flex-col">
               <button
-                className="flex items-center justify-between py-2 px-2 w-full text-gray-700 hover:text-black transition"
+                className="flex items-center justify-between py-3 px-3 w-full text-gray-700 hover:font-bold  rounded-lg transition-all duration-200 cursor-pointer font-medium"
                 onClick={() => setShowServicesDropdown(!showServicesDropdown)}
               >
                 Services
                 <ChevronDown
-                  className={`w-4 h-4 transition-transform ${showServicesDropdown ? "rotate-180" : ""}`}
+                  className={`w-4 h-4 transition-transform duration-200 ${showServicesDropdown ? "rotate-18" : ""}`}
                 />
               </button>
               {showServicesDropdown &&
                 serviceItems.map((service) => (
                   <button
                     key={service.label}
-                    className="text-left py-2 px-6 w-full text-gray-700 hover:text-black transition"
+                    className="text-left py-3 px-6 w-full text-gray-700 hover:font-bold  rounded-lg transition-all duration-200 cursor-pointer font-medium"
                     onClick={() => handleNavigation(service.path)}
                   >
                     {service.label}
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
             {navItemsAfterServices.map((item) => (
               <button
                 key={item.label}
-                className="text-left py-2 px-2 w-full text-gray-700 hover:text-black transition"
+                className="text-left py-3 px-3 w-full text-gray-700 hover:font-bold rounded-lg transition-all duration-200 cursor-pointer font-medium"
                 onClick={() => handleNavigation(item.path)}
               >
                 {item.label}

@@ -53,7 +53,7 @@ const Community = () => {
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <div className="group h-64 bg-gray-300 relative rounded-xl overflow-hidden mb-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
               <Image src="/community_4.webp" alt="Social Rides" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
               <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
                 <Users size={20} className="text-red-400" />
                 <span className="font-semibold">Connect & Ride</span>

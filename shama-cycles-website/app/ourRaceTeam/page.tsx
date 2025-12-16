@@ -125,7 +125,7 @@ const OurRaceTeam = () => {
           <h3 className="text-xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Men&apos;s Team</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-6">
             {mensTeam.map((member, idx) => (
-              <div key={idx} className="text-gray-700 py-2 border-b border-gray-200 hover:text-red-600 hover:pl-2 transition-all text-[0.8rem]">
+              <div key={idx} className="text-gray-700 py-2 border-b border-gray-200  transition-all text-[0.8rem]">
                 {member}
               </div>
             ))}
@@ -136,7 +136,7 @@ const OurRaceTeam = () => {
           <h3 className="text-xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Women&apos;s Team</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6">
             {womensTeam.map((member, idx) => (
-              <div key={idx} className="text-gray-700 py-2 border-b border-gray-200 hover:text-red-600 hover:pl-2 transition-all text-[0.8rem]">
+              <div key={idx} className="text-gray-700 py-2 border-b border-gray-200  transition-all text-[0.8rem]">
                 {member}
               </div>
             ))}

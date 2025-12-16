@@ -62,7 +62,7 @@ const BikeFittings = () => {
         <div className="mb-16 px-6 py-12 mx-auto border-t border-gray-200">
           <h2 className="text-4xl font-bold text-center mb-10 text-gray-950">Find the perfect fit for you</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            <div className={`bg-white border border-gray-200 p-8 rounded-xl transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} hover:shadow-xl hover:-translate-y-1 transition-all`}>
+            <div className={`bg-white border border-gray-200 p-8 rounded-xl transition-all duration-1000 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} hover:shadow-xl hover:-translate-y-1 transition-all`}>
               <div className="flex items-start gap-4 mb-6">
                 <div className="text-4xl">👑</div>
                 <div>
