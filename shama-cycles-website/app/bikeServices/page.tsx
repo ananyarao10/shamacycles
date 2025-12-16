@@ -15,18 +15,16 @@ const BikeServices = () => {
   return (
     <div className="mx-auto px-6 py-12">
       <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
-        <h1 className="text-[6rem] md:text-5xl font-bold text-gray-900 tracking-[-0.02em]">BIKE SERVICES</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-[-0.02em]">BIKE SERVICES</h1>
         <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
-      {/* Custom Bike Builds */}
       <section className="mb-20">
         <div className="mb-10">
           <h2 className="text-3xl font-bold mb-2">Custom Bike Builds</h2>
           <div className="h-1 w-20 bg-linear-to-r from-red-600 to-red-400 rounded"></div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {/** Frame Card **/}
           <div
             className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer ${
               activeCard === "frames" ? "transform -translate-y-1 shadow-xl" : ""
@@ -57,7 +55,6 @@ const BikeServices = () => {
             </div>
           </div>
 
-          {/** Wheel Card **/}
           <div
             className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer ${
               activeCard === "wheels" ? "transform -translate-y-1 shadow-xl" : ""
@@ -87,7 +84,6 @@ const BikeServices = () => {
             </div>
           </div>
 
-          {/** Groupset Card **/}
           <div
             className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 cursor-pointer ${
               activeCard === "groups" ? "transform -translate-y-1 shadow-xl" : ""
@@ -119,7 +115,6 @@ const BikeServices = () => {
         </div>
       </section>
 
-      {/* The rest of the sections remain unchanged, all Tailwind classes already applied */}
     </div>
   );
 };
