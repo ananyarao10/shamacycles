@@ -81,7 +81,7 @@ const OurRaceTeam = () => {
   return (
     <div className="relative overflow-hidden px-6 py-12">
       <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-[-0.02em]">OUR RACE TEAM</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">OUR RACE TEAM</h1>
         <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
@@ -96,14 +96,14 @@ const OurRaceTeam = () => {
 
           <button
             onClick={prevImage}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow hover:scale-110 transition-transform"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center shadow hover:scale-110 transition-transform"
           >
             <ChevronLeft size={28} />
           </button>
 
           <button
             onClick={nextImage}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 rounded-full flex items-center justify-center shadow hover:scale-110 transition-transform"
+            className="absolute right-4 top-1/2 -translate-y-1/2 w-14 h-14 bg-white/90 dark:bg-gray-800/90 rounded-full flex items-center justify-center shadow hover:scale-110 transition-transform"
           >
             <ChevronRight size={28} />
           </button>
@@ -121,22 +121,22 @@ const OurRaceTeam = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-        <div className="bg-white p-8 rounded-xl shadow">
-          <h3 className="text-xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Men&apos;s Team</h3>
+        <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 border-b-4 border-red-600 pb-3">Men&apos;s Team</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-6">
             {mensTeam.map((member, idx) => (
-              <div key={idx} className="text-gray-700 py-2 border-b border-gray-200  transition-all text-[0.8rem]">
+              <div key={idx} className="text-gray-700 dark:text-gray-400 py-2 border-b border-gray-200 dark:border-gray-700 transition-all text-[0.8rem]">
                 {member}
               </div>
             ))}
           </div>
         </div>
 
-        <div className="bg-white p-8 rounded-xl shadow">
-          <h3 className="text-xl font-bold text-gray-900 mb-6 border-b-4 border-red-600 pb-3">Women&apos;s Team</h3>
+        <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 border-b-4 border-red-600 pb-3">Women&apos;s Team</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6">
             {womensTeam.map((member, idx) => (
-              <div key={idx} className="text-gray-700 py-2 border-b border-gray-200  transition-all text-[0.8rem]">
+              <div key={idx} className="text-gray-700 dark:text-gray-400 py-2 border-b border-gray-200 dark:border-gray-700 transition-all text-[0.8rem]">
                 {member}
               </div>
             ))}
@@ -145,7 +145,7 @@ const OurRaceTeam = () => {
       </div>
 
       <div className="py-8 bg-linear-to-b from-transparent via-pink-100 to-transparent">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12">Our Sponsors</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 dark:text-white">Our Sponsors</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
           {sponsors.map((sponsor, idx) => (
             <a
@@ -153,10 +153,10 @@ const OurRaceTeam = () => {
               href={sponsor.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center gap-4 p-6 bg-white rounded-xl shadow transition-transform hover:-translate-y-2 hover:shadow-2xl"
+              className="flex flex-col items-center gap-4 p-6 bg-white dark:bg-gray-800 rounded-xl shadow transition-transform hover:-translate-y-2 hover:shadow-2xl"
             >
               <Image src={sponsor.logo} alt={sponsor.name} width={100} height={100} className="w-full h-full object-contain p-4" />
-              <p className="text-gray-900 font-semibold text-center">{sponsor.name}</p>
+              <p className="text-gray-900 dark:text-white font-semibold text-center">{sponsor.name}</p>
             </a>
           ))}
         </div>

@@ -24,19 +24,19 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="bg-white border-t border-gray-200">
+    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
           <div className="flex items-center gap-4 md:gap-2 cursor-pointer" onClick={() => handleNavigation("/")}>
             <Image src="/shama_logo.png" alt="Shama Cycles Logo" width={48} height={48} className="h-12 w-12" />
-            <p className="text-sm">&copy; 2025</p>
+            <p className="text-gray-500 dark:text-gray-400 text-sm">&copy; 2025</p>
           </div>
 
           <div className="flex flex-wrap items-center gap-2 md:gap-4">
             {navItems.map((item, index) => (
               <React.Fragment key={item.label}>
                 <button
-                  className="text-gray-700 hover:text-black text-sm md:text-base transition"
+                  className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white text-sm md:text-base transition"
                   onClick={() => handleNavigation(item.path)}
                 >
                   {item.label}
@@ -68,7 +68,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-4 md:mt-2 text-sm md:text-base text-center">
+        <div className="mt-4 md:mt-2 text-gray-500 dark:text-gray-400 text-sm md:text-base text-center">
           2000 Edwards St. #B150, Houston, TX 77007
         </div>
       </div>

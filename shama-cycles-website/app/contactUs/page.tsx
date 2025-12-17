@@ -33,9 +33,9 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="relative overflow-hidden px-6 py-12">
+    <div className="relative overflow-hidden px-6 py-12 bg-white dark:bg-black">
       <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-[-0.02em]">CONTACT US</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">CONTACT US</h1>
         <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
@@ -43,37 +43,37 @@ const ContactUs = () => {
         <div className="grid lg:grid-cols-[400px_1fr] gap-20 mb-20">
 
           <div className="flex flex-col gap-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Get in touch with us!</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Get in touch with us!</h2>
 
             <div className="flex flex-col gap-1">
-              <h3 className="text-lg font-semibold text-gray-900">Email:</h3>
-              <a href="mailto:philip@shamacycles.com" className="text-lg text-gray-900 underline hover:text-red-600 transition">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Email:</h3>
+              <a href="mailto:philip@shamacycles.com" className="text-lg text-gray-900 dark:text-white underline hover:text-red-600 transition">
                 philip@shamacycles.com
               </a>
             </div>
 
             <div className="flex flex-col gap-1">
-              <h3 className="text-lg font-semibold text-gray-900">Phone:</h3>
-              <a href="tel:713-812-7633" className="text-lg text-gray-900 underline hover:text-red-600 transition">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Phone:</h3>
+              <a href="tel:713-812-7633" className="text-lg text-gray-900 dark:text-white underline hover:text-red-600 transition">
                 713-812-7633
               </a>
             </div>
 
             <div className="flex flex-col gap-1">
-              <h3 className="text-lg font-semibold text-gray-900">Address:</h3>
-              <p className="text-lg text-gray-900 leading-relaxed">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Address:</h3>
+              <p className="text-lg text-gray-900 dark:text-white leading-relaxed">
                 2000 Edwards St. #B150
                 <br />
                 Houston, TX 77007
               </p>
-              <p className="mt-3 p-3 bg-red-100 border-l-4 border-red-600 rounded text-red-900 text-sm font-medium">
+              <p className="mt-3 p-3 bg-red-100 dark:bg-red-900/20 border-l-4 border-red-600 rounded text-red-900 dark:text-red-300 text-sm font-medium">
                 <strong>⚠️ Parking Notice:</strong> Please park on Edwards St. Do not use the back lot.
               </p>
             </div>
 
             <div className="flex flex-col gap-2">
-              <h3 className="text-lg font-semibold text-gray-900">Hours:</h3>
-              <div className="flex flex-col gap-2 text-gray-900">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Hours:</h3>
+              <div className="flex flex-col gap-2 text-gray-900 dark:text-white">
                 <div className="flex justify-between">
                   <span>Monday - Friday</span>
                   <span>10:00 AM - 6:00 PM</span>
@@ -90,7 +90,7 @@ const ContactUs = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h3 className="text-lg font-semibold text-gray-900">Join our mailing list:</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Join our mailing list:</h3>
               <form onSubmit={handleMailingSignup} className="flex gap-2">
                 <input
                   type="email"
@@ -98,81 +98,81 @@ const ContactUs = () => {
                   onChange={(e) => setMailingEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
-                  className="flex-1 px-3 py-2 border-2 border-gray-300 rounded-full focus:border-red-600 focus:outline-none transition"
-                />
-                <button type="submit" className="px-6 py-2 bg-gray-900 text-white rounded-full font-semibold hover:bg-black transform hover:scale-105 transition">
+                  className="flex-1 px-3 py-2 border-2 border-gray-300 dark:border-gray-500 rounded-full focus:border-red-600 focus:outline-none transition bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+                  />
+                <button type="submit" className="px-6 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-full font-semibold hover:bg-black dark:hover:bg-gray-600 transform hover:scale-105 transition">
                   Sign Up
                 </button>
               </form>
             </div>
           </div>
 
-          <div className="bg-red-100 p-7 rounded-lg">
+          <div className="bg-gray-50 dark:bg-gray-700 p-7 rounded-lg border border-gray-200 dark:border-gray-600">
             <form onSubmit={handleSubmit} className="flex flex-col gap-6">
 
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
-                  <label className="font-semibold text-gray-900">First Name<span className="text-red-600 ml-1">*</span></label>
+                  <label className="font-semibold text-gray-900 dark:text-white">First Name<span className="text-red-600 ml-1">*</span></label>
                   <input
                     type="text"
                     name="firstName"
                     value={formData.firstName}
                     onChange={handleFormChange}
                     required
-                    className="px-4 py-3 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-red-200 transition"
+                    className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
-                  <label className="font-semibold text-gray-900">Last Name<span className="text-red-600 ml-1">*</span></label>
+                  <label className="font-semibold text-gray-900 dark:text-white">Last Name<span className="text-red-600 ml-1">*</span></label>
                   <input
                     type="text"
                     name="lastName"
                     value={formData.lastName}
                     onChange={handleFormChange}
                     required
-                    className="px-4 py-3 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-red-200 transition"
+                    className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                   />
                 </div>
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="font-semibold text-gray-900">Email Address<span className="text-red-600 ml-1">*</span></label>
+                <label className="font-semibold text-gray-900 dark:text-white">Email Address<span className="text-red-600 ml-1">*</span></label>
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleFormChange}
                   required
-                  className="px-4 py-3 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-red-200 transition"
+                  className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="font-semibold text-gray-900">Subject<span className="text-red-600 ml-1">*</span></label>
+                <label className="font-semibold text-gray-900 dark:text-white">Subject<span className="text-red-600 ml-1">*</span></label>
                 <input
                   type="text"
                   name="subject"
                   value={formData.subject}
                   onChange={handleFormChange}
                   required
-                  className="px-4 py-3 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-red-200 transition"
+                  className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                 />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="font-semibold text-gray-900">Message<span className="text-red-600 ml-1">*</span></label>
+                <label className="font-semibold text-gray-900 dark:text-white">Message<span className="text-red-600 ml-1">*</span></label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleFormChange}
                   rows={6}
                   required
-                  className="px-4 py-3 rounded-md bg-white focus:outline-none focus:ring-2 focus:ring-red-200 transition resize-vertical"
+                  className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition resize-vertical text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                 />
               </div>
 
               <div className="flex justify-end">
-                <button type="submit" className="px-8 py-3 bg-gray-900 text-white rounded-md font-semibold hover:bg-black transform hover:scale-105 transition">
+                <button type="submit" className="px-8 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-md font-semibold hover:bg-black dark:hover:bg-gray-600 transform hover:scale-105 transition">
                   Submit
                 </button>
               </div>
@@ -202,7 +202,7 @@ const ContactUs = () => {
               height={384}
               className="w-full h-96 object-cover rounded-xl shadow-lg"
             />
-            <p className="text-center text-gray-600 font-medium">
+            <p className="text-center text-gray-600 dark:text-gray-400 font-medium">
               Our shop on Edwards St - Park on the street out front!
             </p>
           </div>

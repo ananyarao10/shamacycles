@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white shadow-sm">
+    <nav className="bg-white dark:bg-gray-900 shadow-sm">
       <div className="mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="shrink-0 cursor-pointer mt-1 hover:opacity-80 transition-opacity" onClick={() => handleNavigation("/")}>
@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
             {navItems.map((item) => (
               <button
                 key={item.label}
-                className="px-3 py-2 rounded-lg font-medium text-gray-700 hover:font-bold  transition-all duration-200 cursor-pointer"
+                className="px-3 py-2 rounded-lg font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:font-bold transition-all duration-200 cursor-pointer"
                 onClick={() => handleNavigation(item.path)}
               >
                 {item.label}
@@ -64,7 +64,7 @@ const Navbar: React.FC = () => {
                 hideTimeout = setTimeout(() => setShowServicesDropdown(false), 100);
               }}
             >
-              <button className="flex items-center gap-1 px-3 py-2 rounded-lg font-medium text-gray-700 hover:font-bold transition-all duration-200 cursor-pointer">
+              <button className="flex items-center gap-1 px-3 py-2 rounded-lg font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:font-bold transition-all duration-200 cursor-pointer">
                 Services
                 <ChevronDown
                   className={`w-4 h-4 transition-transform duration-200 ${showServicesDropdown ? "rotate-180" : ""}`}
@@ -72,11 +72,11 @@ const Navbar: React.FC = () => {
               </button>
 
               {showServicesDropdown && (
-                <div className="absolute left-0 mt-2 w-56 bg-white shadow-xl rounded-lg py-2 z-20 border border-gray-100">
+                <div className="absolute left-0 mt-2 w-56 bg-white dark:bg-gray-800 shadow-xl rounded-lg py-2 z-20 border border-gray-100 dark:border-gray-700">
                   {serviceItems.map((service) => (
                     <button
                       key={service.label}
-                      className="w-full text-left px-4 py-3 text-gray-700 hover:font-bold  transition-all duration-150 cursor-pointer font-medium"
+                      className="w-full text-left px-4 py-3 text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:font-bold transition-all duration-150 cursor-pointer font-medium"
                       onClick={() => handleNavigation(service.path)}
                     >
                       {service.label}
@@ -89,7 +89,7 @@ const Navbar: React.FC = () => {
             {navItemsAfterServices.map((item) => (
               <button
                 key={item.label}
-                className="px-3 py-2 rounded-lg font-medium text-gray-700 hover:font-bold  transition-all duration-200 cursor-pointer"
+                className="px-3 py-2 rounded-lg font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:font-bold transition-all duration-200 cursor-pointer"
                 onClick={() => handleNavigation(item.path)}
               >
                 {item.label}
@@ -99,7 +99,7 @@ const Navbar: React.FC = () => {
 
           <div className="md:hidden flex items-center">
             <button
-              className="text-gray-700 hover:font-bold  cursor-pointer transition-colors"
+              className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -109,12 +109,12 @@ const Navbar: React.FC = () => {
       </div>
 
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg border-t border-gray-200">
+        <div className="md:hidden bg-white dark:bg-gray-900 shadow-lg border-t border-gray-200 dark:border-gray-700">
           <div className="flex flex-col space-y-1 px-4 py-4">
             {navItems.map((item) => (
               <button
                 key={item.label}
-                className="text-left py-3 px-3 w-full text-gray-700 hover:font-bold  rounded-lg transition-all duration-200 cursor-pointer font-medium"
+                className="text-left py-3 px-3 w-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:font-bold rounded-lg transition-all duration-200 cursor-pointer font-medium"
                 onClick={() => handleNavigation(item.path)}
               >
                 {item.label}
@@ -123,7 +123,7 @@ const Navbar: React.FC = () => {
 
             <div className="flex flex-col">
               <button
-                className="flex items-center justify-between py-3 px-3 w-full text-gray-700 hover:font-bold  rounded-lg transition-all duration-200 cursor-pointer font-medium"
+                className="flex items-center justify-between py-3 px-3 w-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:font-bold rounded-lg transition-all duration-200 cursor-pointer font-medium"
                 onClick={() => setShowServicesDropdown(!showServicesDropdown)}
               >
                 Services
@@ -135,7 +135,7 @@ const Navbar: React.FC = () => {
                 serviceItems.map((service) => (
                   <button
                     key={service.label}
-                    className="text-left py-3 px-6 w-full text-gray-700 hover:font-bold  rounded-lg transition-all duration-200 cursor-pointer font-medium"
+                    className="text-left py-3 px-6 w-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:font-bold rounded-lg transition-all duration-200 cursor-pointer font-medium"
                     onClick={() => handleNavigation(service.path)}
                   >
                     {service.label}
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
             {navItemsAfterServices.map((item) => (
               <button
                 key={item.label}
-                className="text-left py-3 px-3 w-full text-gray-700 hover:font-bold rounded-lg transition-all duration-200 cursor-pointer font-medium"
+                className="text-left py-3 px-3 w-full text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white hover:font-bold rounded-lg transition-all duration-200 cursor-pointer font-medium"
                 onClick={() => handleNavigation(item.path)}
               >
                 {item.label}

@@ -13,10 +13,10 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative min-h-[91vh] bg-white overflow-hidden">
+    <div className="relative min-h-[91vh] bg-white dark:bg-gray-900 overflow-hidden">
       <div className="relative overflow-hidden px-6 py-8">
       <div className={`text-center mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
-        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 tracking-[-0.02em]">SHAMA CYCLES</h1>
+        <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">SHAMA CYCLES</h1>
         <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
@@ -27,13 +27,13 @@ const HomePage: React.FC = () => {
             }`}
           >
             <div>
-              <p className="text-lg sm:text-xl font-light text-gray-800 mt-3 mb-2">
+              <p className="text-lg sm:text-xl font-light text-gray-800 dark:text-gray-200 mt-3 mb-2">
                 A home away from home for bike lovers
               </p>
-              <p className="text-lg sm:text-xl font-light text-gray-800 mb-2">
+              <p className="text-lg sm:text-xl font-light text-gray-800 dark:text-gray-200 mb-2">
                 Personalized sales, bike fitting, and service
               </p>
-              <p className="text-base text-gray-600 leading-6 mb-2">
+              <p className="text-base text-gray-600 dark:text-gray-400 leading-6 mb-2">
                 Making every bike sale, upgrade and service specific for the customer and their needs
               </p>
 
@@ -58,15 +58,15 @@ const HomePage: React.FC = () => {
             <div className="flex justify-around items-center gap-6 flex-wrap md:flex-nowrap">
               <div className="flex flex-col items-center gap-2 text-center">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 leading-none">15+</div>
-                <div className="text-sm sm:text-base font-medium uppercase tracking-wider text-black">Years Experience</div>
+                <div className="text-sm sm:text-base font-medium uppercase tracking-wider text-black dark:text-white">Years Experience</div>
               </div>
               <div className="flex flex-col items-center gap-2 text-center">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 leading-none">1000+</div>
-                <div className="text-sm sm:text-base font-medium uppercase tracking-wider text-black">Bikes Fitted</div>
+                <div className="text-sm sm:text-base font-medium uppercase tracking-wider text-black dark:text-white">Bikes Fitted</div>
               </div>
               <div className="flex flex-col items-center gap-2 text-center">
                 <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 leading-none">500+</div>
-                <div className="text-sm sm:text-base font-medium uppercase tracking-wider text-black">Happy Customers</div>
+                <div className="text-sm sm:text-base font-medium uppercase tracking-wider text-black dark:text-white">Happy Customers</div>
               </div>
             </div>
           </div>

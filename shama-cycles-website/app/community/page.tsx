@@ -14,7 +14,7 @@ const Community = () => {
   return (
     <div className="mx-auto px-6 py-12">
       <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-[-0.02em]">COMMUNITY</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">COMMUNITY</h1>
         <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
@@ -31,8 +31,8 @@ const Community = () => {
                 <span className="font-semibold">Weekly Rides</span>
               </div>
             </div>
-            <h3 className="text-2xl font-bold text-gray-950 mb-3">Group Rides</h3>
-            <p className="text-gray-700 leading-relaxed mb-4">Join group rides through the greater Houston area. Meet fellow cyclists, build friendships, and push your limits together on the road.</p>
+            <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Group Rides</h3>
+            <p className="text-gray-700 dark:text-gray-400 leading-relaxed mb-4">Join group rides through the greater Houston area. Meet fellow cyclists, build friendships, and push your limits together on the road.</p>
           </div>
 
           {/* Events & Races */}
@@ -45,8 +45,8 @@ const Community = () => {
                 <span className="font-semibold">Throughout Year</span>
               </div>
             </div>
-            <h3 className="text-2xl font-bold text-gray-950 mb-3">Events & Races</h3>
-            <p className="text-gray-700 leading-relaxed mb-4">We host and participate in various cycling events throughout the year. Our racing teams continue to excel and perform.</p>
+            <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Events & Races</h3>
+            <p className="text-gray-700 dark:text-gray-400 leading-relaxed mb-4">We host and participate in various cycling events throughout the year. Our racing teams continue to excel and perform.</p>
           </div>
 
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
@@ -58,50 +58,50 @@ const Community = () => {
                 <span className="font-semibold">Connect & Ride</span>
               </div>
             </div>
-            <h3 className="text-2xl font-bold text-gray-950 mb-3">Social Rides</h3>
-            <p className="text-gray-700 leading-relaxed mb-4">Connect with fellow cyclists, share tips and stories, and build lasting friendships with people who share your passion for cycling.</p>
+            <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Social Rides</h3>
+            <p className="text-gray-700 dark:text-gray-400 leading-relaxed mb-4">Connect with fellow cyclists, share tips and stories, and build lasting friendships with people who share your passion for cycling.</p>
           </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mt-8 mb-10">
-          <div className="bg-white border border-gray-200 p-6 rounded-xl hover:shadow-lg transition-shadow">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl hover:shadow-lg transition-shadow">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
                 <MapPin className="text-red-600" size={20} />
               </div>
-              <h3 className="font-bold text-gray-950">Location</h3>
+              <h3 className="font-bold text-gray-950 dark:text-white">Location</h3>
             </div>
-            <p className="text-gray-700">Houston, Texas area with rides departing from Shama Cycles shop</p>
+            <p className="text-gray-700 dark:text-gray-400">Houston, Texas area with rides departing from Shama Cycles shop</p>
           </div>
 
-          <div className="bg-white border border-gray-200 p-6 rounded-xl hover:shadow-lg transition-shadow">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl hover:shadow-lg transition-shadow">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
                 <Users className="text-red-600" size={20} />
               </div>
-              <h3 className="font-bold text-gray-950">Community</h3>
+              <h3 className="font-bold text-gray-950 dark:text-white">Community</h3>
             </div>
-            <p className="text-gray-700">All skill levels welcome—from casual riders to competitive racers. Everyone is invited!</p>
+            <p className="text-gray-700 dark:text-gray-400">All skill levels welcome—from casual riders to competitive racers. Everyone is invited!</p>
           </div>
 
-          <div className="bg-white border border-gray-200 p-6 rounded-xl hover:shadow-lg transition-shadow">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl hover:shadow-lg transition-shadow">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
                 <Calendar className="text-red-600" size={20} />
               </div>
-              <h3 className="font-bold text-gray-950">Schedule</h3>
+              <h3 className="font-bold text-gray-950 dark:text-white">Schedule</h3>
             </div>
-            <p className="text-gray-700">Regular weekly rides plus special events and races throughout the year</p>
+            <p className="text-gray-700 dark:text-gray-400">Regular weekly rides plus special events and races throughout the year</p>
           </div>
         </div>
 
         <div id="calendar">
           <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-950 mb-2">Events & Ride Calendar</h2>
-            <p className="text-lg text-gray-600">Stay updated on all upcoming group rides and community events</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-2">Events & Ride Calendar</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400">Stay updated on all upcoming group rides and community events</p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-700">
             <iframe
               src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=America%2FChicago"
               style={{ borderRadius: '16px' }}

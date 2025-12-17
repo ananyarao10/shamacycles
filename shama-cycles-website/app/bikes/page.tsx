@@ -121,7 +121,7 @@ const Bikes = () => {
   return (
     <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 mx-auto">
       <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-[-0.02em]">BIKES</h1>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">BIKES</h1>
         <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
@@ -130,47 +130,47 @@ const Bikes = () => {
           {brands.map((brand, index) => (
             <div 
               key={index}
-              className="group flex flex-col items-center gap-4 p-6 bg-white rounded-xl shadow-sm hover:shadow-lg cursor-pointer transition-all duration-300 hover:-translate-y-2 border border-gray-100"
+              className="group flex flex-col items-center gap-4 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm hover:shadow-lg cursor-pointer transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
               onClick={() => setSelectedBrand(brand)} 
             >
-              <div className="w-full h-32 flex items-center justify-center overflow-hidden relative bg-white rounded-lg transition">
+              <div className="w-full h-32 flex items-center justify-center overflow-hidden relative bg-white dark:bg-gray-700 rounded-lg transition">
                 <Image src={brand.logo} alt={brand.name} className="rounded-lg object-contain p-2" fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
               </div>
-              <h3 className="text-base font-semibold text-center text-gray-900">{brand.name}</h3>
+              <h3 className="text-base font-semibold text-center text-gray-900 dark:text-white">{brand.name}</h3>
             </div>
           ))}
         </div>
       </div>
 
       <div className="px-6 py-12 mx-auto border-t border-gray-200">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-950 mb-10 text-center">What is a Custom Build?</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-10 text-center">What is a Custom Build?</h2>
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           <div className="flex flex-col gap-4">
             <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
               <Wrench className="text-red-600" size={24} />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900">Hand-Assembled</h3>
-            <p className="text-gray-600">Each component is carefully selected and assembled by experienced builders who understand the nuances of weight, balance, and performance.</p>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Hand-Assembled</h3>
+            <p className="text-gray-600 dark:text-gray-400">Each component is carefully selected and assembled by experienced builders who understand the nuances of weight, balance, and performance.</p>
           </div>
           <div className="flex flex-col gap-4">
             <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
               <Users className="text-red-600" size={24} />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900">Your Specifications</h3>
-            <p className="text-gray-600">Work directly with us to choose the frame size, geometry, components, and aesthetic that best match your riding style.</p>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Your Specifications</h3>
+            <p className="text-gray-600 dark:text-gray-400">Work directly with us to choose the frame size, geometry, components, and aesthetic that best match your riding style.</p>
           </div>
           <div className="flex flex-col gap-4">
             <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
               <Zap className="text-red-600" size={24} />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900">Optimized Performance</h3>
-            <p className="text-gray-600">Unlike off-the-shelf bikes, custom builds are tuned specifically for you to ensure the perfect fit, power transfer, and ride quality.</p>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Optimized Performance</h3>
+            <p className="text-gray-600 dark:text-gray-400">Unlike off-the-shelf bikes, custom builds are tuned specifically for you to ensure the perfect fit, power transfer, and ride quality.</p>
           </div>
         </div>
       </div>
 
       <div className="px-6 py-10 mx-auto border-t border-gray-200">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-950 mb-12 text-center">Our Latest Builds</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center">Our Latest Builds</h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {builds.map((build) => (
             <div key={build.id} className="group relative aspect-square overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-transform hover:scale-105">
@@ -182,14 +182,14 @@ const Bikes = () => {
 
       {selectedBrand && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-6" onClick={closeDialog}>
-          <div className="bg-white rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 md:p-12 relative shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <button className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-100 shadow flex items-center justify-center hover:bg-gray-200 transition" onClick={closeDialog}>
+          <div className="bg-white dark:bg-gray-800 rounded-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto p-8 md:p-12 relative shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <button className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 shadow flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition" onClick={closeDialog}>
               <X size={20} />
             </button>
 
             <div className="flex flex-col gap-8">
-              <div className="text-center border-b border-gray-200 pb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900">{selectedBrand.name}</h2>
+              <div className="text-center border-b border-gray-200 dark:border-gray-700 pb-6">
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">{selectedBrand.name}</h2>
               </div>
 
               <div className="flex flex-col gap-4">
@@ -219,13 +219,13 @@ const Bikes = () => {
 
               <div className="flex flex-col gap-6">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">What makes them unique</h3>
-                  <p className="text-gray-600 leading-relaxed">{selectedBrand.uniqueness}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">What makes them unique</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{selectedBrand.uniqueness}</p>
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-3">Best suited for</h3>
-                  <p className="text-gray-600 leading-relaxed">{selectedBrand.bestFor}</p>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Best suited for</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{selectedBrand.bestFor}</p>
                 </div>
               </div>
             </div>
