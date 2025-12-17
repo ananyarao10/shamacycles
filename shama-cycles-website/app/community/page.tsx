@@ -13,9 +13,9 @@ const Community = () => {
 
   return (
     <div className="mx-auto px-6 py-12">
-      <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
+      <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-[-0.02em]">COMMUNITY</h1>
-        <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
+        <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
       {/* Featured Sections */}
@@ -32,24 +32,23 @@ const Community = () => {
               </div>
             </div>
             <h3 className="text-2xl font-bold text-gray-950 mb-3">Group Rides</h3>
-            <p className="text-gray-700 leading-relaxed mb-4">Join our weekly group rides through the greater Houston area. From leisurely pace rides to intense training sessions, we have options for all levels. Meet fellow cyclists, build friendships, and push your limits together on the road.</p>
+            <p className="text-gray-700 leading-relaxed mb-4">Join group rides through the greater Houston area. Meet fellow cyclists, build friendships, and push your limits together on the road.</p>
           </div>
 
           {/* Events & Races */}
           <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <div className="group h-64 bg-gray-300 relative rounded-xl overflow-hidden mb-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
               <Image src="/community_2.webp" alt="Events & Races" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
               <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
                 <Calendar size={20} className="text-red-400" />
                 <span className="font-semibold">Throughout Year</span>
               </div>
             </div>
             <h3 className="text-2xl font-bold text-gray-950 mb-3">Events & Races</h3>
-            <p className="text-gray-700 leading-relaxed mb-4">We host and participate in cycling events, crits, and gran fondos throughout the year. Whether you're looking to race competitively or ride for the experience, our events bring the community together for unforgettable days on the bike.</p>
+            <p className="text-gray-700 leading-relaxed mb-4">We host and participate in various cycling events throughout the year. Our racing teams continue to excel and perform.</p>
           </div>
 
-          {/* Social & Networking */}
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <div className="group h-64 bg-gray-300 relative rounded-xl overflow-hidden mb-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
               <Image src="/community_4.webp" alt="Social Rides" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
@@ -60,7 +59,7 @@ const Community = () => {
               </div>
             </div>
             <h3 className="text-2xl font-bold text-gray-950 mb-3">Social Rides</h3>
-            <p className="text-gray-700 leading-relaxed mb-4">Connect with fellow cyclists in a relaxed atmosphere, share tips and stories, and build lasting friendships with people who share your passion for cycling.</p>
+            <p className="text-gray-700 leading-relaxed mb-4">Connect with fellow cyclists, share tips and stories, and build lasting friendships with people who share your passion for cycling.</p>
           </div>
         </div>
 
@@ -98,7 +97,7 @@ const Community = () => {
 
         <div id="calendar">
           <div className="mb-8">
-            <h2 className="text-4xl font-bold text-gray-950 mb-2">Events & Ride Calendar</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-950 mb-2">Events & Ride Calendar</h2>
             <p className="text-lg text-gray-600">Stay updated on all upcoming group rides and community events</p>
           </div>
 

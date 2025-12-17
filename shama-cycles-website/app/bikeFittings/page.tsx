@@ -15,7 +15,7 @@ const BikeFittings = () => {
     <div className="relative overflow-hidden px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 mx-auto">
       <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-[-0.02em]">BIKE FITTINGS</h1>
-        <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
+        <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
         {/* <a href="#scheduling" className="inline-flex items-center gap-2 bg-red-600 text-white px-7 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all hover:gap-3">
@@ -41,7 +41,7 @@ const BikeFittings = () => {
               <h3 className="text-xl font-bold">The Shama Cycles Approach</h3>
             </div>
             <div className="bg-white border border-gray-200 p-6 rounded-b-xl space-y-4 text-sm leading-relaxed">
-              <p className="text-gray-700">Philip Shama draws on over 14 years of experience and training under John Cobb (Texas A&M Wind Tunnel), Dr. Andy Pruitt, Retul Fit Programs, and Dan Empfield's FIST fitting.</p>
+              <p className="text-gray-700">Philip Shama draws on 14+ years of experience under John Cobb (Texas A&M Wind Tunnel), Dr. Andy Pruitt, Retul Fit Programs, and Dan Empfield's FIST fitting.</p>
               <p className="text-gray-700">Philip works closely with every client, following up after rides to fine-tune comfort and performance until the fit is just right.</p>
               <p className="text-gray-700">Being the largest Guru dealer in the world gives us an advantage in bike fittings and frame design.</p>
             </div>
@@ -54,13 +54,13 @@ const BikeFittings = () => {
             <div className="bg-white border border-gray-200 p-6 rounded-b-xl space-y-4 text-sm leading-relaxed">
               <p className="text-gray-700">From custom bikes to refined fits, Shama Cycles clients consistently leave faster, stronger, and more comfortable.</p>
               <p className="text-gray-700">Philip has worked with State Crit, Road Race, and Time Trial Champions; a 6-time Ultraman Champion; and Pro, Elite, and Age Group triathletes.</p>
-              <p className="text-gray-700">Our race teams dominate podiums worldwide, consistently achieving the fastest bike splits in their categories.</p>
+              <p className="text-gray-700">Our race teams dominate podiums worldwide, achieving the fastest bike splits in their categories.</p>
             </div>
           </div>
         </div>
 
-        <div className="mb-16 px-6 py-12 mx-auto border-t border-gray-200">
-          <h2 className="text-4xl font-bold text-center mb-10 text-gray-950">Find the perfect fit for you</h2>
+        <div className="mb-4 px-6 py-12 mx-auto border-t border-gray-200">
+          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-gray-950">Find the perfect fit for you</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className={`bg-white border border-gray-200 p-8 rounded-xl transition-all duration-1000 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} hover:shadow-xl hover:-translate-y-1 transition-all`}>
               <div className="flex items-start gap-4 mb-6">
@@ -117,7 +117,7 @@ const BikeFittings = () => {
         </div>
 
         <div id="scheduling" className="px-6 py-12 mx-auto border-t border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-950 mb-12">Schedule your fitting</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-950 mb-12">Schedule your fitting</h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-1">
               <CalendlyWidget />
@@ -125,7 +125,7 @@ const BikeFittings = () => {
             
             <div className="md:col-span-2 flex flex-col justify-center gap-8">
               <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">What to Expect</h3>
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-3">What to Expect</h3>
                 <p className="text-gray-700 leading-relaxed mb-4">When you book a bike fitting appointment, you'll receive a confirmation email with preparation instructions. Please arrive 15 minutes early to complete paperwork and discuss your riding goals.</p>
                 <p className="text-gray-700 leading-relaxed">We limit to 2 fit appointments per day to ensure personalized attention and the time needed to dial in your perfect position.</p>
               </div>

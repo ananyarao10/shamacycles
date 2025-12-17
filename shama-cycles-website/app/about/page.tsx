@@ -25,9 +25,9 @@ const About = () => {
 
   return (
     <div className="relative overflow-hidden px-6 py-12">
-      <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
+      <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-[-0.02em]">ABOUT</h1>
-        <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
+        <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
       <section className="flex flex-col md:flex-row gap-6 md:gap-6 justify-between mb-10 max-w-full mx-auto p-6 md:p-10 rounded-xl shadow-[0_10px_40px_rgba(220,38,38,0.15)] bg-cover bg-center" style={{ backgroundImage: "url('/bike_abt.webp')" }}>
@@ -96,7 +96,7 @@ const About = () => {
       </section>
 
       <section className="px-6 py-12 mx-auto border-t border-gray-200">
-        <h2 className="text-3xl font-bold text-center mb-8 relative inline-block w-full">What our customers are saying
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 relative inline-block w-full">What our customers are saying
           <span className="absolute bottom-[-9] left-1/2 transform -translate-x-1/2 w-35 h-1 bg-red-600 rounded"></span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -15,9 +15,9 @@ const BikeServices = () => {
 
   return (
     <div className="mx-auto px-6 py-12">
-      <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
+      <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 tracking-[-0.02em]">BIKE SERVICES</h1>
-        <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
+        <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
       <div className="mx-auto px-6 py-12">
@@ -93,7 +93,6 @@ const BikeServices = () => {
               </div>
             </div>
 
-            {/* Groupsets */}
             <div
               className={`group bg-white rounded-xl border border-gray-200 overflow-hidden transition-all duration-300 cursor-pointer ${
                 activeCard === "groups" ? "shadow-2xl -translate-y-2" : "shadow-lg hover:shadow-2xl hover:-translate-y-1"
@@ -131,9 +130,8 @@ const BikeServices = () => {
           </div>
         </section>
 
-        {/* Why Choose Us Section */}
-        <section className="bg-gradient-to-r from-red-600 to-red-700 rounded-2xl p-12 mb-20 text-white shadow-xl">
-          <h2 className="text-3xl font-bold mb-6">Why Choose Our Custom Builds?</h2>
+        <section className="bg-linear-to-r from-red-600 to-red-700 rounded-2xl p-12 mb-20 text-white shadow-xl">
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Why Choose Our Custom Builds?</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-lg font-semibold mb-2">Expert Knowledge</h3>
@@ -154,9 +152,8 @@ const BikeServices = () => {
           </div>
         </section>
 
-        {/* Process Section */}
         <section className="mb-4">
-          <h2 className="text-4xl font-bold text-gray-950 mb-12 text-center">Our Build Process</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-950 mb-12 text-center">Our Build Process</h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">

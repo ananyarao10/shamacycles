@@ -27,13 +27,11 @@ const Footer: React.FC = () => {
     <footer className="bg-white border-t border-gray-200">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4">
-          {/* Logo Section */}
           <div className="flex items-center gap-4 md:gap-2 cursor-pointer" onClick={() => handleNavigation("/")}>
             <Image src="/shama_logo.png" alt="Shama Cycles Logo" width={48} height={48} className="h-12 w-12" />
-            <p className="text-gray-500 text-sm">&copy; 2025</p>
+            <p className="text-sm">&copy; 2025</p>
           </div>
 
-          {/* Navigation Links */}
           <div className="flex flex-wrap items-center gap-2 md:gap-4">
             {navItems.map((item, index) => (
               <React.Fragment key={item.label}>
@@ -50,7 +48,6 @@ const Footer: React.FC = () => {
             ))}
           </div>
 
-          {/* Social Icons */}
           <div className="flex gap-3">
             <a
               href="https://www.facebook.com/p/Shama-Cycles-100063533020164/"
@@ -71,7 +68,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="mt-4 md:mt-2 text-gray-500 text-sm md:text-base text-center">
+        <div className="mt-4 md:mt-2 text-sm md:text-base text-center">
           2000 Edwards St. #B150, Houston, TX 77007
         </div>
       </div>
