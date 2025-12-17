@@ -33,7 +33,7 @@ const About = () => {
       <section className="flex flex-col md:flex-row gap-6 md:gap-6 justify-between mb-10 max-w-full mx-auto p-6 md:p-10 rounded-xl shadow-[0_10px_40px_rgba(220,38,38,0.15)] bg-cover bg-center" style={{ backgroundImage: "url('/bike_abt.webp')" }}>
         <div className="flex-1 flex flex-col gap-4">
           <h3 className="text-white font-bold text-2xl relative pb-2">Our Philosophy
-            <span className="absolute bottom-0 left-0 w-15 h-[3px] bg-white rounded"></span>
+            <span className="absolute bottom-0 left-0 w-15 h-0.75 bg-white rounded"></span>
           </h3>
           <div className="flex flex-col gap-3">
             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">
@@ -49,7 +49,7 @@ const About = () => {
 
         <div className="flex-1 flex flex-col items-center justify-center text-center bg-linear-to-br from-red-600 to-red-800 rounded-xl p-10">
           <h3 className="text-white font-bold text-2xl relative pb-2">Our Mission
-            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-15 h-[3px] bg-white rounded"></span>
+            <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-15 h-0.75 bg-white rounded"></span>
           </h3>
           <div className="bg-white dark:bg-gray-100 bg-opacity-95 rounded-xl p-8 text-gray-900 dark:text-gray-800 text-sm shadow-md mt-4">
             Our mission is to build custom road, gravel, triathlon, and track bikes that feel good to ride, perform well, and look great all at the same time.
@@ -58,7 +58,7 @@ const About = () => {
 
         <div className="flex-1 flex flex-col gap-4">
           <h3 className="text-white font-bold text-2xl relative pb-2">Our Process
-            <span className="absolute bottom-0 left-0 w-15 h-[3px] bg-white rounded"></span>
+            <span className="absolute bottom-0 left-0 w-15 h-0.75 bg-white rounded"></span>
           </h3>
           <div className="flex flex-col gap-3">
             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">

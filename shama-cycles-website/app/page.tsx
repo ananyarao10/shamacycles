@@ -17,7 +17,7 @@ const HomePage: React.FC = () => {
       <div className="relative overflow-hidden px-6 py-8">
       <div className={`text-center mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">SHAMA CYCLES</h1>
-        <div className="h-[5px] w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
+        <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[minmax(400px,1fr)_minmax(400px,1fr)] gap-8 items-start">
@@ -38,7 +38,7 @@ const HomePage: React.FC = () => {
               </p>
 
               <button
-                onClick={() => router.push("/bikeFittings")}
+                onClick={() => router.push("/bikeFittings#scheduling")}
                 className="inline-flex items-center gap-3 px-4 py-2 bg-red-600 text-white font-semibold text-[1rem] rounded-lg transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)] relative overflow-hidden mt-1"
               >
                 <span className="transition-transform duration-300 transform group-hover:translate-x-1">→</span>

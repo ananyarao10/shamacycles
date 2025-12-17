@@ -39,7 +39,6 @@ const Gear = () => {
         `}</style>
         <section className="mb-20">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-            {/* Wheels Card */}
             <div
               className={`group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 cursor-pointer ${
                 activeCard === "wheels" ? "shadow-2xl -translate-y-2" : "shadow-lg hover:shadow-2xl hover:-translate-y-1"
@@ -75,7 +74,6 @@ const Gear = () => {
               </div>
             </div>
 
-            {/* Drivetrain Card */}
             <div
               className={`group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 cursor-pointer ${
                 activeCard === "drivetrain" ? "shadow-2xl -translate-y-2" : "shadow-lg hover:shadow-2xl hover:-translate-y-1"
@@ -111,7 +109,6 @@ const Gear = () => {
               </div>
             </div>
 
-            {/* Cockpit Card */}
             <div
               className={`group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 cursor-pointer ${
                 activeCard === "cockpit" ? "shadow-2xl -translate-y-2" : "shadow-lg hover:shadow-2xl hover:-translate-y-1"
@@ -149,10 +146,9 @@ const Gear = () => {
           </div>
         </section>
 
-        {/* Brand Sections */}
         <section className="mb-20">
           <div className='border-t border-gray-200 pt-12'>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-8 text-center">Premium Brand Selection</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-8 text-center">Our Brand Selection</h2>
           
           <div className="mb-12">
             <h3 className="text-xl font-bold text-gray-950 dark:text-white mb-6">Wheel Brands</h3>
