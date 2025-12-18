@@ -24,10 +24,31 @@ const ContactUs = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-  };
+    // Netlify Forms will handle the submission automatically
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
 
-  const handleMailingSignup = (e: React.FormEvent) => {
+    // Submit to Netlify
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams(formData as any).toString(),
+    })
+      .then(() => {
+        alert('Message sent successfully!');
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      });
+  };  const handleMailingSignup = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Mailing list signup:", mailingEmail);
   };
@@ -108,7 +129,15 @@ const ContactUs = () => {
           </div>
 
           <div className="bg-gray-50 dark:bg-gray-700 p-7 rounded-lg border border-gray-200 dark:border-gray-600">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+            <form
+              onSubmit={handleSubmit}
+              name="contact"
+              method="POST"
+              data-netlify="true"
+              data-netlify-honeypot="bot-field"
+            >
+              {/* Hidden input for Netlify Forms */}
+              <input type="hidden" name="form-name" value="contact" />
 
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
