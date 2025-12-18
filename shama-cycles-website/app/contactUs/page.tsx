@@ -11,13 +11,10 @@ const ContactUs = () => {
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
 
-    // Check for success parameters in URL
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('success') === 'true') {
       setShowSuccess(true);
-      // Remove the parameter from URL
       window.history.replaceState({}, '', window.location.pathname);
-      // Hide success message after 5 seconds
       setTimeout(() => setShowSuccess(false), 5000);
     }
     if (urlParams.get('mailing-success') === 'true') {
@@ -25,13 +22,69 @@ const ContactUs = () => {
       window.history.replaceState({}, '', window.location.pathname);
       setTimeout(() => setShowMailingSuccess(false), 5000);
     }
-  }, []);  const handleMailingSignup = (e: React.FormEvent) => {
+  }, []);
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Mailing list signup submitted to Netlify");
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      if (response.ok) {
+        setShowSuccess(true);
+        form.reset();
+        setTimeout(() => setShowSuccess(false), 5000);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+    }
+  };
+
+  const handleMailingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      if (response.ok) {
+        setShowMailingSuccess(true);
+        form.reset();
+        setTimeout(() => setShowMailingSuccess(false), 5000);
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+    }
   };
 
   return (
     <div className="relative overflow-hidden px-6 py-12 bg-white dark:bg-black">
+      {/* Hidden forms for Netlify form detection */}
+      <form name="contact" data-netlify="true" hidden>
+        <input type="hidden" name="form-name" value="contact" />
+        <input type="text" name="firstName" />
+        <input type="text" name="lastName" />
+        <input type="email" name="email" />
+        <input type="text" name="subject" />
+        <textarea name="message"></textarea>
+      </form>
+
+      <form name="mailing-list" data-netlify="true" hidden>
+        <input type="hidden" name="form-name" value="mailing-list" />
+        <input type="email" name="email" />
+      </form>
+
       <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">CONTACT US</h1>
         <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
@@ -89,15 +142,14 @@ const ContactUs = () => {
 
             <div className="flex flex-col gap-2">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Join our mailing list:</h3>
-              <form name="mailing-list" method="POST" data-netlify="true" className="flex gap-2">
-                <input type="hidden" name="form-name" value="mailing-list" />
+              <form onSubmit={handleMailingSubmit} className="flex gap-2">
                 <input
                   type="email"
                   name="email"
                   placeholder="Enter your email"
                   required
                   className="flex-1 px-3 py-2 border-2 border-gray-300 dark:border-gray-500 rounded-full focus:border-red-600 focus:outline-none transition bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
-                  />
+                />
                 <button type="submit" className="px-6 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-full font-semibold hover:bg-black dark:hover:bg-gray-600 transform hover:scale-105 transition">
                   Sign Up
                 </button>
@@ -120,14 +172,7 @@ const ContactUs = () => {
                 </p>
               </div>
             )}
-            <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-            >
-              {/* Hidden input for Netlify Forms */}
-              <input type="hidden" name="form-name" value="contact" />
-
+            <form onSubmit={handleContactSubmit}>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="font-semibold text-gray-900 dark:text-white">First Name<span className="text-red-600 ml-1">*</span></label>
@@ -149,7 +194,7 @@ const ContactUs = () => {
                 </div>
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="mt-6 flex flex-col gap-2">
                 <label className="font-semibold text-gray-900 dark:text-white">Email Address<span className="text-red-600 ml-1">*</span></label>
                 <input
                   type="email"
@@ -159,7 +204,7 @@ const ContactUs = () => {
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="mt-6 flex flex-col gap-2">
                 <label className="font-semibold text-gray-900 dark:text-white">Subject<span className="text-red-600 ml-1">*</span></label>
                 <input
                   type="text"
@@ -169,7 +214,7 @@ const ContactUs = () => {
                 />
               </div>
 
-              <div className="flex flex-col gap-2">
+              <div className="mt-6 flex flex-col gap-2">
                 <label className="font-semibold text-gray-900 dark:text-white">Message<span className="text-red-600 ml-1">*</span></label>
                 <textarea
                   name="message"
@@ -179,7 +224,7 @@ const ContactUs = () => {
                 />
               </div>
 
-              <div className="flex justify-end">
+              <div className="flex justify-end mt-6">
                 <button
                   type="submit"
                   className="px-8 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-md font-semibold hover:bg-black dark:hover:bg-gray-600 transform hover:scale-105 transition"
