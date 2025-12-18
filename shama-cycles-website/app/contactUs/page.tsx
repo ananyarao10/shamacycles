@@ -28,6 +28,7 @@ const ContactUs = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
+    formData.append("form-name", "contact");
 
     try {
       const response = await fetch("/__forms.html", {
@@ -50,6 +51,7 @@ const ContactUs = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
+    formData.append("form-name", "mailing-list");
 
     try {
       const response = await fetch("/__forms.html", {
@@ -70,21 +72,6 @@ const ContactUs = () => {
 
   return (
     <div className="relative overflow-hidden px-6 py-12 bg-white dark:bg-black">
-      {/* Hidden forms for Netlify form detection */}
-      <form name="contact" data-netlify="true" hidden>
-        <input type="hidden" name="form-name" value="contact" />
-        <input type="text" name="firstName" />
-        <input type="text" name="lastName" />
-        <input type="email" name="email" />
-        <input type="text" name="subject" />
-        <textarea name="message"></textarea>
-      </form>
-
-      <form name="mailing-list" data-netlify="true" hidden>
-        <input type="hidden" name="form-name" value="mailing-list" />
-        <input type="email" name="email" />
-      </form>
-
       <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">CONTACT US</h1>
         <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
