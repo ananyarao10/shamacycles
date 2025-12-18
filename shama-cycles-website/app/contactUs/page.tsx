@@ -5,9 +5,26 @@ import Image from "next/image";
 
 const ContactUs = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showMailingSuccess, setShowMailingSuccess] = useState(false);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
+
+    // Check for success parameters in URL
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+      setShowSuccess(true);
+      // Remove the parameter from URL
+      window.history.replaceState({}, '', window.location.pathname);
+      // Hide success message after 5 seconds
+      setTimeout(() => setShowSuccess(false), 5000);
+    }
+    if (urlParams.get('mailing-success') === 'true') {
+      setShowMailingSuccess(true);
+      window.history.replaceState({}, '', window.location.pathname);
+      setTimeout(() => setShowMailingSuccess(false), 5000);
+    }
   }, []);  const handleMailingSignup = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Mailing list signup submitted to Netlify");
@@ -72,7 +89,7 @@ const ContactUs = () => {
 
             <div className="flex flex-col gap-2">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Join our mailing list:</h3>
-              <form name="mailing-list" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/" className="flex gap-2">
+              <form name="mailing-list" method="POST" className="flex gap-2">
                 <input type="hidden" name="form-name" value="mailing-list" />
                 <input
                   type="email"
@@ -89,12 +106,23 @@ const ContactUs = () => {
           </div>
 
           <div className="bg-gray-50 dark:bg-gray-700 p-7 rounded-lg border border-gray-200 dark:border-gray-600">
+            {showSuccess && (
+              <div className="mb-6 p-4 bg-green-100 dark:bg-green-900/20 border border-green-400 dark:border-green-600 rounded-lg">
+                <p className="text-green-800 dark:text-green-300 font-medium">
+                  ✅ Message sent successfully! We'll get back to you soon.
+                </p>
+              </div>
+            )}
+            {showMailingSuccess && (
+              <div className="mb-6 p-4 bg-blue-100 dark:bg-blue-900/20 border border-blue-400 dark:border-blue-600 rounded-lg">
+                <p className="text-blue-800 dark:text-blue-300 font-medium">
+                  ✅ Thanks for joining our mailing list!
+                </p>
+              </div>
+            )}
             <form
               name="contact"
               method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              action="/"
             >
               {/* Hidden input for Netlify Forms */}
               <input type="hidden" name="form-name" value="contact" />
