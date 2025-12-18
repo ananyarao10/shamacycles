@@ -89,7 +89,7 @@ const ContactUs = () => {
 
             <div className="flex flex-col gap-2">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Join our mailing list:</h3>
-              <form name="mailing-list" method="POST" className="flex gap-2">
+              <form name="mailing-list" method="POST" data-netlify="true" className="flex gap-2">
                 <input type="hidden" name="form-name" value="mailing-list" />
                 <input
                   type="email"
@@ -123,6 +123,7 @@ const ContactUs = () => {
             <form
               name="contact"
               method="POST"
+              data-netlify="true"
             >
               {/* Hidden input for Netlify Forms */}
               <input type="hidden" name="form-name" value="contact" />
