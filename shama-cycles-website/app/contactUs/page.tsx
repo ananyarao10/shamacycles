@@ -5,52 +5,12 @@ import Image from "next/image";
 
 const ContactUs = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    subject: "",
-    message: "",
-  });
-  const [mailingEmail, setMailingEmail] = useState("");
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
-  }, []);
-
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
+  }, []);  const handleMailingSignup = (e: React.FormEvent) => {
     e.preventDefault();
-    // Netlify Forms will handle the submission automatically
-    const form = e.target as HTMLFormElement;
-    const formData = new FormData(form);
-
-    // Submit to Netlify
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: new URLSearchParams(formData as any).toString(),
-    })
-      .then(() => {
-        alert('Message sent successfully!');
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          subject: '',
-          message: '',
-        });
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again.');
-      });
-  };  const handleMailingSignup = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Mailing list signup:", mailingEmail);
+    console.log("Mailing list signup submitted to Netlify");
   };
 
   return (
@@ -112,11 +72,11 @@ const ContactUs = () => {
 
             <div className="flex flex-col gap-2">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Join our mailing list:</h3>
-              <form onSubmit={handleMailingSignup} className="flex gap-2">
+              <form name="mailing-list" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/" className="flex gap-2">
+                <input type="hidden" name="form-name" value="mailing-list" />
                 <input
                   type="email"
-                  value={mailingEmail}
-                  onChange={(e) => setMailingEmail(e.target.value)}
+                  name="email"
                   placeholder="Enter your email"
                   required
                   className="flex-1 px-3 py-2 border-2 border-gray-300 dark:border-gray-500 rounded-full focus:border-red-600 focus:outline-none transition bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
@@ -130,11 +90,11 @@ const ContactUs = () => {
 
           <div className="bg-gray-50 dark:bg-gray-700 p-7 rounded-lg border border-gray-200 dark:border-gray-600">
             <form
-              onSubmit={handleSubmit}
               name="contact"
               method="POST"
               data-netlify="true"
               data-netlify-honeypot="bot-field"
+              action="/"
             >
               {/* Hidden input for Netlify Forms */}
               <input type="hidden" name="form-name" value="contact" />
@@ -145,8 +105,6 @@ const ContactUs = () => {
                   <input
                     type="text"
                     name="firstName"
-                    value={formData.firstName}
-                    onChange={handleFormChange}
                     required
                     className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                   />
@@ -156,8 +114,6 @@ const ContactUs = () => {
                   <input
                     type="text"
                     name="lastName"
-                    value={formData.lastName}
-                    onChange={handleFormChange}
                     required
                     className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                   />
@@ -169,8 +125,6 @@ const ContactUs = () => {
                 <input
                   type="email"
                   name="email"
-                  value={formData.email}
-                  onChange={handleFormChange}
                   required
                   className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                 />
@@ -181,8 +135,6 @@ const ContactUs = () => {
                 <input
                   type="text"
                   name="subject"
-                  value={formData.subject}
-                  onChange={handleFormChange}
                   required
                   className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                 />
@@ -192,8 +144,6 @@ const ContactUs = () => {
                 <label className="font-semibold text-gray-900 dark:text-white">Message<span className="text-red-600 ml-1">*</span></label>
                 <textarea
                   name="message"
-                  value={formData.message}
-                  onChange={handleFormChange}
                   rows={6}
                   required
                   className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition resize-vertical text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
@@ -201,7 +151,10 @@ const ContactUs = () => {
               </div>
 
               <div className="flex justify-end">
-                <button type="submit" className="px-8 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-md font-semibold hover:bg-black dark:hover:bg-gray-600 transform hover:scale-105 transition">
+                <button
+                  type="submit"
+                  className="px-8 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-md font-semibold hover:bg-black dark:hover:bg-gray-600 transform hover:scale-105 transition"
+                >
                   Submit
                 </button>
               </div>
