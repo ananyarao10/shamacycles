@@ -8,9 +8,6 @@
 [[plugins]]
   package = "@netlify/plugin-nextjs"
 
-[plugins.inputs]
-  distDir = ".next"
-
 [[forms]]
   name = "contact"
 
