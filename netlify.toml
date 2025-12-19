@@ -1,8 +1,18 @@
 [build]
   command = "npm run build"
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[plugins.inputs]
+  distDir = ".next"
+
+[[forms]]
+  name = "contact"
+
+[[forms]]
+  name = "mailing-list"
