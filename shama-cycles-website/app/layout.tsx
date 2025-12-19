@@ -37,23 +37,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <NavBar />
         {children}
         <Footer />
-
-        {/* Netlify Forms - Hidden from view but detected at build time */}
-        <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-          <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="bot-field" />
-          <input type="text" name="firstName" />
-          <input type="text" name="lastName" />
-          <input type="email" name="email" />
-          <input type="text" name="subject" />
-          <textarea name="message"></textarea>
-        </form>
-
-        <form name="mailing-list" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-          <input type="hidden" name="form-name" value="mailing-list" />
-          <input type="hidden" name="bot-field" />
-          <input type="email" name="email" />
-        </form>
       </body>
     </html>
   );

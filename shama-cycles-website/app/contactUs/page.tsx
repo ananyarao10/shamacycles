@@ -24,54 +24,6 @@ const ContactUs = () => {
     }
   }, []);
 
-  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
-      });
-
-      if (response.ok || response.status === 404) {
-        setShowSuccess(true);
-        form.reset();
-        setTimeout(() => setShowSuccess(false), 5000);
-      }
-    } catch (error) {
-      setShowSuccess(true);
-      form.reset();
-      setTimeout(() => setShowSuccess(false), 5000);
-    }
-  };
-
-  const handleMailingSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData as any).toString(),
-      });
-
-      if (response.ok || response.status === 404) {
-        setShowMailingSuccess(true);
-        form.reset();
-        setTimeout(() => setShowMailingSuccess(false), 5000);
-      }
-    } catch (error) {
-      setShowMailingSuccess(true);
-      form.reset();
-      setTimeout(() => setShowMailingSuccess(false), 5000);
-    }
-  };
-
   return (
     <div className="relative overflow-hidden px-6 py-12 bg-white dark:bg-black">
       <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
@@ -131,7 +83,7 @@ const ContactUs = () => {
 
             <div className="flex flex-col gap-2">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Join our mailing list:</h3>
-              <form onSubmit={handleMailingSubmit} className="flex gap-2">
+              <form name="mailing-list" method="POST" className="flex gap-2">
                 <input
                   type="email"
                   name="email"
@@ -161,7 +113,7 @@ const ContactUs = () => {
                 </p>
               </div>
             )}
-            <form onSubmit={handleContactSubmit}>
+            <form name="contact" method="POST">
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="font-semibold text-gray-900 dark:text-white">First Name<span className="text-red-600 ml-1">*</span></label>
