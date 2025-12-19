@@ -20,7 +20,7 @@ const CalendlyWidget = () => {
 
   return (
     <div
-      className="calendly-inline-widget w-full min-h-[450px] bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
+      className="calendly-inline-widget w-full min-h-112.5 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700"
       data-url="https://calendly.com/philip-shamacycles/30min?hide_event_type_details=1&hide_gdpr_banner=1"
       style={{ minWidth: '320px', height: '450px' }}
       suppressHydrationWarning

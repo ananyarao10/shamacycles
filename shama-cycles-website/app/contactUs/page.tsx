@@ -7,6 +7,14 @@ const ContactUs = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showMailingSuccess, setShowMailingSuccess] = useState(false);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+  const [mailingEmail, setMailingEmail] = useState("");
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
@@ -23,6 +31,51 @@ const ContactUs = () => {
       setTimeout(() => setShowMailingSuccess(false), 5000);
     }
   }, []);
+
+  const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleContactSubmit = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+
+    const { firstName, lastName, email, subject, message } = formData;
+    const body = `Name: ${firstName} ${lastName}\nEmail: ${email}\nMessage:\n${message}`;
+    const mailtoLink = `mailto:philip@shamacycles.com?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+
+    setShowSuccess(true);
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+    setTimeout(() => setShowSuccess(false), 5000);
+  };
+
+  const handleMailingListSignup = (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+
+    const body = `New mailing list signup:\nEmail: ${mailingEmail}`;
+    const mailtoLink = `mailto:philip@shamacycles.com?subject=${encodeURIComponent(
+      "New Mailing List Signup"
+    )}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+
+    setShowMailingSuccess(true);
+    setMailingEmail("");
+    setTimeout(() => setShowMailingSuccess(false), 5000);
+  };
 
   return (
     <div className="relative overflow-hidden px-6 py-12 bg-white dark:bg-black">
@@ -83,10 +136,11 @@ const ContactUs = () => {
 
             <div className="flex flex-col gap-2">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Join our mailing list:</h3>
-              <form name="mailing-list" method="POST" className="flex gap-2">
+              <form onSubmit={handleMailingListSignup} className="flex gap-2">
                 <input
                   type="email"
-                  name="email"
+                  value={mailingEmail}
+                  onChange={(e) => setMailingEmail(e.target.value)}
                   placeholder="Enter your email"
                   required
                   className="flex-1 px-3 py-2 border-2 border-gray-300 dark:border-gray-500 rounded-full focus:border-red-600 focus:outline-none transition bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
@@ -102,24 +156,26 @@ const ContactUs = () => {
             {showSuccess && (
               <div className="mb-6 p-4 bg-green-100 dark:bg-green-900/20 border border-green-400 dark:border-green-600 rounded-lg">
                 <p className="text-green-800 dark:text-green-300 font-medium">
-                  ✅ Message sent successfully! We'll get back to you soon.
+                  ✅ Opening your email client. Please send to complete!
                 </p>
               </div>
             )}
             {showMailingSuccess && (
               <div className="mb-6 p-4 bg-blue-100 dark:bg-blue-900/20 border border-blue-400 dark:border-blue-600 rounded-lg">
                 <p className="text-blue-800 dark:text-blue-300 font-medium">
-                  ✅ Thanks for joining our mailing list!
+                  ✅ Opening your email client. Please send to confirm!
                 </p>
               </div>
             )}
-            <form name="contact" method="POST">
+            <form onSubmit={handleContactSubmit}>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="font-semibold text-gray-900 dark:text-white">First Name<span className="text-red-600 ml-1">*</span></label>
                   <input
                     type="text"
                     name="firstName"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
                     required
                     className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                   />
@@ -129,6 +185,8 @@ const ContactUs = () => {
                   <input
                     type="text"
                     name="lastName"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
                     required
                     className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                   />
@@ -140,6 +198,8 @@ const ContactUs = () => {
                 <input
                   type="email"
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   required
                   className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                 />
@@ -150,6 +210,8 @@ const ContactUs = () => {
                 <input
                   type="text"
                   name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
                   required
                   className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
                 />
@@ -159,6 +221,8 @@ const ContactUs = () => {
                 <label className="font-semibold text-gray-900 dark:text-white">Message<span className="text-red-600 ml-1">*</span></label>
                 <textarea
                   name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={6}
                   required
                   className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition resize-vertical text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
