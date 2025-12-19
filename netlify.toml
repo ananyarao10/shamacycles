@@ -5,8 +5,16 @@
 [build.environment]
   NODE_VERSION = "20"
 
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 [[forms]]
   name = "contact"
   
 [[forms]]
   name = "mailing-list"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
