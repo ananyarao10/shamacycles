@@ -126,8 +126,8 @@ const BikeFittings = () => {
             <div className="md:col-span-2 flex flex-col justify-center gap-8">
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">What to Expect</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">When you book a bike fitting appointment, you'll receive a confirmation email with preparation instructions. Please arrive 15 minutes early to complete paperwork and discuss your riding goals.</p>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">We limit to 2 fit appointments per day to ensure personalized attention and the time needed to dial in your perfect position.</p>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">When you book a bike fitting appointment, you'll receive a confirmation email with additional instructions. Please arrive 15 minutes early and be ready to discuss your riding goals.</p>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">We limit to 2 fit appointments per day to ensure personalized attention and adequate time for each appointment.</p>
               </div>
 
               <div className="grid grid-cols-2 gap-6">

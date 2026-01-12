@@ -6,7 +6,7 @@ import Image from "next/image";
 const ContactUs = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [showMailingSuccess, setShowMailingSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -14,22 +14,9 @@ const ContactUs = () => {
     subject: "",
     message: "",
   });
-  const [mailingEmail, setMailingEmail] = useState("");
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
-
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('success') === 'true') {
-      setShowSuccess(true);
-      window.history.replaceState({}, '', window.location.pathname);
-      setTimeout(() => setShowSuccess(false), 5000);
-    }
-    if (urlParams.get('mailing-success') === 'true') {
-      setShowMailingSuccess(true);
-      window.history.replaceState({}, '', window.location.pathname);
-      setTimeout(() => setShowMailingSuccess(false), 5000);
-    }
   }, []);
 
   const handleInputChange = (e: { target: { name: any; value: any; }; }) => {
@@ -40,45 +27,48 @@ const ContactUs = () => {
     }));
   };
 
-  const handleContactSubmit = (e: { preventDefault: () => void; }) => {
+  const handleContactSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    const { firstName, lastName, email, subject, message } = formData;
-    const body = `Name: ${firstName} ${lastName}\nEmail: ${email}\nMessage:\n${message}`;
-    const mailtoLink = `mailto:philip@shamacycles.com?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(body)}`;
+    try {
+      const response = await fetch('https://formspree.io/f/xreberye', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        }),
+      });
 
-    window.location.href = mailtoLink;
-
-    setShowSuccess(true);
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
-    setTimeout(() => setShowSuccess(false), 5000);
-  };
-
-  const handleMailingListSignup = (e: { preventDefault: () => void; }) => {
-    e.preventDefault();
-
-    const body = `New mailing list signup:\nEmail: ${mailingEmail}`;
-    const mailtoLink = `mailto:philip@shamacycles.com?subject=${encodeURIComponent(
-      "New Mailing List Signup"
-    )}&body=${encodeURIComponent(body)}`;
-
-    window.location.href = mailtoLink;
-
-    setShowMailingSuccess(true);
-    setMailingEmail("");
-    setTimeout(() => setShowMailingSuccess(false), 5000);
+      if (response.ok) {
+        setShowSuccess(true);
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+        setTimeout(() => setShowSuccess(false), 5000);
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Error sending message. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
-    <div className="relative overflow-hidden px-6 py-12 bg-white dark:bg-black">
+    <div className="mx-auto px-6 py-12">
       <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">CONTACT US</h1>
         <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
@@ -133,41 +123,17 @@ const ContactUs = () => {
                 </div>
               </div>
             </div>
-
-            <div className="flex flex-col gap-2">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">Join our mailing list:</h3>
-              <form onSubmit={handleMailingListSignup} className="flex gap-2">
-                <input
-                  type="email"
-                  value={mailingEmail}
-                  onChange={(e) => setMailingEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  required
-                  className="flex-1 px-3 py-2 border-2 border-gray-300 dark:border-gray-500 rounded-full focus:border-red-600 focus:outline-none transition bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
-                />
-                <button type="submit" className="px-6 py-2 bg-gray-900 dark:bg-gray-700 text-white rounded-full font-semibold hover:bg-black dark:hover:bg-gray-600 transform hover:scale-105 transition">
-                  Sign Up
-                </button>
-              </form>
-            </div>
           </div>
 
           <div className="bg-gray-50 dark:bg-gray-700 p-7 rounded-lg border border-gray-200 dark:border-gray-600">
             {showSuccess && (
               <div className="mb-6 p-4 bg-green-100 dark:bg-green-900/20 border border-green-400 dark:border-green-600 rounded-lg">
                 <p className="text-green-800 dark:text-green-300 font-medium">
-                  ✅ Opening your email client. Please send to complete!
+                  ✅ Message sent successfully!
                 </p>
               </div>
             )}
-            {showMailingSuccess && (
-              <div className="mb-6 p-4 bg-blue-100 dark:bg-blue-900/20 border border-blue-400 dark:border-blue-600 rounded-lg">
-                <p className="text-blue-800 dark:text-blue-300 font-medium">
-                  ✅ Opening your email client. Please send to confirm!
-                </p>
-              </div>
-            )}
-            <form onSubmit={handleContactSubmit}>
+            <div>
               <div className="grid sm:grid-cols-2 gap-6">
                 <div className="flex flex-col gap-2">
                   <label className="font-semibold text-gray-900 dark:text-white">First Name<span className="text-red-600 ml-1">*</span></label>
@@ -177,7 +143,8 @@ const ContactUs = () => {
                     value={formData.firstName}
                     onChange={handleInputChange}
                     required
-                    className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+                    disabled={isLoading}
+                    className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 disabled:opacity-50"
                   />
                 </div>
                 <div className="flex flex-col gap-2">
@@ -188,7 +155,8 @@ const ContactUs = () => {
                     value={formData.lastName}
                     onChange={handleInputChange}
                     required
-                    className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+                    disabled={isLoading}
+                    className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 disabled:opacity-50"
                   />
                 </div>
               </div>
@@ -201,7 +169,8 @@ const ContactUs = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+                  disabled={isLoading}
+                  className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 disabled:opacity-50"
                 />
               </div>
 
@@ -213,7 +182,8 @@ const ContactUs = () => {
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
-                  className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+                  disabled={isLoading}
+                  className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 disabled:opacity-50"
                 />
               </div>
 
@@ -225,19 +195,21 @@ const ContactUs = () => {
                   onChange={handleInputChange}
                   rows={6}
                   required
-                  className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition resize-vertical text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300"
+                  disabled={isLoading}
+                  className="px-4 py-3 rounded-md bg-white dark:bg-gray-600 border border-gray-300 dark:border-gray-500 focus:outline-none focus:ring-2 focus:ring-red-200 dark:focus:ring-red-500 transition resize-vertical text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-300 disabled:opacity-50"
                 />
               </div>
 
               <div className="flex justify-end mt-6">
                 <button
-                  type="submit"
-                  className="px-8 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-md font-semibold hover:bg-black dark:hover:bg-gray-600 transform hover:scale-105 transition"
+                  onClick={handleContactSubmit}
+                  disabled={isLoading}
+                  className="px-8 py-3 bg-gray-900 dark:bg-gray-700 text-white rounded-md font-semibold hover:bg-black dark:hover:bg-gray-600 transform hover:scale-105 transition disabled:opacity-50"
                 >
-                  Submit
+                  {isLoading ? 'Sending...' : 'Submit'}
                 </button>
               </div>
-            </form>
+            </div>
           </div>
         </div>
 

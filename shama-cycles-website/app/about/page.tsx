@@ -6,10 +6,10 @@ import Image from 'next/image';
 const reviews = [
   { name: "Eric B", avatarLetter: "E", rating: 5, text: `Stopped in before a trip and needed a bike box — they gave me one right away, no fuss, no charge. Super helpful and kind. On top of that, the shop itself is great: excellent layout, quality gear, and a team that clearly cares. Wish more places were like this.`},
   { name: "Haley R", avatarLetter: "H", rating: 5, text: "Came in for a new bike fitting and left with much more - great advice and helpful tips. Very knowledgeable and passionate about helping (newer) cyclists like me." },
-  { name: "María B", avatarLetter: "M", rating: 5, text: "Philip fit me on my Cervelho P3x last year for my Ironman. His professionalism and understanding of the bike fit is amazing! He&apos;s made me more aerodynamic, while keeping me comfortable for long distance racing. He&apos;s the only mechanic that takes care of my bike." },
-  { name: "Tristan Q", avatarLetter: "T", rating: 5, text: "They specialize in race/specialty bikes. However, they really came to my rescue by making a custom crankset. For my bike now it&apos;s as good as new. I definitely recommend if your bike is ever need of repair. Check them out! Mark was a big help!" },
+  { name: "María B", avatarLetter: "M", rating: 5, text: "Philip fit me on my Cervelho P3x last year for my Ironman. His professionalism and understanding of the bike fit is amazing! He's made me more aerodynamic, while keeping me comfortable for long distance racing. He's the only mechanic that takes care of my bike." },
+  { name: "Tristan Q", avatarLetter: "T", rating: 5, text: "They specialize in race/specialty bikes. However, they really came to my rescue by making a custom crankset for my bike and now it's as good as new. I definitely recommend if your bike is in need of repair. Mark was a big help!" },
   { name: "Marcelo R", avatarLetter: "M", rating: 5, text: "Great experience. Both Mark and Phillip are extremely knowledgeable. They helped me set up my bike. These guys are pro, the bikes they maintain are all professional level bikes. Great shop, highly recommend." },
-  { name: "Ryan W", avatarLetter: "R", rating: 5, text: "Amazing team and unrivaled shop! Philip, Mark and team do it all — new builds, repairs, fitting sessions and much more. I&apos;ve done two bike fits, service and several component upgrades based on advice and guidance from the team here." },
+  { name: "Ryan W", avatarLetter: "R", rating: 5, text: "Amazing team and unrivaled shop! Philip, Mark and team do it all — new builds, repairs, fitting sessions and much more. I've done two bike fits, service and several component upgrades based on advice and guidance from the team here." },
 ];
 
 const openMoreReviews = () => {
@@ -77,17 +77,17 @@ const About = () => {
         </div>
       </section>
 
-      <section className="px-6 py-12 border-t border-gray-200 flex flex-col md:flex-row gap-12 items-start justify-center mb-8 mx-auto">
-        <div className="grid grid-cols-2 gap-4">
+      <section className="px-6 py-12 border-t border-gray-200 flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start justify-center mb-8 mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[1,2,3,4].map(i => (
-            <div key={i} className="relative w-76 h-52">
+            <div key={i} className="relative w-76 h-48 sm:h-52">
               <Image src={`/philip_${i}.webp`} alt="" className="rounded-xl object-cover shadow-lg transform transition-all hover:scale-105" fill />
             </div>
           ))}
         </div>
-        <div className="max-w-xl space-y-4 mt-10">
+        <div className="max-w-xl space-y-4 text-center md:text-left">
           <h1 className="text-3xl font-bold relative inline-block text-gray-900 dark:text-white">Meet Philip Shama
-            <span className="absolute bottom-[-9] left-0 w-20 h-1 bg-red-600 rounded"></span>
+            <span className="absolute bottom-[-9] left-0 md:left-0 w-20 h-1 bg-red-600 rounded"></span>
           </h1>
           <p className='mt-3 text-gray-700 dark:text-gray-300'>Philip Shama loves many things. He enjoys fresh brewed coffee in the morning, watching Le Tour (well, actually all tours), and spending time with his family. But he&apos;s also one of those people lucky enough to say he really loves his job.</p>
           <p className='text-gray-700 dark:text-gray-300'>His passion for fine detail and commitment to quality craftsmanship can be seen in every bike that leaves the shop. Philip believes the riding experience doesn&apos;t stop when a client picks up their bike — he follows up to make sure each ride feels just right.</p>
@@ -95,8 +95,8 @@ const About = () => {
         </div>
       </section>
 
-      <section className="px-6 py-12 mx-auto border-t border-gray-200 dark:border-gray-700">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 relative inline-block w-full text-gray-900 dark:text-white">What our customers are saying
+      <section className="px-6 py-7 mx-auto border-t border-gray-200 dark:border-gray-700">
+        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 mt-4 relative inline-block w-full text-gray-900 dark:text-white">What our customers are saying
           <span className="absolute bottom-[-9] left-1/2 transform -translate-x-1/2 w-35 h-1 bg-red-600 rounded"></span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

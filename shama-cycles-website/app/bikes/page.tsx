@@ -25,71 +25,71 @@ const Bikes = () => {
     { 
       name: '3T Bike', 
       logo: '/3t_2.webp',
-      uniqueness: 'Italian brand that pioneered gravel bikes, aero road race bikes with disc brakes, and 1X drivetrains. Known for pushing boundaries and redefining modern performance design.',
-      bestFor: 'Gravel racers and road riders who want innovative, race-ready versatility',
+      uniqueness: 'The Italian guys who basically invented modern gravel racing. They were doing disc brakes and 1X setups on road bikes before anyone else thought it made sense. Their stuff is built to race.',
+      bestFor: 'If you want to race gravel or road and aren\'t afraid to push the limits.',
       gallery: ['/3t_1.webp', '/3t_2.webp', '/3t_3.webp']
     },
     { 
       name: 'TIME', 
       logo: '/time_1.webp',
-      uniqueness: 'A US-owned brand known for unique carbon construction techniques that deliver exceptional ride quality, balance, and precision across road and gravel platforms.',
-      bestFor: 'Riders who value ride feel, craftsmanship, and refined performance',
+      uniqueness: 'An American brand that\'s obsessed with how a bike actually feels to ride. Their carbon construction is their secret—it just feels smoother and more alive than most bikes out there.',
+      bestFor: 'Riders who care about ride quality and can feel the difference in how a frame responds.',
       gallery: ['/time_1.webp', '/time_2.webp', '/time_3.webp']
     },
     { 
       name: 'Factor', 
       logo: '/factor_1.webp',
-      uniqueness: 'Cutting-edge race bikes engineered at the highest level, spanning road, triathlon, and gravel. Designed with uncompromising focus on speed and efficiency.',
-      bestFor: 'Elite racers and performance-driven cyclists',
+      uniqueness: 'These guys build bikes for top-level racers. Everything they make is engineered to be fast—no compromises. Road, tri, gravel, it doesn\'t matter. Speed is the priority.',
+      bestFor: 'Serious racers who want every marginal gain they can get.',
       gallery: ['/factor_1.webp', '/factor_2.webp', '/factor_3.webp']
     },
     { 
       name: 'Colnago', 
       logo: '/colnago_3.webp',
-      uniqueness: 'One of the oldest and most iconic Italian race brands. Built in Italy and synonymous with speed, prestige, and world-class ride experiences.',
-      bestFor: 'Cyclists who want heritage, prestige, and top-tier race performance',
+      uniqueness: 'They\'ve been around forever and have basically written the book on race bikes. Made in Italy, raced by legends. It\'s the heritage bike brand—there\'s a reason pros still choose it.',
+      bestFor: 'If you want prestige and a bike with real history behind it.',
       gallery: ['/colnago_1.webp', '/colnago_2.webp', '/colnago_3.webp']
     },
     { 
       name: 'Cipollini', 
       logo: '/cipollini_2.webp',
-      uniqueness: 'Aggressive Italian race bikes defined by bold styling, stiffness, and an uncompromising focus on speed and presence.',
-      bestFor: 'Riders who want an aggressive race bike that stands out',
+      uniqueness: 'These bikes are aggressive and they look aggressive. Italian through and through. Built for racers who want a bike that matches their attitude.',
+      bestFor: 'You want to race and you want everyone to know it when you roll up.',
       gallery: ['/cipollini_1.webp', '/cipollini_2.webp', '/cipollini_3.webp']
     },
     { 
       name: 'Enve', 
       logo: '/enve_1.jpeg',
-      uniqueness: 'US-based brand producing race-focused gravel and road bikes designed for both high-speed competition and all-day riding comfort.',
-      bestFor: 'Racers and endurance riders seeking precision American engineering',
+      uniqueness: 'American engineering with a focus on gravel and road racing. They know how to build a bike that\'s quick but won\'t beat you up on long days.',
+      bestFor: 'Racers and endurance riders who want something built to last.',
       gallery: ['/enve_1.jpeg', '/enve_2.webp', '/enve_3.jpeg']
     },
     { 
       name: 'Argon18', 
       logo: '/argon_2.webp',
-      uniqueness: 'Performance-driven brand specializing in triathlon, road, and gravel bikes with a strong emphasis on fit, aerodynamics, and efficiency.',
-      bestFor: 'Triathletes and racers who want dialed-in fit and performance',
+      uniqueness: 'They started in triathlon and it shows. Everything about these bikes is dialed in—geometry, fit, aero details. Nothing wasted.',
+      bestFor: 'Triathletes and racers who want a bike custom-fit to their body.',
       gallery: ['/argon_1.webp', '/argon_2.webp', '/argon_3.webp']
     },
     { 
       name: 'Officine Mattio', 
       logo: '/mattio_1.webp',
-      uniqueness: 'Handmade Italian frames built in small batches, offering custom geometry and exceptional attention to detail.',
-      bestFor: 'Riders seeking bespoke Italian craftsmanship and exclusivity',
+      uniqueness: 'Small Italian shop that builds frames by hand in limited runs. Custom geometry, hand-built, attention to detail that you actually feel when you ride.',
+      bestFor: 'You want something exclusive and handmade. You want to know who built your frame.',
       gallery: ['/mattio_1.webp', '/mattio_2.webp', '/mattio_3.webp']
     },
     { 
       name: 'Santa Cruz', 
       logo: '/santa_cruz_3.jpeg',
-      uniqueness: 'Known for fun-first performance, Santa Cruz builds gravel and mountain bikes designed for racing hard and enjoying every mile off-road.',
-      bestFor: 'Off-road racers and adventure-focused riders',
+      uniqueness: 'They build gravel and mountain bikes meant to be ridden hard and enjoyed. Not stuffy—just good, fun bikes that can handle whatever you throw at them.',
+      bestFor: 'Off-road racing and adventure. You want to go fast but you also want to have fun doing it.',
       gallery: ['/santa_cruz_1.jpeg', '/santa_cruz_2.jpeg', '/santa_cruz_3.jpeg']
     },
     { 
       name: 'Cervélo', 
       logo: '/cervelo_3.jpeg',
-      uniqueness: 'A leader in aero road, gravel, and triathlon bikes, built for riders who are obsessed with speed and marginal gains.',
-      bestFor: 'Speed-focused road racers and triathletes',
+      uniqueness: 'Road, gravel, tri—they do them all and they do them fast. If you\'re obsessed with speed and fine-tuning every detail, this is it.',
+      bestFor: 'Speed-focused riders who want aero tech and proven race performance.',
       gallery: ['/cervelo_1.jpeg', '/cervelo_2.jpeg', '/cervelo_3.jpeg']
     }
   ];
@@ -143,34 +143,34 @@ const Bikes = () => {
       </div>
 
       <div className="px-6 py-12 mx-auto border-t border-gray-200">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-10 text-center">What is a Custom Build?</h2>
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-10 text-center">What's a Custom Build?</h2>
+        <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="flex flex-col gap-4">
             <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
               <Wrench className="text-red-600" size={24} />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Hand-Assembled</h3>
-            <p className="text-gray-600 dark:text-gray-400">Each component is carefully selected and assembled by experienced builders who understand the nuances of weight, balance, and performance.</p>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Built by Hand</h3>
+            <p className="text-gray-600 dark:text-gray-400">We assemble bikes from the ground up. Every component gets chosen for how it works with everything and by taking weight, balance, and feel into consideration.</p>
           </div>
           <div className="flex flex-col gap-4">
             <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
               <Users className="text-red-600" size={24} />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Your Specifications</h3>
-            <p className="text-gray-600 dark:text-gray-400">Work directly with us to choose the frame size, geometry, components, and aesthetic that best match your riding style.</p>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Built for You</h3>
+            <p className="text-gray-600 dark:text-gray-400">You tell us what you want. Your preferred size, your geometry, your components, your look. We build exactly what you need.</p>
           </div>
           <div className="flex flex-col gap-4">
             <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
               <Zap className="text-red-600" size={24} />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Optimized Performance</h3>
-            <p className="text-gray-600 dark:text-gray-400">Unlike off-the-shelf bikes, custom builds are tuned specifically for you to ensure the perfect fit, power transfer, and ride quality.</p>
+            <h3 className="text-xl font-semibold text-gray-900 dark:text-white">Tuned to Your Riding</h3>
+            <p className="text-gray-600 dark:text-gray-400">A stock bike off the shelf is a compromise. Your custom build isn't. We tune everything so it fits right and feels good for what you actually do.</p>
           </div>
         </div>
       </div>
 
       <div className="px-6 py-10 mx-auto border-t border-gray-200">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center">Our Latest Builds</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center">Latest Builds</h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {builds.map((build) => (
             <div key={build.id} className="group relative aspect-square overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-transform hover:scale-105">

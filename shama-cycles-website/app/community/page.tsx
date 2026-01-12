@@ -60,7 +60,7 @@ const Community = () => {
           </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-8 mb-10">
+        <div className="grid md:grid-cols-3 gap-6 mt-8">
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl hover:shadow-lg transition-shadow">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 bg-red-100 rounded-lg flex items-center justify-center">
@@ -68,7 +68,7 @@ const Community = () => {
               </div>
               <h3 className="font-bold text-gray-950 dark:text-white">Location</h3>
             </div>
-            <p className="text-gray-700 dark:text-gray-400">Houston, Texas area with rides departing from Shama Cycles shop</p>
+            <p className="text-gray-700 dark:text-gray-400">Houston, Texas area with rides departing from the Shama Cycles shop</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl hover:shadow-lg transition-shadow">
@@ -78,7 +78,7 @@ const Community = () => {
               </div>
               <h3 className="font-bold text-gray-950 dark:text-white">Community</h3>
             </div>
-            <p className="text-gray-700 dark:text-gray-400">All skill levels welcome—from casual riders to competitive racers. Everyone is invited!</p>
+            <p className="text-gray-700 dark:text-gray-400">All skill levels welcome, from casual riders to competitive racers. Everyone is invited!</p>
           </div>
 
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-xl hover:shadow-lg transition-shadow">
@@ -92,7 +92,8 @@ const Community = () => {
           </div>
         </div>
 
-        <div id="calendar">
+        {/* commenting out gcal until this is set up */}
+        {/* <div id="calendar">
           <div className="mb-8">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-2">Events & Ride Calendar</h2>
             <p className="text-lg text-gray-600 dark:text-gray-400">Stay updated on all upcoming group rides and community events</p>
@@ -108,9 +109,8 @@ const Community = () => {
               scrolling="no"
             ></iframe>
           </div>
+        </div> */}
 
-          
-        </div>
       </div>
     </div>
   );
