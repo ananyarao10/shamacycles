@@ -1,14 +1,39 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Check, ArrowRight } from 'lucide-react';
 import CalendlyWidget from '../components/CalendlyWidget';
 
 const BikeFittings = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [perfectFitLineVisible, setPerfectFitLineVisible] = useState(false);
+  const [scheduleFittingLineVisible, setScheduleFittingLineVisible] = useState(false);
+
+  const perfectFitRef = useRef<HTMLHeadingElement>(null);
+  const scheduleFittingRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === perfectFitRef.current) {
+              setPerfectFitLineVisible(true);
+            } else if (entry.target === scheduleFittingRef.current) {
+              setScheduleFittingLineVisible(true);
+            }
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (perfectFitRef.current) observer.observe(perfectFitRef.current);
+    if (scheduleFittingRef.current) observer.observe(scheduleFittingRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -60,7 +85,9 @@ const BikeFittings = () => {
         </div>
 
         <div className="mb-4 px-6 py-12 mx-auto border-t border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-10 text-gray-950 dark:text-white">Find the perfect fit for you</h2>
+          <h2 ref={perfectFitRef} className="text-2xl md:text-3xl font-bold text-center mb-10 text-gray-950 dark:text-white relative inline-block w-full">Find the perfect fit for you
+            <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${perfectFitLineVisible ? 'w-35' : 'w-0'}`}></span>
+          </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-xl transition-all duration-1000 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} hover:shadow-xl hover:-translate-y-1 transition-all`}>
               <div className="flex items-start gap-4 mb-6">
@@ -117,7 +144,9 @@ const BikeFittings = () => {
         </div>
 
         <div id="scheduling" className="px-6 py-12 mx-auto border-t border-gray-200 dark:border-gray-700">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12">Schedule your fitting</h2>
+          <h2 ref={scheduleFittingRef} className="text-2xl md:text-3xl font-bold text-center text-gray-950 dark:text-white mb-12 relative inline-block w-full">Schedule your fitting
+            <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${scheduleFittingLineVisible ? 'w-35' : 'w-0'}`}></span>
+          </h2>
           <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-1">
               <CalendlyWidget />

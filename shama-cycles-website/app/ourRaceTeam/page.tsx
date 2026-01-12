@@ -1,15 +1,45 @@
 "use client"
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
 const OurRaceTeam = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [mensTeamLineVisible, setMensTeamLineVisible] = useState(false);
+  const [womensTeamLineVisible, setWomensTeamLineVisible] = useState(false);
+  const [sponsorsLineVisible, setSponsorsLineVisible] = useState(false);
+
+  const mensTeamRef = useRef<HTMLHeadingElement>(null);
+  const womensTeamRef = useRef<HTMLHeadingElement>(null);
+  const sponsorsRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === mensTeamRef.current) {
+              setMensTeamLineVisible(true);
+            } else if (entry.target === womensTeamRef.current) {
+              setWomensTeamLineVisible(true);
+            } else if (entry.target === sponsorsRef.current) {
+              setSponsorsLineVisible(true);
+            }
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (mensTeamRef.current) observer.observe(mensTeamRef.current);
+    if (womensTeamRef.current) observer.observe(womensTeamRef.current);
+    if (sponsorsRef.current) observer.observe(sponsorsRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   const mensTeam = [
@@ -122,7 +152,9 @@ const OurRaceTeam = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
         <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 border-b-4 border-red-600 pb-3">Men&apos;s Team</h3>
+          <h3 ref={mensTeamRef} className="text-xl font-bold text-gray-900 dark:text-white mb-6 pb-3 relative">Men&apos;s Team
+            <span className={`absolute bottom-0 left-0 h-1 bg-red-600 rounded transition-all duration-1000 ${mensTeamLineVisible ? 'w-full' : 'w-0'}`}></span>
+          </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-2 gap-x-6">
             {mensTeam.map((member, idx) => (
               <div key={idx} className="text-gray-700 dark:text-gray-400 py-2 border-b border-gray-200 dark:border-gray-700 transition-all text-[0.8rem]">
@@ -133,7 +165,9 @@ const OurRaceTeam = () => {
         </div>
 
         <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 border-b-4 border-red-600 pb-3">Women&apos;s Team</h3>
+          <h3 ref={womensTeamRef} className="text-xl font-bold text-gray-900 dark:text-white mb-6 pb-3 relative">Women&apos;s Team
+            <span className={`absolute bottom-0 left-0 h-1 bg-red-600 rounded transition-all duration-1000 ${womensTeamLineVisible ? 'w-full' : 'w-0'}`}></span>
+          </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2 gap-x-6">
             {womensTeam.map((member, idx) => (
               <div key={idx} className="text-gray-700 dark:text-gray-400 py-2 border-b border-gray-200 dark:border-gray-700 transition-all text-[0.8rem]">
@@ -145,7 +179,9 @@ const OurRaceTeam = () => {
       </div>
 
       <div className="py-8 bg-linear-to-b from-transparent via-pink-100 to-transparent">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 dark:text-white">Our Sponsors</h2>
+        <h2 ref={sponsorsRef} className="text-2xl md:text-3xl font-bold text-center mb-12 dark:text-white relative inline-block w-full">Our sponsors
+          <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${sponsorsLineVisible ? 'w-35' : 'w-0'}`}></span>
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
           {sponsors.map((sponsor, idx) => (
             <a

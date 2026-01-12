@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { X, ChevronLeft, ChevronRight, Zap, Users, Wrench } from "lucide-react";
 import Image from "next/image";
 
@@ -16,9 +16,34 @@ const Bikes = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedBrand, setSelectedBrand] = useState<Brand | null>(null);
   const [selectedImage, setSelectedImage] = useState(0);
+  const [customBuildLineVisible, setCustomBuildLineVisible] = useState(false);
+  const [latestBuildsLineVisible, setLatestBuildsLineVisible] = useState(false);
+
+  const customBuildRef = useRef<HTMLHeadingElement>(null);
+  const latestBuildsRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === customBuildRef.current) {
+              setCustomBuildLineVisible(true);
+            } else if (entry.target === latestBuildsRef.current) {
+              setLatestBuildsLineVisible(true);
+            }
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (customBuildRef.current) observer.observe(customBuildRef.current);
+    if (latestBuildsRef.current) observer.observe(latestBuildsRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   const brands = [
@@ -46,8 +71,8 @@ const Bikes = () => {
     { 
       name: 'Colnago', 
       logo: '/colnago_3.webp',
-      uniqueness: 'They\'ve been around forever and have basically written the book on race bikes. Made in Italy, raced by legends. It\'s the heritage bike brand—there\'s a reason pros still choose it.',
-      bestFor: 'If you want prestige and a bike with real history behind it.',
+      uniqueness: 'From the late 1960s through the 1970s, Colnago was generally regarded as one of the builders of the world\'s finest road race frames. In 1960, Colnago saw fame as Luigi Arienti rode to a gold medal at the Rome Olympics on a Colnago bicycle.',
+      bestFor: 'Riders who value prestige, Italian craftsmanship, and a bike with genuine racing history behind it.',
       gallery: ['/colnago_1.webp', '/colnago_2.webp', '/colnago_3.webp']
     },
     { 
@@ -67,31 +92,31 @@ const Bikes = () => {
     { 
       name: 'Argon18', 
       logo: '/argon_2.webp',
-      uniqueness: 'They started in triathlon and it shows. Everything about these bikes is dialed in—geometry, fit, aero details. Nothing wasted.',
-      bestFor: 'Triathletes and racers who want a bike custom-fit to their body.',
+      uniqueness: 'Developed through triathlon and time trial racing with a focus on aerodynamics, fit systems, and race-oriented geometry. Design decisions prioritize efficiency and adjustability.',
+      bestFor: 'Triathletes and competitive riders who need precise fit and aerodynamic performance.',
       gallery: ['/argon_1.webp', '/argon_2.webp', '/argon_3.webp']
     },
     { 
       name: 'Officine Mattio', 
       logo: '/mattio_1.webp',
-      uniqueness: 'Small Italian shop that builds frames by hand in limited runs. Custom geometry, hand-built, attention to detail that you actually feel when you ride.',
-      bestFor: 'You want something exclusive and handmade. You want to know who built your frame.',
+      uniqueness: 'Small Italian workshop producing hand-built frames in limited runs, with custom geometry and a strong focus on craftsmanship and ride quality.',
+      bestFor: 'Riders looking for a small-batch, custom-built frame with direct attention to detail.',
       gallery: ['/mattio_1.webp', '/mattio_2.webp', '/mattio_3.webp']
     },
     { 
       name: 'Santa Cruz', 
       logo: '/santa_cruz_3.jpeg',
-      uniqueness: 'They build gravel and mountain bikes meant to be ridden hard and enjoyed. Not stuffy—just good, fun bikes that can handle whatever you throw at them.',
+      uniqueness: 'Known for durable, well-engineered gravel and mountain bikes with a focus on suspension design, reliability, and real-world performance.',
       bestFor: 'Off-road racing and adventure. You want to go fast but you also want to have fun doing it.',
       gallery: ['/santa_cruz_1.jpeg', '/santa_cruz_2.jpeg', '/santa_cruz_3.jpeg']
     },
     { 
       name: 'Cervélo', 
       logo: '/cervelo_3.jpeg',
-      uniqueness: 'Road, gravel, tri—they do them all and they do them fast. If you\'re obsessed with speed and fine-tuning every detail, this is it.',
+      uniqueness: 'Engineering-driven brand with a strong emphasis on aerodynamics, stiffness-to-weight optimization, and data-backed design across road, gravel, and triathlon platforms.',
       bestFor: 'Speed-focused riders who want aero tech and proven race performance.',
       gallery: ['/cervelo_1.jpeg', '/cervelo_2.jpeg', '/cervelo_3.jpeg']
-    }
+    },
   ];
 
   const builds = [
@@ -143,7 +168,9 @@ const Bikes = () => {
       </div>
 
       <div className="px-6 py-12 mx-auto border-t border-gray-200">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-10 text-center">What's a Custom Build?</h2>
+        <h2 ref={customBuildRef} className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-10 text-center relative inline-block w-full">What's a custom build?
+          <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${customBuildLineVisible ? 'w-35' : 'w-0'}`}></span>
+        </h2>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="flex flex-col gap-4">
             <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
@@ -170,7 +197,9 @@ const Bikes = () => {
       </div>
 
       <div className="px-6 py-10 mx-auto border-t border-gray-200">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center">Latest Builds</h2>
+        <h2 ref={latestBuildsRef} className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center relative inline-block w-full">Our latest builds
+          <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${latestBuildsLineVisible ? 'w-35' : 'w-0'}`}></span>
+        </h2>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {builds.map((build) => (
             <div key={build.id} className="group relative aspect-square overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-transform hover:scale-105">

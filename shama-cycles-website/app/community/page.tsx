@@ -1,19 +1,49 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { MapPin, Users, Zap, Calendar } from 'lucide-react';
 
 const Community = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [groupRidesLineVisible, setGroupRidesLineVisible] = useState(false);
+  const [eventsRacesLineVisible, setEventsRacesLineVisible] = useState(false);
+  const [socialRidesLineVisible, setSocialRidesLineVisible] = useState(false);
+
+  const groupRidesRef = useRef<HTMLHeadingElement>(null);
+  const eventsRacesRef = useRef<HTMLHeadingElement>(null);
+  const socialRidesRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === groupRidesRef.current) {
+              setGroupRidesLineVisible(true);
+            } else if (entry.target === eventsRacesRef.current) {
+              setEventsRacesLineVisible(true);
+            } else if (entry.target === socialRidesRef.current) {
+              setSocialRidesLineVisible(true);
+            }
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (groupRidesRef.current) observer.observe(groupRidesRef.current);
+    if (eventsRacesRef.current) observer.observe(eventsRacesRef.current);
+    if (socialRidesRef.current) observer.observe(socialRidesRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
     <div className="mx-auto px-6 py-12">
-      <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
+      <div className={`text-center mb-2 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">COMMUNITY</h1>
         <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
@@ -29,7 +59,9 @@ const Community = () => {
                 <span className="font-semibold">Weekly Rides</span>
               </div>
             </div>
-            <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Group Rides</h3>
+            <h3 ref={groupRidesRef} className="text-2xl font-bold text-gray-950 dark:text-white mb-3 relative">Group Rides
+              <span className={`absolute bottom-[-8] left-0 h-1 bg-red-600 rounded transition-all duration-1000 ${groupRidesLineVisible ? 'w-39' : 'w-0'}`}></span>
+            </h3>
             <p className="text-gray-700 dark:text-gray-400 leading-relaxed mb-4">Join group rides through the greater Houston area. Meet fellow cyclists, build friendships, and push your limits together on the road.</p>
           </div>
 
@@ -42,7 +74,9 @@ const Community = () => {
                 <span className="font-semibold">Throughout Year</span>
               </div>
             </div>
-            <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Events & Races</h3>
+            <h3 ref={eventsRacesRef} className="text-2xl font-bold text-gray-950 dark:text-white mb-3 relative">Events & Races
+              <span className={`absolute bottom-[-8] left-0 h-1 bg-red-600 rounded transition-all duration-1000 ${eventsRacesLineVisible ? 'w-48' : 'w-0'}`}></span>
+            </h3>
             <p className="text-gray-700 dark:text-gray-400 leading-relaxed mb-4">We host and participate in various cycling events throughout the year. Our racing teams continue to excel and perform.</p>
           </div>
 
@@ -55,7 +89,9 @@ const Community = () => {
                 <span className="font-semibold">Connect & Ride</span>
               </div>
             </div>
-            <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Social Rides</h3>
+            <h3 ref={socialRidesRef} className="text-2xl font-bold text-gray-950 dark:text-white mb-3 relative">Social Rides
+              <span className={`absolute bottom-[-8] left-0 h-1 bg-red-600 rounded transition-all duration-1000 ${socialRidesLineVisible ? 'w-39' : 'w-0'}`}></span>
+            </h3>
             <p className="text-gray-700 dark:text-gray-400 leading-relaxed mb-4">Connect with fellow cyclists, share tips and stories, and build lasting friendships with people who share your passion for cycling.</p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 
 const reviews = [
@@ -18,9 +18,36 @@ const openMoreReviews = () => {
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [sectionVisible, setSectionVisible] = useState(false);
+  const [philipLineVisible, setPhilipLineVisible] = useState(false);
+  const [reviewsLineVisible, setReviewsLineVisible] = useState(false);
+
+  const philipRef = useRef<HTMLDivElement>(null);
+  const reviewsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
+    setTimeout(() => setSectionVisible(true), 300);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === philipRef.current) {
+              setPhilipLineVisible(true);
+            } else if (entry.target === reviewsRef.current) {
+              setReviewsLineVisible(true);
+            }
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (philipRef.current) observer.observe(philipRef.current);
+    if (reviewsRef.current) observer.observe(reviewsRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -30,7 +57,7 @@ const About = () => {
         <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
-      <section className="flex flex-col md:flex-row gap-6 md:gap-6 justify-between mb-10 max-w-full mx-auto p-6 md:p-10 rounded-xl shadow-[0_10px_40px_rgba(220,38,38,0.15)] bg-cover bg-center" style={{ backgroundImage: "url('/bike_abt.webp')" }}>
+      <section className={`flex flex-col md:flex-row gap-6 md:gap-6 justify-between mb-10 max-w-full mx-auto p-6 md:p-10 rounded-xl shadow-[0_10px_40px_rgba(220,38,38,0.15)] bg-cover bg-center transition-all duration-1000 ${sectionVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}`} style={{ backgroundImage: "url('/bike_abt.webp')" }}>
         <div className="flex-1 flex flex-col gap-4">
           <h3 className="text-white font-bold text-2xl relative pb-2">Our Philosophy
             <span className="absolute bottom-0 left-0 w-15 h-0.75 bg-white rounded"></span>
@@ -63,15 +90,15 @@ const About = () => {
           <div className="flex flex-col gap-3">
             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">
               <div className="font-bold mb-2 text-gray-900 dark:text-white">Listen & Understand</div>
-              <div className="text-gray-700 dark:text-gray-300 text-sm">We start with your goals, preferences, and budget.</div>
+              <div className="text-gray-700 dark:text-gray-300 text-sm">We start with your goals, preferences, and budget</div>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">
               <div className="font-bold mb-2 text-gray-900 dark:text-white">Design & Build</div>
-              <div className="text-gray-700 dark:text-gray-300 text-sm">We source and assemble components to create a bike that matches your exact fit and riding style.</div>
+              <div className="text-gray-700 dark:text-gray-300 text-sm">We source and assemble components to create a bike that matches your exact fit and riding style</div>
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-md hover:-translate-y-2 hover:shadow-lg transition-all">
               <div className="font-bold mb-2 text-gray-900 dark:text-white">Refine & Fit</div>
-              <div className="text-gray-700 dark:text-gray-300 text-sm">Every build includes a fitting so your ride feels perfect.</div>
+              <div className="text-gray-700 dark:text-gray-300 text-sm">Every build includes a fitting so your ride feels perfect</div>
             </div>
           </div>
         </div>
@@ -86,8 +113,8 @@ const About = () => {
           ))}
         </div>
         <div className="max-w-xl space-y-4 text-center md:text-left">
-          <h1 className="text-3xl font-bold relative inline-block text-gray-900 dark:text-white">Meet Philip Shama
-            <span className="absolute bottom-[-9] left-0 md:left-0 w-20 h-1 bg-red-600 rounded"></span>
+          <h1 ref={philipRef} className="text-3xl font-bold relative inline-block text-gray-900 dark:text-white">Meet Philip Shama
+            <span className={`absolute bottom-[-9] left-0 md:left-0 h-1 bg-red-600 rounded transition-all duration-1000 ${philipLineVisible ? 'w-20' : 'w-0'}`}></span>
           </h1>
           <p className='mt-3 text-gray-700 dark:text-gray-300'>Philip Shama loves many things. He enjoys fresh brewed coffee in the morning, watching Le Tour (well, actually all tours), and spending time with his family. But he&apos;s also one of those people lucky enough to say he really loves his job.</p>
           <p className='text-gray-700 dark:text-gray-300'>His passion for fine detail and commitment to quality craftsmanship can be seen in every bike that leaves the shop. Philip believes the riding experience doesn&apos;t stop when a client picks up their bike — he follows up to make sure each ride feels just right.</p>
@@ -96,8 +123,8 @@ const About = () => {
       </section>
 
       <section className="px-6 py-7 mx-auto border-t border-gray-200 dark:border-gray-700">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-12 mt-4 relative inline-block w-full text-gray-900 dark:text-white">What our customers are saying
-          <span className="absolute bottom-[-9] left-1/2 transform -translate-x-1/2 w-35 h-1 bg-red-600 rounded"></span>
+        <h2 ref={reviewsRef} className="text-2xl md:text-3xl font-bold text-center mb-12 mt-4 relative inline-block w-full text-gray-900 dark:text-white">What our customers are saying
+          <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${reviewsLineVisible ? 'w-35' : 'w-0'}`}></span>
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reviews.map((r, idx) => (

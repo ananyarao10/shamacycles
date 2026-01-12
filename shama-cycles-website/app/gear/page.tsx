@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Wind, Gauge, Zap, Check } from 'lucide-react';
 
 type CardType = "wheels" | "drivetrain" | "cockpit" | null;
@@ -8,9 +8,34 @@ type CardType = "wheels" | "drivetrain" | "cockpit" | null;
 const Gear = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCard, setActiveCard] = useState<CardType>(null);
+  const [brandSelectionLineVisible, setBrandSelectionLineVisible] = useState(false);
+  const [fullServiceLineVisible, setFullServiceLineVisible] = useState(false);
+
+  const brandSelectionRef = useRef<HTMLHeadingElement>(null);
+  const fullServiceRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === brandSelectionRef.current) {
+              setBrandSelectionLineVisible(true);
+            } else if (entry.target === fullServiceRef.current) {
+              setFullServiceLineVisible(true);
+            }
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (brandSelectionRef.current) observer.observe(brandSelectionRef.current);
+    if (fullServiceRef.current) observer.observe(fullServiceRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   const wheelBrands = ['HED', 'Princeton CarbonWorks', 'Cantu', 'ENVE', 'ZIPP', 'Lightweight', 'Schmolke', 'White Industries', 'Campy', 'Fulcrum', '3T'];
@@ -148,7 +173,9 @@ const Gear = () => {
 
         <section className="mb-20">
           <div className='border-t border-gray-200 pt-12'>
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-8 text-center">Our Brand Selection</h2>
+          <h2 ref={brandSelectionRef} className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-8 text-center relative inline-block w-full">Our brand selection
+            <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${brandSelectionLineVisible ? 'w-35' : 'w-0'}`}></span>
+          </h2>
           
           <div className="mb-12">
             <h3 className="text-xl font-bold text-gray-950 dark:text-white mb-6">Wheel Brands</h3>
@@ -191,7 +218,9 @@ const Gear = () => {
 
         <div className='border-t border-gray-200 pt-12'>
         <section className="mb-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center">Full Service Available</h2>
+          <h2 ref={fullServiceRef} className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center relative inline-block w-full">Full service available
+            <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${fullServiceLineVisible ? 'w-35' : 'w-0'}`}></span>
+          </h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-7 shadow-lg">
               <h3 className="font-bold text-gray-950 dark:text-white mb-4 text-lg">What We Service</h3>

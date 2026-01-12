@@ -34,12 +34,12 @@ const HomePage: React.FC = () => {
                 Personalized sales, bike fitting, and service
               </p>
               <p className="text-base text-gray-600 dark:text-gray-400 leading-6 mb-2">
-                Making every bike sale, upgrade and service specific for the customer and their needs
+                Making every bike sale, upgrade and service specific you and your needs
               </p>
 
               <button
                 onClick={() => router.push("/bikeFittings#scheduling")}
-                className="inline-flex items-center gap-3 px-4 py-2 bg-red-600 text-white font-semibold text-[1rem] rounded-lg transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-[0_20px_40px_rgba(220,38,38,0.3)] relative overflow-hidden mt-1"
+                className="inline-flex items-center gap-3 px-4 py-2 bg-red-600 text-white font-semibold text-[1rem] rounded-lg transition-all duration-300 hover:bg-red-700 hover:scale-105 hover:shadow-[0_10px_20px_rgba(220,38,38,0.3)] relative overflow-hidden mt-1"
               >
                 <span className="transition-transform duration-300 transform group-hover:translate-x-1">→</span>
                 <span>Schedule a bike fit</span>

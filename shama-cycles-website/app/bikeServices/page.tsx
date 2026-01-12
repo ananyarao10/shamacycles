@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Wrench, Zap, Radio, Check, ArrowRight } from "lucide-react";
 
 type CardType = "frames" | "wheels" | "groups" | null;
@@ -8,9 +8,34 @@ type CardType = "frames" | "wheels" | "groups" | null;
 const BikeServices = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCard, setActiveCard] = useState<CardType>(null);
+  const [whyChooseLineVisible, setWhyChooseLineVisible] = useState(false);
+  const [buildProcessLineVisible, setBuildProcessLineVisible] = useState(false);
+
+  const whyChooseRef = useRef<HTMLHeadingElement>(null);
+  const buildProcessRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (entry.target === whyChooseRef.current) {
+              setWhyChooseLineVisible(true);
+            } else if (entry.target === buildProcessRef.current) {
+              setBuildProcessLineVisible(true);
+            }
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (whyChooseRef.current) observer.observe(whyChooseRef.current);
+    if (buildProcessRef.current) observer.observe(buildProcessRef.current);
+
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -39,7 +64,7 @@ const BikeServices = () => {
               <div className="p-7">
                 <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Frame Selection</h3>
                 <p className="text-gray-700 dark:text-gray-400 mb-5">
-                  Premium carbon and titanium frames from the world's leading manufacturers, chosen for your specific geometry and performance needs.
+                  Premium carbon and titanium frames from the world's leading manufacturers, chosen for your specific geometry and performance needs
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
@@ -74,7 +99,7 @@ const BikeServices = () => {
               <div className="p-7">
                 <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Wheelsets</h3>
                 <p className="text-gray-700 dark:text-gray-400 mb-5">
-                  Custom-laced or factory builds engineered for the perfect balance of aerodynamics, weight, and reliability for your riding style.
+                  Custom-laced or factory builds engineered for the perfect balance of aerodynamics, weight, and reliability for your riding style
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
@@ -109,7 +134,7 @@ const BikeServices = () => {
               <div className="p-7">
                 <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Groupsets</h3>
                 <p className="text-gray-700 dark:text-gray-400 mb-5">
-                  Shimano, SRAM, and Campagnolo—electronic or mechanical—we help you choose the perfect drivetrain for your goals.
+                  We offer Shimano, SRAM, and Campagnolo drivetrains in electronic and mechanical options, selected to match your requirements
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start gap-3">
@@ -129,38 +154,42 @@ const BikeServices = () => {
             </div>
           </div>
         </section>
-
+        
+        <h2 ref={whyChooseRef} className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center relative inline-block w-full">Why choose our custom builds?
+          <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${whyChooseLineVisible ? 'w-35' : 'w-0'}`}></span>
+        </h2>
         <section className="bg-linear-to-r from-red-600 to-red-700 rounded-2xl p-12 mb-20 text-white shadow-xl">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">Why Choose Our Custom Builds?</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-lg font-semibold mb-2">Expert Knowledge</h3>
-              <p className="text-red-50">Our team has decades of combined experience building bikes for everyone from casual riders to professional racers.</p>
+              <p className="text-red-50">Our team has decades of combined experience building bikes for everyone from casual riders to professional racers</p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-2">Precision Assembly</h3>
-              <p className="text-red-50">Every component is installed with meticulous attention to detail, ensuring optimal performance and longevity.</p>
+              <p className="text-red-50">Every component is installed with attention to detail, ensuring optimal performance and longevity</p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-2">Custom Fit Integration</h3>
-              <p className="text-red-50">We integrate your bike fit data to ensure your build is optimized for your body and riding style.</p>
+              <p className="text-red-50">We integrate your bike fit data to ensure your build is optimized for you</p>
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-2">Premium Components</h3>
-              <p className="text-red-50">We source only the finest frames, wheels, and groupsets from industry leaders worldwide.</p>
+              <p className="text-red-50">We source the finest frames, wheels, and groupsets from industry leaders</p>
             </div>
           </div>
         </section>
 
         <section className="mb-4">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center">Our Build Process</h2>
+          <h2 ref={buildProcessRef} className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center relative inline-block w-full">Our build process
+            <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${buildProcessLineVisible ? 'w-35' : 'w-0'}`}></span>
+          </h2>
           <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-2xl font-bold text-red-600">1</span>
               </div>
               <h3 className="font-bold text-gray-950 dark:text-white mb-2">Consultation</h3>
-              <p className="text-gray-700 dark:text-gray-400">Discuss your goals, budget, and riding style to determine the perfect build spec.</p>
+              <p className="text-gray-700 dark:text-gray-400">Discuss your goals, budget, and riding style to determine build specs</p>
             </div>
 
             <div className="text-center">
@@ -168,7 +197,7 @@ const BikeServices = () => {
                 <span className="text-2xl font-bold text-red-600">2</span>
               </div>
               <h3 className="font-bold text-gray-950 dark:text-white mb-2">Component Selection</h3>
-              <p className="text-gray-700 dark:text-gray-400">We source premium components tailored to your specifications and performance needs.</p>
+              <p className="text-gray-700 dark:text-gray-400">We source premium components tailored to your performance needs</p>
             </div>
 
             <div className="text-center">
@@ -176,7 +205,7 @@ const BikeServices = () => {
                 <span className="text-2xl font-bold text-red-600">3</span>
               </div>
               <h3 className="font-bold text-gray-950 dark:text-white mb-2">Assembly</h3>
-              <p className="text-gray-700 dark:text-gray-400">Expert assembly with precision alignment, cable routing, and component integration.</p>
+              <p className="text-gray-700 dark:text-gray-400">Expert assembly with precision alignment, cable routing, and component integration</p>
             </div>
 
             <div className="text-center">
@@ -184,7 +213,7 @@ const BikeServices = () => {
                 <span className="text-2xl font-bold text-red-600">4</span>
               </div>
               <h3 className="font-bold text-gray-950 dark:text-white mb-2">Fine-Tuning</h3>
-              <p className="text-gray-700 dark:text-gray-400">Final fit integration and adjustments to ensure your bike is perfectly dialed in.</p>
+              <p className="text-gray-700 dark:text-gray-400">Final fit integration and adjustments to ensure your bike is perfectly dialed in</p>
             </div>
           </div>
         </section>     
