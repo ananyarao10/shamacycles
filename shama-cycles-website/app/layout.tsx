@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react';
 import './globals.css';
-import NavBar from "./components/navBar";
-import Footer from "./components/footer";
+import NavBar from "./website_components/navBar";
+import Footer from "./website_components/footer";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {

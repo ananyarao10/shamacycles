@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { Zap, Calendar, Users } from 'lucide-react';
 
 const reviews = [
   { name: "Eric B", avatarLetter: "E", rating: 5, text: `Stopped in before a trip and needed a bike box — they gave me one right away, no fuss, no charge. Super helpful and kind. On top of that, the shop itself is great: excellent layout, quality gear, and a team that clearly cares. Wish more places were like this.`},
@@ -21,9 +22,11 @@ const About = () => {
   const [sectionVisible, setSectionVisible] = useState(false);
   const [philipLineVisible, setPhilipLineVisible] = useState(false);
   const [reviewsLineVisible, setReviewsLineVisible] = useState(false);
+  const [shopLineVisible, setShopLineVisible] = useState(false);
 
   const philipRef = useRef<HTMLDivElement>(null);
   const reviewsRef = useRef<HTMLDivElement>(null);
+  const shopRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
@@ -37,6 +40,8 @@ const About = () => {
               setPhilipLineVisible(true);
             } else if (entry.target === reviewsRef.current) {
               setReviewsLineVisible(true);
+            } else if (entry.target === shopRef.current) {
+              setShopLineVisible(true);
             }
           }
         });
@@ -46,6 +51,7 @@ const About = () => {
 
     if (philipRef.current) observer.observe(philipRef.current);
     if (reviewsRef.current) observer.observe(reviewsRef.current);
+    if (shopRef.current) observer.observe(shopRef.current);
 
     return () => observer.disconnect();
   }, []);
@@ -119,6 +125,46 @@ const About = () => {
           <p className='mt-3 text-gray-700 dark:text-gray-300'>Philip Shama loves many things. He enjoys fresh brewed coffee in the morning, watching Le Tour (well, actually all tours), and spending time with his family. But he&apos;s also one of those people lucky enough to say he really loves his job.</p>
           <p className='text-gray-700 dark:text-gray-300'>His passion for fine detail and commitment to quality craftsmanship can be seen in every bike that leaves the shop. Philip believes the riding experience doesn&apos;t stop when a client picks up their bike — he follows up to make sure each ride feels just right.</p>
           <p className='text-gray-700 dark:text-gray-300'>When he&apos;s not at the shop, you can find Philip riding his bike around Houston or racing throughout the season.</p>
+        </div>
+      </section>
+
+      <section className="px-6 py-12 border-t border-gray-200 mx-auto">
+        <h2 ref={shopRef} className="text-2xl md:text-3xl font-bold text-center mb-12 mt-4 relative inline-block w-full text-gray-900 dark:text-white">Our shop
+          <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${shopLineVisible ? 'w-35' : 'w-0'}`}></span>
+        </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+          <div className={`transition-all duration-1000 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+            <div className="group h-64 bg-gray-300 relative rounded-xl overflow-hidden mb-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
+              <Image src="/community_2.jpeg" alt="Group Rides" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
+                <Zap size={20} className="text-red-400" />
+                <span className="font-semibold">Weekly Rides</span>
+              </div>
+            </div>
+          </div>
+
+          <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+            <div className="group h-64 bg-gray-300 relative rounded-xl overflow-hidden mb-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
+              <Image src="/community_1.jpeg" alt="Events & Races" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
+                <Calendar size={20} className="text-red-400" />
+                <span className="font-semibold">Year Round</span>
+              </div>
+            </div>
+          </div>
+
+          <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
+            <div className="group h-64 bg-gray-300 relative rounded-xl overflow-hidden mb-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
+              <Image src="/community_3.webp" alt="Social Rides" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
+              <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
+              <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
+                <Users size={20} className="text-red-400" />
+                <span className="font-semibold">Connect & Ride</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

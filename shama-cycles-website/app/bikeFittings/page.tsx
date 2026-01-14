@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { Check, ArrowRight } from 'lucide-react';
-import CalendlyWidget from '../components/CalendlyWidget';
+import CalendlyWidget from '../website_components/CalendlyWidget';
 
 const BikeFittings = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,11 +42,6 @@ const BikeFittings = () => {
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">BIKE FITTINGS</h1>
         <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
-
-        {/* <a href="#scheduling" className="inline-flex items-center gap-2 bg-red-600 text-white px-7 py-3 rounded-lg font-semibold hover:bg-red-700 transition-all hover:gap-3">
-          Schedule a Fitting
-          <ArrowRight size={18} />
-        </a> */}
 
       <div className="mx-auto px-6 py-12">
         <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -88,7 +83,7 @@ const BikeFittings = () => {
           <h2 ref={perfectFitRef} className="text-2xl md:text-3xl font-bold text-center mb-10 text-gray-950 dark:text-white relative inline-block w-full">Find the perfect fit for you
             <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${perfectFitLineVisible ? 'w-35' : 'w-0'}`}></span>
           </h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <div className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-xl transition-all duration-1000 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} hover:shadow-xl hover:-translate-y-1 transition-all`}>
               <div className="flex items-start gap-4 mb-6">
                 <div className="text-4xl">👑</div>
@@ -113,11 +108,11 @@ const BikeFittings = () => {
               </div>
             </div>
 
-            <div className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-xl transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} hover:shadow-xl hover:-translate-y-1 transition-all`}>
+            <div className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-xl transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} hover:shadow-xl hover:-translate-y-1 transition-all`}>
               <div className="flex items-start gap-4 mb-6">
                 <div className="text-4xl">🎯</div>
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Retul Bike Fit</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">3D Motion Capture</h3>
                   <p className="text-2xl font-bold text-red-600 mt-1">$250</p>
                 </div>
               </div>
@@ -133,6 +128,30 @@ const BikeFittings = () => {
                 <div className="flex gap-3">
                   <Check className="w-5 h-5 shrink-0 text-red-600 mt-0.5" />
                   <p className='text-gray-700 dark:text-gray-300'>Ideal for riders with imbalances or those who love detailed performance data</p>
+                </div>
+              </div>
+            </div>
+
+            <div className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 rounded-xl transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'} hover:shadow-xl hover:-translate-y-1 transition-all`}>
+              <div className="flex items-start gap-4 mb-6">
+                <div className="text-4xl">🚲</div>
+                <div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white">New/Custom Bike</h3>
+                  <p className="text-2xl font-bold text-red-600 mt-1">$300</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <div className="flex gap-3">
+                  <Check className="w-5 h-5 shrink-0 text-red-600 mt-0.5" />
+                  <p className='text-gray-700 dark:text-gray-300'>Complete bike fitting for new purchases or custom builds</p>
+                </div>
+                <div className="flex gap-3">
+                  <Check className="w-5 h-5 shrink-0 text-red-600 mt-0.5" />
+                  <p className='text-gray-700 dark:text-gray-300'>Comprehensive frame selection and component matching guidance</p>
+                </div>
+                <div className="flex gap-3">
+                  <Check className="w-5 h-5 shrink-0 text-red-600 mt-0.5" />
+                  <p className='text-gray-700 dark:text-gray-300'>Full setup optimization for maximum performance and comfort</p>
                 </div>
               </div>
             </div>
@@ -156,7 +175,9 @@ const BikeFittings = () => {
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">What to Expect</h3>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">When you book a bike fitting appointment, you'll receive a confirmation email with additional instructions. Please arrive 15 minutes early and be ready to discuss your riding goals.</p>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">We limit to 2 fit appointments per day to ensure personalized attention and adequate time for each appointment.</p>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">We limit to 2 fit appointments per day to ensure personalized attention and adequate time for each appointment.</p>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-2"><span className="font-semibold">Please call the shop</span> if the day or time you need is already booked.</p>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed"><span className="font-semibold">Please call if you make an appointment but can't come anymore</span> so we can open up that slot for other riders.</p>
               </div>
 
               <div className="grid grid-cols-2 gap-6">

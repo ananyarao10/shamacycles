@@ -55,18 +55,10 @@ const HomePage: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex justify-around items-center gap-6 flex-wrap md:flex-nowrap">
-              <div className="flex flex-col items-center gap-2 text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 leading-none">15+</div>
-                <div className="text-sm sm:text-base font-medium uppercase tracking-wider text-black dark:text-white">Years Experience</div>
-              </div>
-              <div className="flex flex-col items-center gap-2 text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 leading-none">1000+</div>
-                <div className="text-sm sm:text-base font-medium uppercase tracking-wider text-black dark:text-white">Bikes Fitted</div>
-              </div>
-              <div className="flex flex-col items-center gap-2 text-center">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-red-600 leading-none">500+</div>
-                <div className="text-sm sm:text-base font-medium uppercase tracking-wider text-black dark:text-white">Happy Customers</div>
+            <div className="flex flex-col gap-3">
+              <div>
+                <p className="text-4xl sm:text-5xl font-bold text-red-600">2009</p>
+                <p className="text-sm uppercase tracking-widest font-semibold text-gray-600 dark:text-gray-400 mt-1">Established & Owner Operated</p>
               </div>
             </div>
           </div>

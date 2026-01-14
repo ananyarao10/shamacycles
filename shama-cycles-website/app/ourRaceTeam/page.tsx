@@ -91,7 +91,7 @@ const OurRaceTeam = () => {
 
   const sponsors = [
     { name: 'Hydromax USA', logo: '/hydromax.jpeg', website: 'https://hydromaxusa.com/' },
-    { name: 'The Caker', logo: '/caker.avif', website: 'https://www.thecaker.com/' },
+    { name: 'The Caker', logo: '/thecaker.jpg', website: 'https://www.instagram.com/thecakerhouston/?hl=en' },
     { name: 'HED Wheels', logo: '/hed.avif', website: 'https://hedcycling.com/' },
     { name: 'Vie13', logo: '/vie13.jpeg', website: 'https://vie13.com/' },
     { name: 'Trinity Estate Homes', logo: '/trinity_estate_homes.png', website: 'https://www.trinityestatehomes.com/' },
