@@ -71,7 +71,7 @@ const Community = () => {
               <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
               <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
                 <Calendar size={20} className="text-red-400" />
-                <span className="font-semibold">Throughout Year</span>
+                <span className="font-semibold">Year Round</span>
               </div>
             </div>
             <h3 ref={eventsRacesRef} className="text-2xl font-bold text-gray-950 dark:text-white mb-3 relative">Events & Races
