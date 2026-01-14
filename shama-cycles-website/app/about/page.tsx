@@ -129,46 +129,50 @@ const About = () => {
       </section>
 
       <section className="px-6 py-12 border-t border-gray-200 mx-auto">
-        <h2 ref={shopRef} className="text-2xl md:text-3xl font-bold text-center mb-12 mt-4 relative inline-block w-full text-gray-900 dark:text-white">Our shop
-          <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${shopLineVisible ? 'w-35' : 'w-0'}`}></span>
-        </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+        <div className="mb-12">
+          <h2 ref={shopRef} className="text-2xl md:text-3xl font-bold text-center mb-4 relative inline-block w-full text-gray-900 dark:text-white">Where the ride begins
+            <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${shopLineVisible ? 'w-48' : 'w-0'}`}></span>
+          </h2>
+          <p className="text-center text-gray-700 dark:text-gray-300 max-w-2xl mx-auto mt-6">Our shop is a gathering place for our community. Browse premium gear, find your next ride, and connect with fellow cyclists.</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
           <div className={`transition-all duration-1000 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <div className="group h-64 bg-gray-300 relative rounded-xl overflow-hidden mb-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
-              <Image src="/community_2.jpeg" alt="Group Rides" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
+              <Image src="/community_2.jpeg" alt="Shop & Gear" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
               <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
               <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
                 <Zap size={20} className="text-red-400" />
-                <span className="font-semibold">Weekly Rides</span>
+                <span className="font-semibold">Premium Selection</span>
               </div>
             </div>
           </div>
 
           <div className={`transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <div className="group h-64 bg-gray-300 relative rounded-xl overflow-hidden mb-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
-              <Image src="/community_1.jpeg" alt="Events & Races" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
+              <Image src="/community_1.jpeg" alt="Community Hub" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
               <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
               <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
                 <Calendar size={20} className="text-red-400" />
-                <span className="font-semibold">Year Round</span>
+                <span className="font-semibold">Community Space</span>
               </div>
             </div>
           </div>
 
           <div className={`transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'}`}>
             <div className="group h-64 bg-gray-300 relative rounded-xl overflow-hidden mb-6 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
-              <Image src="/community_3.webp" alt="Social Rides" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
+              <Image src="/community_3.webp" alt="Apparel" className="object-cover group-hover:scale-105 transition-transform duration-300" fill />
               <div className="absolute inset-0 bg-linear-to-t from-black/40 to-transparent"></div>
               <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
                 <Users size={20} className="text-red-400" />
-                <span className="font-semibold">Connect & Ride</span>
+                <span className="font-semibold">Apparel</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="px-6 py-7 mx-auto border-t border-gray-200 dark:border-gray-700">
+      <section className="px-6 py-12 mx-auto border-t border-gray-200 dark:border-gray-700">
         <h2 ref={reviewsRef} className="text-2xl md:text-3xl font-bold text-center mb-12 mt-4 relative inline-block w-full text-gray-900 dark:text-white">What our customers are saying
           <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${reviewsLineVisible ? 'w-35' : 'w-0'}`}></span>
         </h2>

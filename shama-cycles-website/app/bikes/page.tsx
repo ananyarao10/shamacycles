@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { X, ChevronLeft, ChevronRight, Zap, Users, Wrench } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Zap, Users, Wrench, ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 interface Brand {
@@ -10,6 +10,7 @@ interface Brand {
   uniqueness: string;
   bestFor: string;
   gallery: string[];
+  website: string;
 }
 
 const Bikes = () => {
@@ -49,73 +50,83 @@ const Bikes = () => {
   const brands = [
     { 
       name: '3T Bike', 
-      logo: '/3t_2.webp',
+      logo: '/3t_3.jpg',
       uniqueness: 'The Italian guys who basically invented modern gravel racing. They were doing disc brakes and 1X setups on road bikes before anyone else thought it made sense. Their stuff is built to race.',
       bestFor: 'If you want to race gravel or road and aren\'t afraid to push the limits.',
-      gallery: ['/3t_1.webp', '/3t_2.webp', '/3t_3.webp']
+      gallery: ['/3t_3.jpg', '/3t_1.jpg', '/3t_2.jpg'],
+      website: 'https://3tbikes.com/'
     },
     { 
       name: 'TIME', 
       logo: '/time_1.webp',
       uniqueness: 'An American brand that\'s obsessed with how a bike actually feels to ride. Their carbon construction is their secret—it just feels smoother and more alive than most bikes out there.',
       bestFor: 'Riders who care about ride quality and can feel the difference in how a frame responds.',
-      gallery: ['/time_1.webp', '/time_2.webp', '/time_3.webp']
+      gallery: ['/time_1.webp', '/time_2.jpg', '/time_3.webp'],
+      website: 'https://timebicycles.com/'
     },
     { 
       name: 'Factor', 
-      logo: '/factor_1.webp',
+      logo: '/factor_1.jpg',
       uniqueness: 'These guys build bikes for top-level racers. Everything they make is engineered to be fast—no compromises. Road, tri, gravel, it doesn\'t matter. Speed is the priority.',
       bestFor: 'Serious racers who want every marginal gain they can get.',
-      gallery: ['/factor_1.webp', '/factor_2.webp', '/factor_3.webp']
+      gallery: ['/factor_1.jpg', '/factor_2.jpg', '/factor_3.jpg'],
+      website: 'https://factorbikes.com/'
     },
     { 
       name: 'Colnago', 
-      logo: '/colnago_3.webp',
+      logo: '/colnago_1.jpg',
       uniqueness: 'From the late 1960s through the 1970s, Colnago was generally regarded as one of the builders of the world\'s finest road race frames. In 1960, Colnago saw fame as Luigi Arienti rode to a gold medal at the Rome Olympics on a Colnago bicycle.',
       bestFor: 'Riders who value prestige, Italian craftsmanship, and a bike with genuine racing history behind it.',
-      gallery: ['/colnago_1.webp', '/colnago_2.webp', '/colnago_3.webp']
+      gallery: ['/colnago_1.jpg', '/colnago_2.jpg', '/colnago_3.jpg'],
+      website: 'https://colnago.com/'
     },
     { 
       name: 'Cipollini', 
-      logo: '/cipollini_2.webp',
+      logo: '/cipollini_2.jpg',
       uniqueness: 'These bikes are aggressive and they look aggressive. Italian through and through. Built for racers who want a bike that matches their attitude.',
       bestFor: 'You want to race and you want everyone to know it when you roll up.',
-      gallery: ['/cipollini_1.webp', '/cipollini_2.webp', '/cipollini_3.webp']
+      gallery: ['/cipollini_2.jpg', '/cipollini_1.webp', '/cipollini_3.webp'],
+      website: 'https://cipollinibike.com/'
     },
     { 
       name: 'Enve', 
-      logo: '/enve_1.jpeg',
+      logo: '/enve_1.jpg',
       uniqueness: 'American engineering with a focus on gravel and road racing. They know how to build a bike that\'s quick but won\'t beat you up on long days.',
       bestFor: 'Racers and endurance riders who want something built to last.',
-      gallery: ['/enve_1.jpeg', '/enve_2.webp', '/enve_3.jpeg']
+      gallery: ['/enve_1.jpg', '/enve_2.jpg', '/enve_3.jpg'],
+      website: 'https://enve.com/'
     },
     { 
       name: 'Argon18', 
-      logo: '/argon_2.webp',
+      logo: '/argon_1.jpg',
       uniqueness: 'Developed through triathlon and time trial racing with a focus on aerodynamics, fit systems, and race-oriented geometry. Design decisions prioritize efficiency and adjustability.',
       bestFor: 'Triathletes and competitive riders who need precise fit and aerodynamic performance.',
-      gallery: ['/argon_1.webp', '/argon_2.webp', '/argon_3.webp']
+      gallery: ['/argon_1.jpg', '/argon_2.jpg', '/argon_3.jpg'],
+      website: 'https://argon18.com/'
     },
     { 
       name: 'Officine Mattio', 
       logo: '/mattio_1.webp',
       uniqueness: 'Small Italian workshop producing hand-built frames in limited runs, with custom geometry and a strong focus on craftsmanship and ride quality.',
       bestFor: 'Riders looking for a small-batch, custom-built frame with direct attention to detail.',
-      gallery: ['/mattio_1.webp', '/mattio_2.webp', '/mattio_3.webp']
+      gallery: ['/mattio_1.webp', '/mattio_2.webp', '/mattio_3.webp'],
+      website: 'https://officinemattio.com/'
     },
     { 
       name: 'Santa Cruz', 
       logo: '/santa_cruz_3.jpeg',
       uniqueness: 'Known for durable, well-engineered gravel and mountain bikes with a focus on suspension design, reliability, and real-world performance.',
       bestFor: 'Off-road racing and adventure. You want to go fast but you also want to have fun doing it.',
-      gallery: ['/santa_cruz_1.jpeg', '/santa_cruz_2.jpeg', '/santa_cruz_3.jpeg']
+      gallery: ['/santa_cruz_1.jpeg', '/santa_cruz_2.jpeg', '/santa_cruz_3.jpeg'],
+      website: 'https://santacruzbicycles.com/'
     },
     { 
       name: 'Cervélo', 
       logo: '/cervelo_3.jpeg',
       uniqueness: 'Engineering-driven brand with a strong emphasis on aerodynamics, stiffness-to-weight optimization, and data-backed design across road, gravel, and triathlon platforms.',
       bestFor: 'Speed-focused riders who want aero tech and proven race performance.',
-      gallery: ['/cervelo_1.jpeg', '/cervelo_2.jpeg', '/cervelo_3.jpeg']
+      gallery: ['/cervelo_1.jpeg', '/cervelo_2.jpeg', '/cervelo_3.jpeg'],
+      website: 'https://cervelo.com/'
     },
   ];
 
@@ -255,6 +266,18 @@ const Bikes = () => {
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Best suited for</h3>
                   <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{selectedBrand.bestFor}</p>
+                </div>
+
+                <div className="flex justify-center pt-4">
+                  <a 
+                    href={selectedBrand.website} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+                  >
+                    <ExternalLink size={18} />
+                    Visit Website
+                  </a>
                 </div>
               </div>
             </div>

@@ -158,10 +158,6 @@ const BikeFittings = () => {
           </div>
         </div>
 
-        <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-8 mb-16 rounded-xl">
-          <p className="text-gray-800 dark:text-gray-200 leading-relaxed"><span className="font-semibold text-red-600 dark:text-red-400">No hidden charges:</span> We don't believe fits are always a one-visit fix. Big changes may require multiple visits and adaptation time.</p>
-        </div>
-
         <div id="scheduling" className="px-6 py-12 mx-auto border-t border-gray-200 dark:border-gray-700">
           <h2 ref={scheduleFittingRef} className="text-2xl md:text-3xl font-bold text-center text-gray-950 dark:text-white mb-12 relative inline-block w-full">Schedule your fitting
             <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${scheduleFittingLineVisible ? 'w-35' : 'w-0'}`}></span>
@@ -174,10 +170,10 @@ const BikeFittings = () => {
             <div className="md:col-span-2 flex flex-col justify-center gap-8">
               <div>
                 <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3">What to Expect</h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">When you book a bike fitting appointment, you'll receive a confirmation email with additional instructions. Please arrive 15 minutes early and be ready to discuss your riding goals.</p>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">When you book a bike fitting appointment, you'll receive a calendar invite. Please arrive 15 minutes early and be ready to discuss your riding goals.</p>
                 <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">We limit to 2 fit appointments per day to ensure personalized attention and adequate time for each appointment.</p>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-2"><span className="font-semibold">Please call the shop</span> if the day or time you need is already booked.</p>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed"><span className="font-semibold">Please call if you make an appointment but can't come anymore</span> so we can open up that slot for other riders.</p>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-2"><span className="font-semibold">Please call the shop</span> if the day or time you need is already booked</p>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed"><span className="font-semibold">Please call if you make an appointment but can't come anymore</span> so we can open up that slot for other riders</p>
               </div>
 
               <div className="grid grid-cols-2 gap-6">
@@ -192,6 +188,7 @@ const BikeFittings = () => {
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>

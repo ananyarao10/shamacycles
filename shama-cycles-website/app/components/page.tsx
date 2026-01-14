@@ -1,17 +1,16 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Wind, Gauge, Zap, Check } from 'lucide-react';
+import { Wind, Gauge, Zap, Check, Flame, Shirt } from 'lucide-react';
+import Image from 'next/image';
 
-type CardType = "wheels" | "drivetrain" | "cockpit" | null;
+type CardType = "wheels" | "drivetrain" | "cockpit" | "nutrition" | "clothing" | null;
 
 const Components = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCard, setActiveCard] = useState<CardType>(null);
-  const [brandSelectionLineVisible, setBrandSelectionLineVisible] = useState(false);
   const [fullServiceLineVisible, setFullServiceLineVisible] = useState(false);
 
-  const brandSelectionRef = useRef<HTMLHeadingElement>(null);
   const fullServiceRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
@@ -20,50 +19,29 @@ const Components = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            if (entry.target === brandSelectionRef.current) {
-              setBrandSelectionLineVisible(true);
-            } else if (entry.target === fullServiceRef.current) {
-              setFullServiceLineVisible(true);
-            }
+          if (entry.target === fullServiceRef.current) {
+            setFullServiceLineVisible(true);
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    if (brandSelectionRef.current) observer.observe(brandSelectionRef.current);
     if (fullServiceRef.current) observer.observe(fullServiceRef.current);
 
     return () => observer.disconnect();
   }, []);
 
-  const wheelBrands = ['HED', 'Princeton CarbonWorks', 'Cantu', 'ENVE', 'ZIPP', 'Lightweight', 'Schmolke', 'White Industries', 'Campy', 'Fulcrum', '3T'];
-  
-  const handlebarBrands = ['Zipp', 'Shimano', 'Enve', 'Schmolke', 'THM', 'Darimo', 'Thomson', 'Deda', 'Profile Design', '3T', '51 Speedshop'];
-
   return (
     <div className="mx-auto px-6 py-12">
-      <div className={`text-center mb-10 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
+      <div className={`text-center mb-6 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-5'}`}>
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white tracking-[-0.02em]">COMPONENTS</h1>
         <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
       <div className="mx-auto px-6 py-12">
-        <style jsx>{`
-          @keyframes fadeInUp {
-            from {
-              opacity: 0;
-              transform: translateY(20px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-        `}</style>
         <section className="mb-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div
               className={`group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 cursor-pointer ${
                 activeCard === "wheels" ? "shadow-2xl -translate-y-2" : "shadow-lg hover:shadow-2xl hover:-translate-y-1"
@@ -71,31 +49,27 @@ const Components = () => {
               onMouseEnter={() => setActiveCard("wheels")}
               onMouseLeave={() => setActiveCard(null)}
             >
-              <div className="h-30 bg-linear-to-br from-gray-900 to-gray-700 flex items-center justify-center relative overflow-hidden">
+              <div className="h-24 bg-linear-to-br from-gray-900 to-gray-700 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                   <div className="w-full h-full bg-[radial-gradient(circle,rgba(239,68,68,0.3)_0%,transparent_70%)]"></div>
                 </div>
-                <Wind className="text-red-500 group-hover:scale-110 transition-transform" size={60} />
+                <Wind className="text-red-500 group-hover:scale-110 transition-transform" size={50} />
               </div>
-              <div className="p-7">
-                <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Wheels</h3>
-                <p className="text-gray-700 dark:text-gray-400 mb-5">
-                  Premium wheels engineered for aerodynamics, weight, and durability. Custom lacing or factory builds to match your riding style.
+              <div className="p-5">
+                <h3 className="text-xl font-bold text-gray-950 dark:text-white mb-2">Wheels</h3>
+                <p className="text-gray-700 dark:text-gray-400 text-sm mb-4">
+                  Custom laced wheels, hand-picked components, precision tuning.
                 </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                    <span className="text-gray-700 dark:text-gray-400">Hand-laced custom wheels</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                    <span className="text-gray-700 dark:text-gray-400">Premium hub and rim selection</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                    <span className="text-gray-700 dark:text-gray-400">Precision tensioning and truing</span>
-                  </li>
-                </ul>
+                <div className="space-y-2">
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Brands</div>
+                  <div className="flex flex-wrap gap-2">
+                    {['HED', 'Princeton', 'ENVE', 'ZIPP', 'Lightweight'].map(brand => (
+                      <span key={brand} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white px-2.5 py-1 rounded-full">
+                        {brand}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -106,31 +80,27 @@ const Components = () => {
               onMouseEnter={() => setActiveCard("drivetrain")}
               onMouseLeave={() => setActiveCard(null)}
             >
-              <div className="h-30 bg-linear-to-br from-gray-900 to-gray-700 flex items-center justify-center relative overflow-hidden">
+              <div className="h-24 bg-linear-to-br from-gray-900 to-gray-700 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                   <div className="w-full h-full bg-[radial-gradient(circle,rgba(239,68,68,0.3)_0%,transparent_70%)]"></div>
                 </div>
-                <Zap className="text-red-500 group-hover:scale-110 transition-transform" size={60} />
+                <Zap className="text-red-500 group-hover:scale-110 transition-transform" size={50} />
               </div>
-              <div className="p-7">
-                <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Drivetrain</h3>
-                <p className="text-gray-700 dark:text-gray-400 mb-5">
-                  Shimano Dura Ace, SRAM AXS, and Rotor components—electronic or mechanical. Optimized for your goals and riding style.
+              <div className="p-5">
+                <h3 className="text-xl font-bold text-gray-950 dark:text-white mb-2">Drivetrain</h3>
+                <p className="text-gray-700 dark:text-gray-400 text-sm mb-4">
+                  Shimano, SRAM, Rotor. Electronic & mechanical optimized for you.
                 </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                    <span className="text-gray-700 dark:text-gray-400">Electronic & mechanical options</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                    <span className="text-gray-700 dark:text-gray-400">Power meter integration</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                    <span className="text-gray-700 dark:text-gray-400">Gear ratio consultation</span>
-                  </li>
-                </ul>
+                <div className="space-y-2">
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Brands</div>
+                  <div className="flex flex-wrap gap-2">
+                    {['Shimano', 'SRAM', 'Rotor'].map(brand => (
+                      <span key={brand} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white px-2.5 py-1 rounded-full">
+                        {brand}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -141,84 +111,128 @@ const Components = () => {
               onMouseEnter={() => setActiveCard("cockpit")}
               onMouseLeave={() => setActiveCard(null)}
             >
-              <div className="h-30 bg-linear-to-br from-gray-900 to-gray-700 flex items-center justify-center relative overflow-hidden">
+              <div className="h-24 bg-linear-to-br from-gray-900 to-gray-700 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 opacity-10">
                   <div className="w-full h-full bg-[radial-gradient(circle,rgba(239,68,68,0.3)_0%,transparent_70%)]"></div>
                 </div>
-                <Gauge className="text-red-500 group-hover:scale-110 transition-transform" size={60} />
+                <Gauge className="text-red-500 group-hover:scale-110 transition-transform" size={50} />
               </div>
-              <div className="p-7">
-                <h3 className="text-2xl font-bold text-gray-950 dark:text-white mb-3">Cockpit</h3>
-                <p className="text-gray-700 dark:text-gray-400 mb-5">
-                  Premium handlebars, stems, and seatposts from the world's leading brands for road, gravel, and triathlon.
+              <div className="p-5">
+                <h3 className="text-xl font-bold text-gray-950 dark:text-white mb-2">Cockpit</h3>
+                <p className="text-gray-700 dark:text-gray-400 text-sm mb-4">
+                  Premium handlebars, stems, seatposts. Fit-specific selection.
                 </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                    <span className="text-gray-700 dark:text-gray-400">Wide range of geometries</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                    <span className="text-gray-700 dark:text-gray-400">Fit-specific selection</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <Check className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                    <span className="text-gray-700 dark:text-gray-400">Carbon and alloy options</span>
-                  </li>
-                </ul>
+                <div className="space-y-2">
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Brands</div>
+                  <div className="flex flex-wrap gap-2">
+                    {['Zipp', 'Enve', '3T', 'THM', 'Deda', 'Profile'].map(brand => (
+                      <span key={brand} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white px-2.5 py-1 rounded-full">
+                        {brand}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className={`group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 cursor-pointer ${
+                activeCard === "nutrition" ? "shadow-2xl -translate-y-2" : "shadow-lg hover:shadow-2xl hover:-translate-y-1"
+              }`}
+              onMouseEnter={() => setActiveCard("nutrition")}
+              onMouseLeave={() => setActiveCard(null)}
+            >
+              <div className="h-24 bg-linear-to-br from-gray-900 to-gray-700 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                  <div className="w-full h-full bg-[radial-gradient(circle,rgba(239,68,68,0.3)_0%,transparent_70%)]"></div>
+                </div>
+                <Flame className="text-red-500 group-hover:scale-110 transition-transform" size={50} />
+              </div>
+              <div className="p-5">
+                <h3 className="text-xl font-bold text-gray-950 dark:text-white mb-2">Nutrition</h3>
+                <p className="text-gray-700 dark:text-gray-400 text-sm mb-4">
+                  Gels, electrolytes, drink mix, food & ketones. 15% bulk discount.
+                </p>
+                <div className="space-y-2">
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Brands</div>
+                  <div className="flex flex-wrap gap-2">
+                    {['Maurten'].map(item => (
+                      <span key={item} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white px-2.5 py-1 rounded-full">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className={`group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 cursor-pointer ${
+                activeCard === "clothing" ? "shadow-2xl -translate-y-2" : "shadow-lg hover:shadow-2xl hover:-translate-y-1"
+              }`}
+              onMouseEnter={() => setActiveCard("clothing")}
+              onMouseLeave={() => setActiveCard(null)}
+            >
+              <div className="h-24 bg-linear-to-br from-gray-900 to-gray-700 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                  <div className="w-full h-full bg-[radial-gradient(circle,rgba(239,68,68,0.3)_0%,transparent_70%)]"></div>
+                </div>
+                <Shirt className="text-red-500 group-hover:scale-110 transition-transform" size={50} />
+              </div>
+              <div className="p-5">
+                <h3 className="text-xl font-bold text-gray-950 dark:text-white mb-2">Clothing</h3>
+                <p className="text-gray-700 dark:text-gray-400 text-sm mb-4">
+                  Premium biking apparel. Jerseys, bibs, socks & more.
+                </p>
+                <div className="space-y-2">
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Brands</div>
+                  <div className="flex flex-wrap gap-2">
+                    {['Assos', 'Vie 13', 'Zeffz Socks'].map(brand => (
+                      <span key={brand} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white px-2.5 py-1 rounded-full">
+                        {brand}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              className={`group bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 cursor-pointer ${
+                activeCard === "wheels" ? "shadow-2xl -translate-y-2" : "shadow-lg hover:shadow-2xl hover:-translate-y-1"
+              }`}
+              onMouseEnter={() => setActiveCard("wheels")}
+              onMouseLeave={() => setActiveCard(null)}
+            >
+              <div className="h-24 bg-linear-to-br from-gray-900 to-gray-700 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 opacity-10">
+                  <div className="w-full h-full bg-[radial-gradient(circle,rgba(239,68,68,0.3)_0%,transparent_70%)]"></div>
+                </div>
+                <Wind className="text-red-500 group-hover:scale-110 transition-transform" size={50} />
+              </div>
+              <div className="p-5">
+                <h3 className="text-xl font-bold text-gray-950 dark:text-white mb-2">Helmets and Shoes</h3>
+                <p className="text-gray-700 dark:text-gray-400 text-sm mb-4">
+                  Aerodynamic helmets and carbon-soled shoes for maximum efficiency.
+                </p>
+                <div className="space-y-2">
+                  <div className="text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wide">Brands</div>
+                  <div className="flex flex-wrap gap-2">
+                    {['Giro', 'Specialized', 'Shimano'].map(brand => (
+                      <span key={brand} className="text-xs bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white px-2.5 py-1 rounded-full">
+                        {brand}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </section>
-
-        <section className="mb-20">
-          <div className='border-t border-gray-200 pt-12'>
-          <h2 ref={brandSelectionRef} className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-8 text-center relative inline-block w-full">Our brand selection
-            <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${brandSelectionLineVisible ? 'w-35' : 'w-0'}`}></span>
-          </h2>
-          
-          <div className="mb-12">
-            <h3 className="text-xl font-bold text-gray-950 dark:text-white mb-6">Wheel Brands</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {wheelBrands.map((brand, index) => (
-                <div 
-                  key={brand}
-                  className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 text-center hover:shadow-md hover:border-red-300 transition-all duration-300 animate-[fadeInUp_0.6s_ease-out_forwards] opacity-0`}
-                  style={{ animationDelay: `${index * 0.05}s` }}
-                >
-                  <p className="text-gray-900 dark:text-white font-semibold text-sm">{brand}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-            <h3 className="text-xl font-bold text-gray-950 dark:text-white mb-6">Cockpit Brands</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-              {handlebarBrands.map((brand, index) => (
-                <div 
-                  key={brand}
-                  className={`bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 text-center hover:shadow-md hover:border-red-300 transition-all duration-300 animate-[fadeInUp_0.6s_ease-out_forwards] opacity-0`}
-                  style={{ animationDelay: `${(index + wheelBrands.length) * 0.05}s` }}
-                >
-                  <p className="text-gray-900 dark:text-white font-semibold text-sm">{brand}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <div className='border-t border-gray-200 pt-12'>
-        <section className="bg-linear-to-r from-red-600 to-red-700 rounded-2xl p-10 mb-20 text-white shadow-xl">
-          <h2 className="text-lg md:text-xl font-bold mb-6">Marginal Gains</h2>
-          <p className="text-red-50 text-sm leading-relaxed">
-            Ceramic bearings save a couple watts. Latex tubes save a couple more. Deeper wheels save some watts at speed. Maybe they just look incredible on your bike. One thing is certain: we focus on what works and what can be ridden hard and often—that is faster. All those small details that we pay attention to add up to a big difference.
-          </p>
-        </section>
-        </div>
 
         <div className='border-t border-gray-200 pt-12'>
         <section className="mb-4">
-          <h2 ref={fullServiceRef} className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center relative inline-block w-full">Full service available
+          <h2 ref={fullServiceRef} className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center relative inline-block w-full">Full services available
             <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${fullServiceLineVisible ? 'w-35' : 'w-0'}`}></span>
           </h2>
           <div className="grid md:grid-cols-2 gap-6">
