@@ -63,6 +63,12 @@ const About = () => {
         <div className="h-1.25 w-3/5 mx-auto mt-6 bg-linear-to-r from-transparent via-red-600 to-transparent animate-[glow_3s_ease-in-out_infinite]"></div>
       </div>
 
+      <div className="mb-4 flex justify-center">
+        <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-600 text-white text-sm font-semibold tracking-wide shadow-md">
+          Established 2009
+        </span>
+      </div>
+
       <section className={`flex flex-col md:flex-row gap-6 md:gap-6 justify-between mb-10 max-w-full mx-auto p-6 md:p-10 rounded-xl shadow-[0_10px_40px_rgba(220,38,38,0.15)] bg-cover bg-center transition-all duration-1000 ${sectionVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-10 scale-95'}`} style={{ backgroundImage: "url('/bike_abt.webp')" }}>
         <div className="flex-1 flex flex-col gap-4">
           <h3 className="text-white font-bold text-2xl relative pb-2">Our Philosophy
@@ -108,6 +114,15 @@ const About = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      <section className="border-t border-gray-200 mx-auto px-6 py-12 text-center">
+        <p className="text-gray-800 dark:text-gray-200 leading-relaxed">
+          Founded in 2009, Shama Cycles was built on a simple philosophy: real bikes for real cyclists.
+          From day one, the focus has been on thoughtful craftsmanship, personalized service, and doing
+          things the right way. More than 15 years later, Shama Cycles remains independently owned and
+          operated by Philip, serving riders who value quality.
+        </p>
       </section>
 
       <section className="px-6 py-12 border-t border-gray-200 flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-start justify-center mb-8 mx-auto">

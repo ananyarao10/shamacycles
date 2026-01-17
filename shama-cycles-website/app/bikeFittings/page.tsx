@@ -1,16 +1,19 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Check, ArrowRight } from 'lucide-react';
+import { Check, ChevronDown } from 'lucide-react';
 import CalendlyWidget from '../website_components/CalendlyWidget';
 
 const BikeFittings = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [perfectFitLineVisible, setPerfectFitLineVisible] = useState(false);
   const [scheduleFittingLineVisible, setScheduleFittingLineVisible] = useState(false);
+  const [faqLineVisible, setFaqLineVisible] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const perfectFitRef = useRef<HTMLHeadingElement>(null);
   const scheduleFittingRef = useRef<HTMLHeadingElement>(null);
+  const faqRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 0);
@@ -23,6 +26,8 @@ const BikeFittings = () => {
               setPerfectFitLineVisible(true);
             } else if (entry.target === scheduleFittingRef.current) {
               setScheduleFittingLineVisible(true);
+            } else if (entry.target === faqRef.current) {
+              setFaqLineVisible(true);
             }
           }
         });
@@ -32,6 +37,7 @@ const BikeFittings = () => {
 
     if (perfectFitRef.current) observer.observe(perfectFitRef.current);
     if (scheduleFittingRef.current) observer.observe(scheduleFittingRef.current);
+    if (faqRef.current) observer.observe(faqRef.current);
 
     return () => observer.disconnect();
   }, []);
@@ -190,6 +196,66 @@ const BikeFittings = () => {
           </div>
           
         </div>
+
+        <section className="px-6 py-12 mx-auto border-t border-gray-200 dark:border-gray-700">
+          <h2 ref={faqRef} className="text-2xl md:text-3xl font-bold text-center mb-10 text-gray-950 dark:text-white relative inline-block w-full">Frequently asked questions
+            <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${faqLineVisible ? 'w-35' : 'w-0'}`}></span>
+          </h2>
+
+          <div className="mx-auto space-y-4">
+            {[
+              {
+                q: 'What type of riding do you fit for?',
+                a: 'We fit for road, gravel, triathlon, time trial, and track bikes. Every fit is tailored to your riding style, experience level, and performance goals.',
+              },
+              {
+                q: 'How long does a bike fitting take?',
+                a: 'Most fittings take between 1–2 hours. We intentionally limit the number of daily appointments so each rider receives focused, unrushed attention.',
+              },
+              {
+                q: 'What should I bring to my fitting?',
+                a: 'Bring your bike, cycling shoes, and the kit you normally ride in. If you\'ve experienced discomfort or have specific goals, we\'ll discuss those as well.',
+              },
+              {
+                q: 'Will I need follow-up adjustments?',
+                a: 'Sometimes, yes. We encourage feedback after you\'ve ridden so we can fine-tune your position if needed. A great fit is an ongoing process.',
+              },
+            ].map((item, index) => {
+              const isOpen = openFaq === index;
+
+              return (
+                <div
+                  key={index}
+                  className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden"
+                >
+                  <button
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    className="w-full flex items-center justify-between p-6 text-left"
+                  >
+                    <span className="font-semibold text-lg text-gray-900 dark:text-white">
+                      {item.q}
+                    </span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-gray-500 transition-transform duration-300 ${
+                        isOpen ? 'rotate-180' : ''
+                      }`}
+                    />
+                  </button>
+
+                  <div
+                    className={`px-6 pb-6 text-gray-700 dark:text-gray-300 text-sm leading-relaxed transition-all duration-300 ${
+                      isOpen ? 'block' : 'hidden'
+                    }`}
+                  >
+                    {item.a}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </section>
+
+
       </div>
     </div>
   );

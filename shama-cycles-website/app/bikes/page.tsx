@@ -7,8 +7,8 @@ import Image from "next/image";
 interface Brand {
   name: string;
   logo: string;
-  uniqueness: string;
-  bestFor: string;
+  description: string;
+  tags: string[];
   gallery: string[];
   website: string;
 }
@@ -47,84 +47,84 @@ const Bikes = () => {
     return () => observer.disconnect();
   }, []);
 
-  const brands = [
+  const brands: Brand[] = [
     { 
       name: '3T Bike', 
       logo: '/3t_3.jpg',
-      uniqueness: 'The Italian guys who basically invented modern gravel racing. They were doing disc brakes and 1X setups on road bikes before anyone else thought it made sense. Their stuff is built to race.',
-      bestFor: 'If you want to race gravel or road and aren\'t afraid to push the limits.',
+      description: 'Italian innovators who pioneered disc brakes and 1X setups on road bikes before anyone else thought it made sense.',
+      tags: ['Road', 'Gravel', 'Racing'],
       gallery: ['/3t_3.jpg', '/3t_1.jpg', '/3t_2.jpg'],
       website: 'https://3tbikes.com/'
     },
     { 
       name: 'TIME', 
       logo: '/time_1.webp',
-      uniqueness: 'An American brand that\'s obsessed with how a bike actually feels to ride. Their carbon construction is their secret—it just feels smoother and more alive than most bikes out there.',
-      bestFor: 'Riders who care about ride quality and can feel the difference in how a frame responds.',
+      description: 'American brand obsessed with how a bike feels to ride, with proprietary carbon construction that delivers smooth, responsive handling.',
+      tags: ['Road', 'Gravel', 'Performance'],
       gallery: ['/time_1.webp', '/time_2.jpg', '/time_3.webp'],
       website: 'https://timebicycles.com/'
     },
     { 
       name: 'Factor', 
       logo: '/factor_1.jpg',
-      uniqueness: 'These guys build bikes for top-level racers. Everything they make is engineered to be fast—no compromises. Road, tri, gravel, it doesn\'t matter. Speed is the priority.',
-      bestFor: 'Serious racers who want every marginal gain they can get.',
+      description: 'Engineering-focused brand built for top-level racers where speed and performance are the only priorities.',
+      tags: ['Road', 'Tri', 'Gravel', 'Racing'],
       gallery: ['/factor_1.jpg', '/factor_2.jpg', '/factor_3.jpg'],
       website: 'https://factorbikes.com/'
     },
     { 
       name: 'Colnago', 
       logo: '/colnago_1.jpg',
-      uniqueness: 'From the late 1960s through the 1970s, Colnago was generally regarded as one of the builders of the world\'s finest road race frames. In 1960, Colnago saw fame as Luigi Arienti rode to a gold medal at the Rome Olympics on a Colnago bicycle.',
-      bestFor: 'Riders who value prestige, Italian craftsmanship, and a bike with genuine racing history behind it.',
+      description: 'Italian legend since the 1960s, known for craftsmanship and race heritage.',
+      tags: ['Road', 'Racing', 'Prestige'],
       gallery: ['/colnago_1.jpg', '/colnago_2.jpg', '/colnago_3.jpg'],
       website: 'https://colnago.com/'
     },
     { 
       name: 'Cipollini', 
       logo: '/cipollini_2.jpg',
-      uniqueness: 'These bikes are aggressive and they look aggressive. Italian through and through. Built for racers who want a bike that matches their attitude.',
-      bestFor: 'You want to race and you want everyone to know it when you roll up.',
+      description: 'Aggressive Italian racing bikes built for riders who want speed and attitude in equal measure.',
+      tags: ['Road', 'Racing'],
       gallery: ['/cipollini_2.jpg', '/cipollini_1.webp', '/cipollini_3.webp'],
       website: 'https://cipollinibike.com/'
     },
     { 
       name: 'Enve', 
       logo: '/enve_1.jpg',
-      uniqueness: 'American engineering with a focus on gravel and road racing. They know how to build a bike that\'s quick but won\'t beat you up on long days.',
-      bestFor: 'Racers and endurance riders who want something built to last.',
+      description: 'American engineering combining race-ready performance with durability for long, demanding days in the saddle.',
+      tags: ['Road', 'Gravel', 'Endurance'],
       gallery: ['/enve_1.jpg', '/enve_2.jpg', '/enve_3.jpg'],
       website: 'https://enve.com/'
     },
     { 
       name: 'Argon18', 
       logo: '/argon_1.jpg',
-      uniqueness: 'Developed through triathlon and time trial racing with a focus on aerodynamics, fit systems, and race-oriented geometry. Design decisions prioritize efficiency and adjustability.',
-      bestFor: 'Triathletes and competitive riders who need precise fit and aerodynamic performance.',
+      description: 'Triathlon and time trial specialists engineered for aerodynamics, adjustability, and race-oriented geometry.',
+      tags: ['Tri', 'Time Trial', 'Racing'],
       gallery: ['/argon_1.jpg', '/argon_2.jpg', '/argon_3.jpg'],
       website: 'https://argon18.com/'
     },
     { 
       name: 'Officine Mattio', 
       logo: '/mattio_1.webp',
-      uniqueness: 'Small Italian workshop producing hand-built frames in limited runs, with custom geometry and a strong focus on craftsmanship and ride quality.',
-      bestFor: 'Riders looking for a small-batch, custom-built frame with direct attention to detail.',
+      description: 'Small Italian workshop producing hand-built frames in limited runs with custom geometry and meticulous craftsmanship.',
+      tags: ['Custom', 'Road', 'Gravel'],
       gallery: ['/mattio_1.webp', '/mattio_2.webp', '/mattio_3.webp'],
       website: 'https://officinemattio.com/'
     },
     { 
       name: 'Santa Cruz', 
       logo: '/santa_cruz_3.jpeg',
-      uniqueness: 'Known for durable, well-engineered gravel and mountain bikes with a focus on suspension design, reliability, and real-world performance.',
-      bestFor: 'Off-road racing and adventure. You want to go fast but you also want to have fun doing it.',
+      description: 'Durable, well-engineered gravel and mountain bikes focused on suspension design and real-world performance.',
+      tags: ['Gravel', 'Mountain', 'Adventure'],
       gallery: ['/santa_cruz_1.jpeg', '/santa_cruz_2.jpeg', '/santa_cruz_3.jpeg'],
       website: 'https://santacruzbicycles.com/'
     },
     { 
       name: 'Cervélo', 
       logo: '/cervelo_3.jpeg',
-      uniqueness: 'Engineering-driven brand with a strong emphasis on aerodynamics, stiffness-to-weight optimization, and data-backed design across road, gravel, and triathlon platforms.',
-      bestFor: 'Speed-focused riders who want aero tech and proven race performance.',
+      description: 'Engineering-driven brand with emphasis on aerodynamics and data-backed design across multiple disciplines.',
+      tags: ['Road', 'Tri', 'Gravel', 'Aero'],
       gallery: ['/cervelo_1.jpeg', '/cervelo_2.jpeg', '/cervelo_3.jpeg'],
       website: 'https://cervelo.com/'
     },
@@ -178,7 +178,7 @@ const Bikes = () => {
         </div>
       </div>
 
-      <div className="px-6 py-12 mx-auto border-t border-gray-200">
+      <div className="px-6 py-12 mx-auto border-t border-gray-200 dark:border-gray-700">
         <h2 ref={customBuildRef} className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-10 text-center relative inline-block w-full">What's a custom build?
           <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${customBuildLineVisible ? 'w-35' : 'w-0'}`}></span>
         </h2>
@@ -207,7 +207,7 @@ const Bikes = () => {
         </div>
       </div>
 
-      <div className="px-6 py-10 mx-auto border-t border-gray-200">
+      <div className="px-6 py-10 mx-auto border-t border-gray-200 dark:border-gray-700">
         <h2 ref={latestBuildsRef} className="text-2xl md:text-3xl font-bold text-gray-950 dark:text-white mb-12 text-center relative inline-block w-full">Our latest builds
           <span className={`absolute bottom-[-9] left-1/2 transform -translate-x-1/2 h-1 bg-red-600 rounded transition-all duration-1000 ${latestBuildsLineVisible ? 'w-35' : 'w-0'}`}></span>
         </h2>
@@ -229,7 +229,14 @@ const Bikes = () => {
 
             <div className="flex flex-col gap-8">
               <div className="text-center border-b border-gray-200 dark:border-gray-700 pb-6">
-                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">{selectedBrand.name}</h2>
+                <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">{selectedBrand.name}</h2>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {selectedBrand.tags.map((tag, idx) => (
+                    <span key={idx} className="inline-block px-3 py-1 bg-red-100 dark:bg-red-900 text-red-700 dark:text-red-200 text-sm font-medium rounded-full">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
 
               <div className="flex flex-col gap-4">
@@ -257,28 +264,20 @@ const Bikes = () => {
                 )}
               </div>
 
-              <div className="flex flex-col gap-6">
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">What makes them unique</h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{selectedBrand.uniqueness}</p>
-                </div>
+              <div className="text-center">
+                <p className="text-gray-600 dark:text-gray-400">{selectedBrand.description}</p>
+              </div>
 
-                <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Best suited for</h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{selectedBrand.bestFor}</p>
-                </div>
-
-                <div className="flex justify-center pt-4">
-                  <a 
-                    href={selectedBrand.website} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
-                  >
-                    <ExternalLink size={18} />
-                    Visit Website
-                  </a>
-                </div>
+              <div className="flex justify-center pt-4">
+                <a 
+                  href={selectedBrand.website} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors duration-200 shadow-lg hover:shadow-xl"
+                >
+                  <ExternalLink size={18} />
+                  Visit Website
+                </a>
               </div>
             </div>
           </div>
